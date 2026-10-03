@@ -1,13 +1,13 @@
 import express from "express";
-import pool from "../config/database.js";
 import {
     getDepartments,
     getDepartmentById,
     createDepartment,
     updateDepartment,
-    deleteDepartment
+    deleteDepartment,
+    getCoursesByProgram,
+    getProgramCourses
 } from "../controllers/departmentController.js";
-
 const router = express.Router();
 
 router.get("/departments", getDepartments);
@@ -21,5 +21,6 @@ router.post("/department", createDepartment);
 router.put("/department/:id", updateDepartment);
 
 router.delete("/department/:id", deleteDepartment);
-
+router.get("/courses", getCoursesByProgram);
+router.get("/program/:id/courses", getProgramCourses);
 export default router;

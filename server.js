@@ -1,13 +1,14 @@
 import "dotenv/config";
 import express from "express";
 import departmentRoutes from "./routes/departmentRoutes.js";
-
+import authRoutes from "./routes/authRoutes.js";
 const app = express();
 
 app.use(express.json());
 
 app.use("/api", departmentRoutes);
 
+app.use("/api/auth", authRoutes);
 app.use((err, req, res, next) => {
     console.error(err.message);
 
