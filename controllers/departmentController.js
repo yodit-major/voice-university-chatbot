@@ -132,4 +132,82 @@ export const deleteDepartment = async (req, res) => {
             message: "Failed to delete department"
         });
     }
+};export const getCoursesByProgram = async (req, res) => {
+    const program_id = req.query.program_id;
+
+    try {
+
+        if (!program_id) {
+            const [rows] = await pool.query(
+                "SELECT * FROM course"
+            );
+
+            return res.json(rows);
+        }
+
+        const [rows] = await pool.query(
+            `SELECT
+                department.department_name,
+                program.program_name,
+                course.course_name,
+                course.credit_hours
+            FROM department
+            JOIN program
+                ON department.department_id = program.department_id
+            JOIN course
+                ON program.program_id = course.program_id
+            WHERE program.program_id = ?`,
+            [program_id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "Course not found"
+            });
+        }
+
+        res.json(rows);
+
+    } catch (error) {
+        console.error(error.message);
+
+        res.status(500).json({
+            message: "Failed to fetch courses"
+        });
+    }
+};
+export const getProgramCourses = async (req, res) => {
+    const program_id = req.params.id;
+
+    try {
+        const [rows] = await pool.query(
+            `SELECT
+                department.department_name,
+                program.program_name,
+                course.course_name,
+                course.credit_hours
+            FROM department
+            JOIN program
+                ON department.department_id = program.department_id
+            JOIN course
+                ON program.program_id = course.program_id
+            WHERE program.program_id = ?`,
+            [program_id]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "Program or courses not found"
+            });
+        }
+
+        res.json(rows);
+
+    } catch (error) {
+        console.error(error.message);
+
+        res.status(500).json({
+            message: "Failed to fetch program courses"
+        });
+    }
 };
