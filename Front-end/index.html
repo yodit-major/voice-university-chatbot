@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voice-university-chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo.png">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <!-- SIDEBAR HEADER -->
+        <header class="sidebar__header">
+
+            <div class="logo-container">
+
+                <img src="images/logo.png" alt="Logo" class="sidebar__logo">
+
+                <span class="logo-text">UniGuide</span>
+
+            </div>
+
+            <!-- MENU BUTTON -->
+            <label class="menu" aria-label="Toggle menu">
+
+                <input type="checkbox" id="menu-toggle">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </label>
+
+        </header>
+        <!-- NAVIGATION -->
+        <nav class="sidebar-nav">
+            <a href="#home" class="nav-item active">
+                <i data-lucide="house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="#campuses-and-buildings" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Campuses and Buildings</span>
+            </a>
+
+            <a href="#departments-and-courses" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Department and Courses</span>
+            </a>
+            <a href="#registration" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Registration</span>
+            </a>
+
+            <a href="#libraries" class="nav-item">
+                <i data-lucide="library"></i>
+                <span>Libraries</span>
+            </a>
+
+            <a href="#dormitory" class="nav-item">
+                <i data-lucide="bed-double"></i>
+                <span>Dormitory</span>
+            </a>
+
+            <a href="#student-services" class="nav-item">
+                <i data-lucide="heart-handshake"></i>
+                <span>Student Services</span>
+            </a>
+
+            <a href="#event" class="nav-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Events</span>
+            </a>
+
+            <a href="#announcements" class="nav-item">
+                <i data-lucide="megaphone"></i>
+                <span>Announcements</span>
+            </a>
+
+            <a href="#academic-calendar" class="nav-item">
+                <i data-lucide="calendar"></i>
+                <span>Academic Calendar</span>
+            </a>
+
+        </nav>
+
+        <div class="top-controls">
+            <div class="top-search">
+                <i data-lucide="search"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+
+            <label for="theme" class="theme">
+                <span class="theme__toggle-wrap">
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+                    <span class="theme__fill"></span>
+                    <span class="theme__icon">
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+                </span>
+            </label>
+        </div>
+        </main>
+
+
+        <script>
+            lucide.createIcons();
+        </script>
+
+
+        <script src="script.js"></script>
+
+</body>
+
+</html>
