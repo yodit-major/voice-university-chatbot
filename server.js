@@ -1,3 +1,4 @@
+import chatRoutes from "./routes/chatRoutes.js";
 import "dotenv/config";
 import express from "express";
 import departmentRoutes from "./routes/departmentRoutes.js";
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use("/api", departmentRoutes);
 
 app.use("/api/auth", authRoutes);
+app.use("/api", chatRoutes);
 app.use((err, req, res, next) => {
     console.error(err.message);
 
