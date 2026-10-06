@@ -1,32 +1,11 @@
-const menuToggle = document.getElementById("menu-toggle");
-const sidebar = document.getElementById("sidebar");
-const navItems = document.querySelectorAll(".nav-item");
-const searchInput = document.querySelector(".sidebar-search input");
+// =========================
+// DARK MODE
+// =========================
 const themeToggle = document.getElementById("theme");
-
-menuToggle.addEventListener("change", function () {
-    sidebar.classList.toggle("collapsed", this.checked);
-});
-
-navItems.forEach(item => {
-    item.addEventListener("click", function () {
-        navItems.forEach(nav => nav.classList.remove("active"));
-        this.classList.add("active");
-    });
-});
-
-searchInput.addEventListener("input", function () {
-    const searchValue = this.value.toLowerCase().trim();
-    navItems.forEach(item => {
-        const text = item.querySelector("span");
-        if (!text) return;
-        const itemName = text.textContent.toLowerCase();
-        item.style.display = itemName.includes(searchValue) ? "flex" : "none";
-    });
-});
-
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
+
+// Restore saved theme or respect system preference
+if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
     themeToggle.checked = true;
 }
 
@@ -34,4 +13,62 @@ themeToggle.addEventListener("change", function () {
     localStorage.setItem("theme", this.checked ? "dark" : "light");
 });
 
-lucide.createIcons();
+// =========================
+// NAVIGATION
+// =========================
+const navLinks = document.querySelectorAll(".nav-link");
+navLinks.forEach(link => {
+    link.addEventListener("click", function () {
+        navLinks.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+    });
+});
+
+// =========================
+// SEARCH
+// =========================
+const searchButton = document.getElementById("searchButton");
+const welcomeSearch = document.getElementById("welcomeSearch");
+const navSearchButton = document.getElementById("navSearchButton");
+
+function performSearch() {
+    const searchValue = welcomeSearch.value.trim();
+    if (!searchValue) {
+        welcomeSearch.focus();
+        return;
+    }
+    alert("Searching for: " + searchValue);
+}
+
+searchButton.addEventListener("click", performSearch);
+
+welcomeSearch.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        performSearch();
+    }
+});
+
+navSearchButton.addEventListener("click", function () {
+    welcomeSearch.focus();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+// =========================
+// AI ASSISTANT
+// =========================
+const assistantButton = document.getElementById("assistantButton");
+if (assistantButton) {
+    assistantButton.addEventListener("click", function () {
+        alert("AI Assistant coming soon!");
+    });
+}
+
+// =========================
+// LUCIDE ICONS
+// =========================
+if (typeof lucide !== "undefined") {
+    lucide.createIcons();
+}

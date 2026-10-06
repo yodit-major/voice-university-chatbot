@@ -4,127 +4,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>voice-university-chatbot</title>
+    <title>Ethio-Uni-Guide</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo.png">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
+    <!-- NAVIGATION BAR -->
 
-        <!-- SIDEBAR HEADER -->
-        <header class="sidebar__header">
+    <header class="navbar">
+        <a href="#home" class="brand">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </a>
 
-            <div class="logo-container">
+        <!-- DESKTOP NAVIGATION -->
+        <nav class="navbar-links" id="navbarLinks">
 
-                <img src="images/logo.png" alt="Logo" class="sidebar__logo">
-
-                <span class="logo-text">UniGuide</span>
-
-            </div>
-
-            <!-- MENU BUTTON -->
-            <label class="menu" aria-label="Toggle menu">
-
-                <input type="checkbox" id="menu-toggle">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </label>
-
-        </header>
-        <!-- NAVIGATION -->
-        <nav class="sidebar-nav">
-            <a href="#home" class="nav-item active">
-                <i data-lucide="house"></i>
-                <span>Home</span>
+            <a href="#home" class="nav-link active">
+                Home
             </a>
 
-            <a href="#campuses-and-buildings" class="nav-item">
-                <i data-lucide="building-2"></i>
-                <span>Campuses and Buildings</span>
+            <a href="#universities" class="nav-link">
+                Universities
             </a>
 
-            <a href="#departments-and-courses" class="nav-item">
-                <i data-lucide="graduation-cap"></i>
-                <span>Department and Courses</span>
-            </a>
-            <a href="#registration" class="nav-item">
-                <i data-lucide="book-open"></i>
-                <span>Registration</span>
+            <a href="#campus-life" class="nav-link">
+                Campus Life
             </a>
 
-            <a href="#libraries" class="nav-item">
-                <i data-lucide="library"></i>
-                <span>Libraries</span>
-            </a>
-
-            <a href="#dormitory" class="nav-item">
-                <i data-lucide="bed-double"></i>
-                <span>Dormitory</span>
-            </a>
-
-            <a href="#student-services" class="nav-item">
-                <i data-lucide="heart-handshake"></i>
-                <span>Student Services</span>
-            </a>
-
-            <a href="#event" class="nav-item">
-                <i data-lucide="calendar-days"></i>
-                <span>Events</span>
-            </a>
-
-            <a href="#announcements" class="nav-item">
-                <i data-lucide="megaphone"></i>
-                <span>Announcements</span>
-            </a>
-
-            <a href="#academic-calendar" class="nav-item">
-                <i data-lucide="calendar"></i>
-                <span>Academic Calendar</span>
+            <a href="#academic-calendar" class="nav-link">
+                Academic Calendar
             </a>
 
         </nav>
 
-        <div class="top-controls">
-            <div class="top-search">
-                <i data-lucide="search"></i>
-                <input type="text" placeholder="Search...">
+        <!-- RIGHT SIDE -->
+        <div class="navbar-right">
+
+            <!-- DARK / LIGHT MODE-->
+            <label class="theme" for="theme">
+
+                <span class="theme__toggle-wrap">
+
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
+
+                    <span class="theme__icon">
+
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+
+                    </span>
+
+                </span>
+
+            </label>
+
+            <!-- PROFILE -->
+            <button class="profile-button" type="button" aria-label="Profile">
+
+                <i data-lucide="user"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!--  MAIN CONTENT-->
+
+    <main id="home">
+        <section class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <h1>
+                    Welcome to Ethio-Uni-Guide
+                </h1>
+
+                <p>
+                    Find Your Uni. Shape Your Future.
+                    <br>
+                    Explore Ethiopian universities, programs,
+                    courses, and campus resources with AI.
+                </p>
+
+                <div class="hero-search">
+
+                    <i data-lucide="search"></i>
+
+                    <input type="text" id="welcomeSearch" placeholder="Search universities, programs, courses...">
+
+                    <button type="button" id="searchButton">
+
+                        Search
+
+                    </button>
+
+                </div>
+
             </div>
 
-            <label for="theme" class="theme">
-                <span class="theme__toggle-wrap">
-                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
-                    <span class="theme__fill"></span>
-                    <span class="theme__icon">
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
+            <!--  AI ASSISTANT -->
+
+            <button class="assistant-card" id="assistantButton" type="button">
+
+                <div class="assistant-icon">
+
+                    <i data-lucide="bot"></i>
+
+                </div>
+
+                <div class="assistant-text">
+
+                    <strong>
+                        Need help?
+                    </strong>
+
+                    <span>
+                        Chat with our AI assistant!
                     </span>
-                </span>
-            </label>
-        </div>
-        </main>
 
+                </div>
 
-        <script>
-            lucide.createIcons();
-        </script>
+                <i data-lucide="arrow-right" class="assistant-arrow">
+                </i>
 
+            </button>
 
-        <script src="script.js"></script>
+        </section>
+
+        <!-- INFORMATION CARDS-->
+
+        <section class="information-section">
+
+            <!-- ADMISSION -->
+
+            <a href="#registration" class="info-card blue">
+
+                <div class="card-icon">
+                    📋
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Admission & Application
+                    </h3>
+
+                    <p>
+                        Requirements, deadlines, and application process.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- PROGRAMS -->
+
+            <a href="#programs" class="info-card dark-blue">
+
+                <div class="card-icon">
+                    🎓
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Academic Programs
+                    </h3>
+
+                    <p>
+                        Explore degree programs and requirements.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- COURSES -->
+
+            <a href="#courses" class="info-card purple">
+
+                <div class="card-icon">
+                    📖
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Courses
+                    </h3>
+
+                    <p>
+                        View course details, instructors and schedules.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- CAMPUS -->
+
+            <a href="#campuses-and-buildings" class="info-card green">
+
+                <div class="card-icon">
+                    🏛️
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Campus & Buildings
+                    </h3>
+
+                    <p>
+                        Get to know our campuses, buildings and facilities.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- LIBRARY -->
+
+            <a href="#libraries" class="info-card purple">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Library
+                    </h3>
+
+                    <p>
+                        Books, resources and library services.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- DORMITORY -->
+
+            <a href="#dormitory" class="info-card mint">
+
+                <div class="card-icon">
+                    🏠
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Dormitory
+                    </h3>
+
+                    <p>
+                        Accommodation options and application process.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- STUDENT SERVICES -->
+
+            <a href="#student-services" class="info-card blue">
+
+                <div class="card-icon">
+                    👥
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Student Services
+                    </h3>
+
+                    <p>
+                        Support services for your academic journey.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+            <!-- EVENTS -->
+
+            <a href="#events" class="info-card orange">
+
+                <div class="card-icon">
+                    🗓️
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Events & Announcements
+                    </h3>
+
+                    <p>
+                        Stay updated with the latest news and events.
+                    </p>
+
+                </div>
+
+                <i data-lucide="arrow-right" class="card-arrow"></i>
+
+            </a>
+
+        </section>
+
+    </main>
+    <script src="script.js"></script>
 
 </body>
 
