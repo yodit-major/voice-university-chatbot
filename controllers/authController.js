@@ -2,16 +2,16 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import pool from "../config/database.js";
 export const registerUser = async (req, res) => {
-    const { name, email, password, role } = req.body;
-    if(!name||!email||!password||!role){
+    const { name, email, password } = req.body;
+    if(!name||!email||!password){
         return res.status(400).json({
-            message:"name, email,password and role are required"
+            message: "name, email and password are required"
         })
     }
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
         const [result] = await pool.query("INSERT INTO users (name,email,password,role) VALUES (?, ?, ?, ?)",
-                [name,email, hashedPassword,role]
+                [name, email, hashedPassword, "student"]
         );
             
 
