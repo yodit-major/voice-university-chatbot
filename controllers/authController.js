@@ -13,7 +13,7 @@ export const registerUser = async (req, res) => {
         const [result] = await pool.query("INSERT INTO users (name,email,password,role) VALUES (?, ?, ?, ?)",
                 [name,email, hashedPassword,role]
         );
-       
+            
 
         res.status(201).json({
             message:"Users created successfully",
