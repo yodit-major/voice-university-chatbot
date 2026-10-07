@@ -14,11 +14,16 @@
 
     <!-- NAVIGATION BAR -->
 
+    <!-- ================= NAVIGATION BAR ================= -->
+
     <header class="navbar">
+
+        <!-- BRAND -->
         <a href="#home" class="brand">
             <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
             <span>Ethio-Uni-Guide</span>
         </a>
+
 
         <!-- DESKTOP NAVIGATION -->
         <nav class="navbar-links" id="navbarLinks">
@@ -35,16 +40,35 @@
                 Campus Life
             </a>
 
-            <a href="calendar.html" class="nav-link">
-                Academic Calendar
-            </a>
+
+            <!-- ACADEMIC CALENDAR DROPDOWN -->
+            <div class="calendar-menu">
+
+                <button type="button" class="calendar-menu-btn">
+                    Academic Calendar ▾
+                </button>
+
+                <div class="calendar-menu-list">
+
+                    <a href="aau-calendar.html">
+                        Addis Ababa University
+                    </a>
+
+                    <a href="hawassa-calendar.html">
+                        Hawassa University
+                    </a>
+
+                </div>
+
+            </div>
 
         </nav>
+
 
         <!-- RIGHT SIDE -->
         <div class="navbar-right">
 
-            <!-- DARK / LIGHT MODE-->
+            <!-- DARK / LIGHT MODE -->
             <label class="theme" for="theme">
 
                 <span class="theme__toggle-wrap">
@@ -69,11 +93,10 @@
 
             </label>
 
+
             <!-- PROFILE -->
             <button class="profile-button" type="button" aria-label="Profile">
-
                 <i data-lucide="user"></i>
-
             </button>
 
         </div>

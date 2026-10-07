@@ -1,15 +1,140 @@
-/* =========================================
-   ETHIO-UNI-GUIDE ACADEMIC CALENDAR
-========================================= */
+// =========================
+// DARK / LIGHT MODE
+// =========================
+
+const themeToggle = document.getElementById("theme");
+
+const savedTheme = localStorage.getItem("theme");
+
+// Restore saved theme
+if (
+    savedTheme === "dark" ||
+    (
+        !savedTheme &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    )
+) {
+    themeToggle.checked = true;
+}
+
+// Save theme whenever it changes
+themeToggle.addEventListener("change", function () {
+
+    localStorage.setItem(
+        "theme",
+        this.checked ? "dark" : "light"
+    );
+
+});
+const calendarGrid =
+    document.getElementById("calendarGrid");
+
+const monthTitle =
+    document.getElementById("monthTitle");
+
+const semesterLabel =
+    document.getElementById("semesterLabel");
+
+const upcomingEvents =
+    document.getElementById("upcomingEvents");
+
+const modal =
+    document.getElementById("eventModal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalDate =
+    document.getElementById("modalDate");
+
+const modalCategory =
+    document.getElementById("modalCategory");
+
+const modalDescription =
+    document.getElementById("modalDescription");
 
 
-/* =========================================
-   AAU 2026/27 EVENTS
-========================================= */
+const university =
+    document.body.dataset.university || "aau";
 
-const events = [
 
-    /* ================= SEPTEMBER 2026 ================= */
+const months = [
+
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+
+];
+
+
+const categoryNames = {
+
+    registration: "Registration",
+
+    classes: "Classes",
+
+    exam: "Exams",
+
+    deadline: "Deadline",
+
+    university: "University"
+
+};
+
+
+/* ================= UNIVERSITY DATA ================= */
+
+const universityData = {
+
+    aau: {
+
+        name: "Addis Ababa University",
+
+        logo: "images/aau-logo.png",
+
+        description:
+            "Stay updated with registration, classes, examinations, deadlines and important university activities.",
+
+        startDate:
+            new Date(2026, 8, 1)
+
+    },
+
+
+    hawassa: {
+
+        name: "Hawassa University",
+
+        logo: "images/hawassa-logo.png",
+
+        description:
+            "Stay updated with registration, classes, examinations, deadlines and important university activities.",
+
+        startDate:
+            new Date(2026, 8, 1)
+
+    }
+
+};
+
+
+const universityInfo =
+    universityData[university] ||
+    universityData.aau;
+
+
+/* ================= AAU EVENTS ================= */
+
+const aauEvents = [
 
     {
         date: "2026-09-14",
@@ -75,9 +200,6 @@ const events = [
             "Late registration period for continuing program students."
     },
 
-
-    /* ================= OCTOBER ================= */
-
     {
         date: "2026-10-01",
         type: "university",
@@ -94,9 +216,6 @@ const events = [
             "Registrar reports first semester class schedules to the Academic Vice President."
     },
 
-
-    /* ================= NOVEMBER ================= */
-
     {
         date: "2026-11-09",
         type: "registration",
@@ -112,9 +231,6 @@ const events = [
         description:
             "Last day of the Add and Drop period."
     },
-
-
-    /* ================= DECEMBER ================= */
 
     {
         date: "2026-12-01",
@@ -156,9 +272,6 @@ const events = [
             "Students, colleagues and department/school/institute chairs complete instructor evaluations online."
     },
 
-
-    /* ================= JANUARY 2027 ================= */
-
     {
         date: "2027-01-06",
         type: "classes",
@@ -184,14 +297,6 @@ const events = [
     },
 
     {
-        date: "2027-01-15",
-        type: "deadline",
-        title: "Marking & Grading Sessions Begin",
-        description:
-            "Period of explanatory sessions on marking and grading and applications for remarking."
-    },
-
-    {
         date: "2027-01-22",
         type: "exam",
         title: "First Semester Exams End",
@@ -214,9 +319,6 @@ const events = [
         description:
             "Last date for grade approval by academic unit heads and chairs."
     },
-
-
-    /* ================= FEBRUARY ================= */
 
     {
         date: "2027-02-01",
@@ -283,17 +385,6 @@ const events = [
     },
 
     {
-        date: "2027-02-22",
-        type: "registration",
-        title: "Readmission Applications",
-        description:
-            "First round of readmission applications for the first semester of 2028/29."
-    },
-
-
-    /* ================= MARCH ================= */
-
-    {
         date: "2027-03-11",
         type: "university",
         title: "University Senate Meeting",
@@ -317,9 +408,6 @@ const events = [
             "Last day of the Add and Drop period."
     },
 
-
-    /* ================= APRIL ================= */
-
     {
         date: "2027-04-01",
         type: "university",
@@ -337,46 +425,11 @@ const events = [
     },
 
     {
-        date: "2027-04-16",
-        type: "deadline",
-        title: "Teaching Load Report",
-        description:
-            "Deans submit second semester final teaching load report."
-    },
-
-    {
-        date: "2027-04-23",
-        type: "deadline",
-        title: "Research Proposal Deadline",
-        description:
-            "Deadline for publication incentive applications and teaching materials proposals."
-    },
-
-
-    /* ================= MAY ================= */
-
-    {
         date: "2027-05-10",
         type: "university",
         title: "AAU Research Week",
         description:
             "Addis Ababa University Research Week and AAU Job Fair Week."
-    },
-
-    {
-        date: "2027-05-10",
-        type: "registration",
-        title: "Second Round Readmission",
-        description:
-            "Second round applications for readmission."
-    },
-
-    {
-        date: "2027-05-11",
-        type: "registration",
-        title: "Make-up Examination Registration",
-        description:
-            "Registration for make-up examination."
     },
 
     {
@@ -395,31 +448,12 @@ const events = [
             "Second semester examination period begins."
     },
 
-
-    /* ================= JUNE ================= */
-
-    {
-        date: "2027-06-04",
-        type: "deadline",
-        title: "Remarking Period Begins",
-        description:
-            "Period for explanatory sessions and applications for remarking exam papers."
-    },
-
     {
         date: "2027-06-12",
         type: "exam",
         title: "Second Semester Exams End",
         description:
             "Last day of second semester examinations."
-    },
-
-    {
-        date: "2027-06-17",
-        type: "deadline",
-        title: "Graduating Grades Approval Deadline",
-        description:
-            "Last date for approval of graduating class grades."
     },
 
     {
@@ -457,80 +491,723 @@ const events = [
 ];
 
 
-/* =========================================
-   VARIABLES
-========================================= */
+/* ================= HAWASSA EVENTS ================= */
 
-const calendarGrid =
-    document.getElementById("calendarGrid");
+const hawassaEvents = [
 
-const monthTitle =
-    document.getElementById("monthTitle");
+    {
+        date: "2026-09-14",
+        type: "university",
+        title: "Academic Staff Reporting Day",
+        description:
+            "Academic staff reporting day for Hawassa University."
+    },
 
-const semesterLabel =
-    document.getElementById("semesterLabel");
+    {
+        date: "2026-09-14",
+        type: "university",
+        title: "Thematic Projects Review Workshops",
+        description:
+            "Ongoing thematic projects review workshops. Scheduled for September 14–19, 2026."
+    },
 
-const upcomingEvents =
-    document.getElementById("upcomingEvents");
+    {
+        date: "2026-09-15",
+        type: "university",
+        title: "Annual Review Workshop",
+        description:
+            "Organizing the annual review workshop of completed research, community services and technology transfer projects. Scheduled for September 15–November 7, 2026."
+    },
 
-const modal =
-    document.getElementById("eventModal");
+    {
+        date: "2026-09-16",
+        type: "university",
+        title: "Staff General Assembly Day",
+        description:
+            "Staff General Assembly meeting."
+    },
 
-const modalTitle =
-    document.getElementById("modalTitle");
+    {
+        date: "2026-09-29",
+        type: "university",
+        title: "Research & Community Project Budget Allocation",
+        description:
+            "Budget allocation for new and ongoing research, community services and technology transfer projects. Scheduled for September 29–November 7, 2026."
+    },
 
-const modalDate =
-    document.getElementById("modalDate");
+    {
+        date: "2026-10-01",
+        type: "registration",
+        title: "Regular Undergraduate, ATE & Graduate Registration",
+        description:
+            "Registration of all Regular Undergraduate, ATE and Graduate Program students. Registration period: October 1–2, 2026."
+    },
 
-const modalCategory =
-    document.getElementById("modalCategory");
+    {
+        date: "2026-10-02",
+        type: "registration",
+        title: "Evening, Weekend UG & PGDT Registration",
+        description:
+            "Registration of all Evening, Weekend Undergraduate and PGDT Programs. Registration period: October 2–3, 2026."
+    },
 
-const modalDescription =
-    document.getElementById("modalDescription");
+    {
+        date: "2026-10-05",
+        type: "classes",
+        title: "Regular & Evening Classes Begin",
+        description:
+            "Classes begin for all Regular Programs and Evening Programs. Late registration period also begins."
+    },
 
+    {
+        date: "2026-10-05",
+        type: "deadline",
+        title: "Application for Remarking",
+        description:
+            "Application period for remarking examinations. Scheduled for October 5–7, 2026."
+    },
 
-let currentDate =
-    new Date(2026, 8, 1);
+    {
+        date: "2026-10-10",
+        type: "classes",
+        title: "Weekend Programs Begin",
+        description:
+            "Classes begin for all Weekend programs."
+    },
 
-let activeFilter = "all";
+    {
+        date: "2026-10-12",
+        type: "deadline",
+        title: "NG & Grade Change Decisions Deadline",
+        description:
+            "Last date to submit decisions on NG and grade change cases to the Registrar."
+    },
 
+    {
+        date: "2026-10-13",
+        type: "registration",
+        title: "Makeup & Supplementary Exam Registration",
+        description:
+            "Registration period for makeup and supplementary examinations. Scheduled for October 13–14, 2026."
+    },
 
-const months = [
+    {
+        date: "2026-10-15",
+        type: "exam",
+        title: "Makeup / Supplementary Examination Period",
+        description:
+            "Makeup and supplementary examination period. Scheduled for October 15–16, 2026."
+    },
 
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
+    {
+        date: "2026-10-15",
+        type: "registration",
+        title: "HDP Trainer Registration",
+        description:
+            "Registration of Higher Diploma Program (HDP) trainers. Scheduled for October 15–16, 2026."
+    },
+
+    {
+        date: "2026-10-19",
+        type: "classes",
+        title: "Higher Diploma Program Classes Begin",
+        description:
+            "Classes begin for the Higher Diploma Program (HDP)."
+    },
+
+    {
+        date: "2026-10-20",
+        type: "deadline",
+        title: "Extra Load Requests Deadline",
+        description:
+            "Last date to submit extra load requests to the AVP and Registrar."
+    },
+
+    {
+        date: "2026-10-20",
+        type: "deadline",
+        title: "Makeup Exam Results Deadline",
+        description:
+            "Last day for reporting makeup and supplementary examination results to the Registrar."
+    },
+
+    {
+        date: "2026-10-22",
+        type: "registration",
+        title: "Add & Drop Courses",
+        description:
+            "Add and Drop courses window for all programs. Scheduled for October 22–23, 2026."
+    },
+
+    {
+        date: "2026-10-23",
+        type: "registration",
+        title: "Second Semester Readmission Deadline",
+        description:
+            "Last date for readmission application for the second semester."
+    },
+
+    {
+        date: "2026-11-03",
+        type: "deadline",
+        title: "First Semester Enrollment Report",
+        description:
+            "Main Registrar reports first semester enrollment statistics and attrition rate to AVP-APD."
+    },
+
+    {
+        date: "2026-11-09",
+        type: "university",
+        title: "Master's & PhD Thesis Defenses",
+        description:
+            "Master's and PhD thesis defense period. Scheduled for November 9–13, 2026."
+    },
+
+    {
+        date: "2026-11-23",
+        type: "university",
+        title: "Course Progress Audits",
+        description:
+            "Conducting course progress audits for all programs. Scheduled for November 23–29, 2026."
+    },
+
+    {
+        date: "2026-11-24",
+        type: "university",
+        title: "University Senate Meeting",
+        description:
+            "Regular University Senate meeting."
+    },
+
+    {
+        date: "2026-12-11",
+        type: "deadline",
+        title: "Second Semester Course Offerings Deadline",
+        description:
+            "Departments and Schools submit second semester course offerings to APD and Registrar."
+    },
+
+    {
+        date: "2026-12-28",
+        type: "university",
+        title: "Instructor Evaluation Week",
+        description:
+            "Instructor Evaluation Week for all programs. Scheduled for December 28–31, 2026."
+    },
+
+    {
+        date: "2027-01-08",
+        type: "classes",
+        title: "First Semester Classes End",
+        description:
+            "First semester classes end for all Regular and Evening Programs."
+    },
+
+    {
+        date: "2027-01-10",
+        type: "classes",
+        title: "Weekend Classes End",
+        description:
+            "First semester classes end for Weekend Programs."
+    },
+
+    {
+        date: "2027-01-11",
+        type: "exam",
+        title: "Model Exit Exam Week",
+        description:
+            "Model Exit Exam Week. Scheduled for January 11–15, 2027."
+    },
+
+    {
+        date: "2027-01-11",
+        type: "exam",
+        title: "First Semester Final Examinations",
+        description:
+            "First semester final examination period for all programs. Scheduled for January 11–22, 2027."
+    },
+
+    {
+        date: "2027-01-22",
+        type: "university",
+        title: "First Semester Inter-Semester Break",
+        description:
+            "First semester inter-semester break. Scheduled for January 22–31, 2027."
+    },
+
+    {
+        date: "2027-01-22",
+        type: "exam",
+        title: "National Exit & NGAT Examination Period",
+        description:
+            "National Exit and NGAT examination period. Scheduled for January 22–February 1, 2027."
+    },
+
+    {
+        date: "2027-01-27",
+        type: "deadline",
+        title: "Grade Submission Deadline",
+        description:
+            "Last date for submission of grades of all programs to the system."
+    },
+
+    {
+        date: "2027-01-30",
+        type: "registration",
+        title: "Weekend & Evening UG Registration",
+        description:
+            "Registration for Weekend, Evening UG Programs, ATE and PGDT Programs. Scheduled for January 30 and February 1–2, 2027."
+    },
+
+    {
+        date: "2027-02-01",
+        type: "registration",
+        title: "Regular & Weekend Graduate Registration",
+        description:
+            "Registration for all Regular Programs and Weekend Graduate Programs. Scheduled for February 1–2, 2027."
+    },
+
+    {
+        date: "2027-02-03",
+        type: "classes",
+        title: "Second Semester Classes Begin",
+        description:
+            "Second semester classes begin for all Regular Programs and Evening Programs. Late registration period also begins."
+    },
+
+    {
+        date: "2027-02-03",
+        type: "deadline",
+        title: "Application for Remarking",
+        description:
+            "Application period for remarking examinations. Scheduled for February 3–5, 2027."
+    },
+
+    {
+        date: "2027-02-05",
+        type: "university",
+        title: "Employability & Job Fair Training",
+        description:
+            "Employability, job creation training and Job Fairs for graduating class students. Scheduled for February 5–8, 2027."
+    },
+
+    {
+        date: "2027-02-06",
+        type: "classes",
+        title: "Weekend Programs Begin",
+        description:
+            "Classes begin for all Weekend programs."
+    },
+
+    {
+        date: "2027-02-12",
+        type: "deadline",
+        title: "NG & Grade Change Decisions Deadline",
+        description:
+            "Last date to submit decisions on NG and grade change cases for the first semester to the Registrar."
+    },
+
+    {
+        date: "2027-02-15",
+        type: "registration",
+        title: "Makeup & Supplementary Exam Registration",
+        description:
+            "Registration for makeup and supplementary examinations. Scheduled for February 15–16, 2027."
+    },
+
+    {
+        date: "2027-02-17",
+        type: "exam",
+        title: "Makeup & Supplementary Examinations",
+        description:
+            "Makeup and supplementary examination period. Scheduled for February 17–18, 2027."
+    },
+
+    {
+        date: "2027-02-19",
+        type: "deadline",
+        title: "Extra Load Requests Deadline",
+        description:
+            "Last date to submit extra load requests to the AVP-Registrar."
+    },
+
+    {
+        date: "2027-02-23",
+        type: "deadline",
+        title: "Makeup Exam Results Deadline",
+        description:
+            "Last day for reporting makeup and supplementary examination results to the Registrar."
+    },
+
+    {
+        date: "2027-02-24",
+        type: "registration",
+        title: "Course Add & Drop Window",
+        description:
+            "Course Add and Drop window. Scheduled for February 24–25, 2027."
+    },
+
+    {
+        date: "2027-02-26",
+        type: "registration",
+        title: "Summer & First Semester Readmission Deadline",
+        description:
+            "Last date for readmission application for Summer and First Semester of the 2027/2028 academic year."
+    },
+
+    {
+        date: "2027-03-05",
+        type: "deadline",
+        title: "Second Semester Enrollment Report",
+        description:
+            "Main Registrar reports second semester enrollment statistics and attrition rate to AVP-APD."
+    },
+
+    {
+        date: "2027-03-15",
+        type: "university",
+        title: "Master's & PhD Thesis Defense Period",
+        description:
+            "Master's and PhD thesis defense period. Scheduled for March 15–19, 2027."
+    },
+
+    {
+        date: "2027-03-15",
+        type: "university",
+        title: "National Research Conferences",
+        description:
+            "Organizing national research conferences. Scheduled for March 15–May 21, 2027."
+    },
+
+    {
+        date: "2027-03-29",
+        type: "university",
+        title: "Course Progress Audits",
+        description:
+            "Conducting course progress audits for all programs. Scheduled for March 29–April 4, 2027."
+    },
+
+    {
+        date: "2027-03-30",
+        type: "university",
+        title: "University Senate Meeting",
+        description:
+            "Regular University Senate meeting."
+    },
+
+    {
+        date: "2027-04-26",
+        type: "university",
+        title: "Research & Technology Transfer Proposals",
+        description:
+            "Announcing calls for research, community services and technology transfer proposals for 2020 E.C. Scheduled for April 26–May 14, 2027."
+    },
+
+    {
+        date: "2027-05-07",
+        type: "deadline",
+        title: "Summer Course Offerings Deadline",
+        description:
+            "Departments and Schools submit Summer Semester Module/Course Offerings to APD and Registrar."
+    },
+
+    {
+        date: "2027-05-17",
+        type: "university",
+        title: "Instructor Evaluation Week",
+        description:
+            "Instructor Evaluation Week. Scheduled for May 17–21, 2027."
+    },
+
+    {
+        date: "2027-05-21",
+        type: "deadline",
+        title: "Honorary Doctorate Nominations Deadline",
+        description:
+            "Deadline for submitting nominations for honorary doctorate candidates."
+    },
+
+    {
+        date: "2027-05-21",
+        type: "classes",
+        title: "Second Semester Classes End",
+        description:
+            "Second semester classes end for all Regular and Evening Programs."
+    },
+
+    {
+        date: "2027-05-23",
+        type: "classes",
+        title: "Weekend Classes End",
+        description:
+            "Second semester classes end for all Weekend Programs."
+    },
+
+    {
+        date: "2027-05-24",
+        type: "exam",
+        title: "Second Semester Final Examinations",
+        description:
+            "Second semester final examination period for all programs. Scheduled for May 24–June 4, 2027."
+    },
+
+    {
+        date: "2027-05-31",
+        type: "university",
+        title: "Master's & PhD Thesis Defense Period",
+        description:
+            "Master's and PhD thesis defense period. Scheduled for May 31–June 4, 2027."
+    },
+
+    {
+        date: "2027-06-07",
+        type: "exam",
+        title: "Model Exit Exam Week",
+        description:
+            "Model Exit Exam Week. Scheduled for June 7–9, 2027."
+    },
+
+    {
+        date: "2027-06-09",
+        type: "deadline",
+        title: "Graduating Class Grade Submission",
+        description:
+            "Final date for graduating class grade submission."
+    },
+
+    {
+        date: "2027-06-08",
+        type: "university",
+        title: "Non-Graduating Classes Clear Campus",
+        description:
+            "Non-graduating classes clear from campus."
+    },
+
+    {
+        date: "2027-06-10",
+        type: "exam",
+        title: "National Exit Examination Period",
+        description:
+            "National Exit Examination period. Scheduled for June 10–20, 2027."
+    },
+
+    {
+        date: "2027-06-11",
+        type: "deadline",
+        title: "Final Grades Deadline",
+        description:
+            "Deadline to submit final grades for non-graduating students to the system."
+    },
+
+    {
+        date: "2027-06-11",
+        type: "classes",
+        title: "HDP Classes End",
+        description:
+            "Higher Diploma Program classes end."
+    },
+
+    {
+        date: "2027-06-16",
+        type: "deadline",
+        title: "HDP Grades Submission Deadline",
+        description:
+            "Last date for submission of Higher Diploma Program grades to the Registrar."
+    },
+
+    {
+        date: "2027-06-24",
+        type: "university",
+        title: "University Senate Meeting",
+        description:
+            "Regular University Senate meeting."
+    },
+
+    {
+        date: "2027-06-26",
+        type: "university",
+        title: "Graduation Commencement Ceremony",
+        description:
+            "Graduation commencement ceremony at the Main Campus."
+    },
+
+    {
+        date: "2027-06-29",
+        type: "university",
+        title: "Graduating Classes Clear Campus",
+        description:
+            "Graduating classes clear from campus."
+    },
+
+    {
+        date: "2027-07-08",
+        type: "registration",
+        title: "Kiremt Program Registration",
+        description:
+            "Registration of all Kiremt Programs. Scheduled for July 8–9, 2027."
+    },
+
+    {
+        date: "2027-07-09",
+        type: "registration",
+        title: "Weekend & Evening Summer Registration",
+        description:
+            "Registration of all Weekend and Evening Programs for the Summer Semester. Scheduled for July 9–10, 2027."
+    },
+
+    {
+        date: "2027-07-12",
+        type: "classes",
+        title: "Kiremt & Evening Classes Begin",
+        description:
+            "Summer Semester classes begin for Kiremt and Evening Programs."
+    },
+
+    {
+        date: "2027-07-16",
+        type: "university",
+        title: "Tutorial for Home Take Courses",
+        description:
+            "Tutorial for Home Take Courses. Scheduled for July 16–18, 2027."
+    },
+
+    {
+        date: "2027-07-17",
+        type: "classes",
+        title: "Weekend Summer Classes Begin",
+        description:
+            "Summer Semester classes begin for Weekend Programs."
+    },
+
+    {
+        date: "2027-07-21",
+        type: "registration",
+        title: "Make-up Examination / Add & Drop",
+        description:
+            "Make-up examination period and Add & Drop period. Scheduled for July 21–22, 2027."
+    },
+
+    {
+        date: "2027-07-24",
+        type: "exam",
+        title: "Home Taken Courses Examination",
+        description:
+            "Examination date for Home Taken Courses. Scheduled for July 24–25, 2027."
+    },
+
+    {
+        date: "2027-08-05",
+        type: "exam",
+        title: "NGAT Exam Period",
+        description:
+            "NGAT examination period. Scheduled for August 5–6, 2027."
+    },
+
+    {
+        date: "2027-08-27",
+        type: "classes",
+        title: "Kiremt & Evening Classes End",
+        description:
+            "End of classes for Kiremt and Evening Programs."
+    },
+
+    {
+        date: "2027-08-29",
+        type: "classes",
+        title: "Weekend Classes End",
+        description:
+            "End of classes for Weekend Programs."
+    },
+
+    {
+        date: "2027-08-30",
+        type: "exam",
+        title: "Summer Final Examination Period",
+        description:
+            "Final examination period for Kiremt, Evening and Weekend students. Scheduled for August 30–September 5, 2027."
+    },
+
+    {
+        date: "2027-09-07",
+        type: "university",
+        title: "Kiremt Students Clear Campus",
+        description:
+            "Kiremt students clear from campus."
+    },
+
+    {
+        date: "2027-09-10",
+        type: "deadline",
+        title: "Summer Exam Results Deadline",
+        description:
+            "Last date for reporting final examination results to the Registrar for the Summer Semester."
+    }
 
 ];
 
 
-const categoryNames = {
-
-    registration: "Registration",
-
-    classes: "Classes",
-
-    exam: "Exams",
-
-    deadline: "Deadline",
-
-    university: "University"
-
-};
+const events =
+    university === "hawassa"
+        ? hawassaEvents
+        : aauEvents;
 
 
-/* =========================================
-   DATE FUNCTIONS
-========================================= */
+/* ================= VARIABLES ================= */
+
+let currentDate =
+    new Date(
+        universityInfo.startDate
+    );
+
+let activeFilter = "all";
+
+
+/* ================= UNIVERSITY DISPLAY ================= */
+
+const universityTitle =
+    document.getElementById(
+        "universityTitle"
+    );
+
+const universityDescription =
+    document.getElementById(
+        "universityDescription"
+    );
+
+const universityLogo =
+    document.getElementById(
+        "universityLogo"
+    );
+
+
+if (universityTitle) {
+
+    universityTitle.innerHTML =
+        `${universityInfo.name}<br>Academic Calendar`;
+
+}
+
+
+if (universityDescription) {
+
+    universityDescription.textContent =
+        universityInfo.description;
+
+}
+
+
+if (universityLogo) {
+
+    universityLogo.src =
+        universityInfo.logo;
+
+    universityLogo.alt =
+        `${universityInfo.name} Logo`;
+
+}
+
+
+/* ================= DATE FUNCTIONS ================= */
 
 function dateKey(date) {
 
@@ -538,12 +1215,14 @@ function dateKey(date) {
         date.getFullYear();
 
     const month =
-        String(date.getMonth() + 1)
-            .padStart(2, "0");
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
 
     const day =
-        String(date.getDate())
-            .padStart(2, "0");
+        String(
+            date.getDate()
+        ).padStart(2, "0");
 
     return `${year}-${month}-${day}`;
 
@@ -553,7 +1232,9 @@ function dateKey(date) {
 function formatDate(dateString) {
 
     const date =
-        new Date(dateString + "T12:00:00");
+        new Date(
+            dateString + "T12:00:00"
+        );
 
     return date.toLocaleDateString(
         "en-US",
@@ -568,9 +1249,7 @@ function formatDate(dateString) {
 }
 
 
-/* =========================================
-   SEMESTER
-========================================= */
+/* ================= SEMESTER ================= */
 
 function getSemester(date) {
 
@@ -602,14 +1281,22 @@ function getSemester(date) {
     }
 
 
+    if (
+        year === 2027 &&
+        month >= 6
+    ) {
+
+        return "Summer / Kiremt Semester";
+
+    }
+
+
     return "Academic Calendar";
 
 }
 
 
-/* =========================================
-   GET EVENTS
-========================================= */
+/* ================= GET EVENTS ================= */
 
 function getEvents(date) {
 
@@ -621,9 +1308,7 @@ function getEvents(date) {
 }
 
 
-/* =========================================
-   RENDER CALENDAR
-========================================= */
+/* ================= RENDER CALENDAR ================= */
 
 function renderCalendar() {
 
@@ -646,11 +1331,19 @@ function renderCalendar() {
 
 
     const firstDay =
-        new Date(year, month, 1);
+        new Date(
+            year,
+            month,
+            1
+        );
 
 
     const lastDay =
-        new Date(year, month + 1, 0);
+        new Date(
+            year,
+            month + 1,
+            0
+        );
 
 
     const startDay =
@@ -753,10 +1446,13 @@ function renderCalendar() {
 
 
         const day =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
-        day.className = "day";
+        day.className =
+            "day";
 
 
         if (otherMonth) {
@@ -784,7 +1480,9 @@ function renderCalendar() {
 
 
         const number =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         number.className =
@@ -827,7 +1525,9 @@ function renderCalendar() {
             .forEach(event => {
 
                 const button =
-                    document.createElement("button");
+                    document.createElement(
+                        "button"
+                    );
 
 
                 button.className =
@@ -840,11 +1540,14 @@ function renderCalendar() {
 
                 button.addEventListener(
                     "click",
-                    () => openEvent(event)
+                    () =>
+                        openEvent(event)
                 );
 
 
-                day.appendChild(button);
+                day.appendChild(
+                    button
+                );
 
             });
 
@@ -854,7 +1557,9 @@ function renderCalendar() {
         ) {
 
             const more =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             more.className =
@@ -862,25 +1567,26 @@ function renderCalendar() {
 
 
             more.textContent =
-                `+ ${visibleEvents.length - 3
-                } more`;
+                `+ ${visibleEvents.length - 3} more`;
 
 
-            day.appendChild(more);
+            day.appendChild(
+                more
+            );
 
         }
 
 
-        calendarGrid.appendChild(day);
+        calendarGrid.appendChild(
+            day
+        );
 
     }
 
 }
 
 
-/* =========================================
-   OPEN EVENT
-========================================= */
+/* ================= OPEN EVENT ================= */
 
 function openEvent(event) {
 
@@ -900,27 +1606,30 @@ function openEvent(event) {
         event.description;
 
 
-    modal.classList.add("open");
+    modal.classList.add(
+        "open"
+    );
 
 }
 
 
-/* =========================================
-   CLOSE EVENT
-========================================= */
+/* ================= CLOSE EVENT ================= */
 
 function closeEvent() {
 
-    modal.classList.remove("open");
+    modal.classList.remove(
+        "open"
+    );
 
 }
 
 
-/* =========================================
-   UPCOMING EVENTS
-========================================= */
+/* ================= UPCOMING EVENTS ================= */
 
 function renderUpcoming() {
+
+    upcomingEvents.innerHTML = "";
+
 
     const today =
         new Date();
@@ -936,38 +1645,55 @@ function renderUpcoming() {
 
     const upcoming =
         events
-
             .filter(event => {
 
-                return new Date(
-                    event.date + "T12:00:00"
-                ) >= today;
+                const eventDate =
+                    new Date(
+                        event.date +
+                        "T12:00:00"
+                    );
+
+                return eventDate >= today;
 
             })
+            .sort((a, b) => {
 
-            .sort(
-                (a, b) =>
-                    a.date.localeCompare(
-                        b.date
-                    )
-            )
+                return a.date.localeCompare(
+                    b.date
+                );
 
+            })
             .slice(0, 6);
 
 
-    upcomingEvents.innerHTML = "";
+    if (
+        upcoming.length === 0
+    ) {
+
+        upcomingEvents.innerHTML = `
+            <div class="no-upcoming">
+                No upcoming events.
+            </div>
+        `;
+
+        return;
+
+    }
 
 
     upcoming.forEach(event => {
 
         const date =
             new Date(
-                event.date + "T12:00:00"
+                event.date +
+                "T12:00:00"
             );
 
 
         const item =
-            document.createElement("button");
+            document.createElement(
+                "button"
+            );
 
 
         item.className =
@@ -985,7 +1711,8 @@ function renderUpcoming() {
                 <span>
                     ${months[
                 date.getMonth()
-            ].slice(0, 3)}
+            ].slice(0, 3)
+            }
                 </span>
 
             </div>
@@ -1008,20 +1735,33 @@ function renderUpcoming() {
 
         item.addEventListener(
             "click",
-            () => openEvent(event)
+            () => {
+
+                currentDate =
+                    new Date(
+                        date.getFullYear(),
+                        date.getMonth(),
+                        1
+                    );
+
+                renderCalendar();
+
+                openEvent(event);
+
+            }
         );
 
 
-        upcomingEvents.appendChild(item);
+        upcomingEvents.appendChild(
+            item
+        );
 
     });
 
 }
 
 
-/* =========================================
-   MONTH NAVIGATION
-========================================= */
+/* ================= MONTH NAVIGATION ================= */
 
 document
     .getElementById("prevMonth")
@@ -1061,9 +1801,7 @@ document
     );
 
 
-/* =========================================
-   TODAY
-========================================= */
+/* ================= TODAY ================= */
 
 document
     .getElementById("todayBtn")
@@ -1089,9 +1827,7 @@ document
     );
 
 
-/* =========================================
-   FILTERS
-========================================= */
+/* ================= FILTERS ================= */
 
 document
     .querySelectorAll(".filter")
@@ -1102,7 +1838,9 @@ document
             () => {
 
                 document
-                    .querySelectorAll(".filter")
+                    .querySelectorAll(
+                        ".filter"
+                    )
                     .forEach(btn =>
                         btn.classList.remove(
                             "active"
@@ -1127,9 +1865,7 @@ document
     });
 
 
-/* =========================================
-   SEARCH
-========================================= */
+/* ================= SEARCH ================= */
 
 const searchPanel =
     document.getElementById(
@@ -1184,7 +1920,8 @@ searchInput.addEventListener(
                 .trim();
 
 
-        searchResults.innerHTML = "";
+        searchResults.innerHTML =
+            "";
 
 
         if (!query) {
@@ -1220,6 +1957,21 @@ searchInput.addEventListener(
                 );
 
             });
+
+
+        if (
+            results.length === 0
+        ) {
+
+            searchResults.innerHTML = `
+                <div class="no-search-results">
+                    No events found.
+                </div>
+            `;
+
+            return;
+
+        }
 
 
         results
@@ -1285,9 +2037,11 @@ document
         "click",
         () => {
 
-            searchInput.value = "";
+            searchInput.value =
+                "";
 
-            searchResults.innerHTML = "";
+            searchResults.innerHTML =
+                "";
 
             searchInput.focus();
 
@@ -1295,9 +2049,7 @@ document
     );
 
 
-/* =========================================
-   MODAL
-========================================= */
+/* ================= MODAL ================= */
 
 document
     .getElementById("modalClose")
@@ -1323,6 +2075,8 @@ modal.addEventListener(
 );
 
 
+/* ================= KEYBOARD ================= */
+
 document.addEventListener(
     "keydown",
     event => {
@@ -1335,6 +2089,7 @@ document.addEventListener(
 
         }
 
+
         if (
             event.key === "ArrowLeft"
         ) {
@@ -1346,6 +2101,7 @@ document.addEventListener(
                 .click();
 
         }
+
 
         if (
             event.key === "ArrowRight"
@@ -1363,9 +2119,7 @@ document.addEventListener(
 );
 
 
-/* =========================================
-   MOBILE MENU
-========================================= */
+/* ================= MOBILE MENU ================= */
 
 const mobileMenu =
     document.getElementById(
@@ -1379,107 +2133,37 @@ const nav =
     );
 
 
-mobileMenu.addEventListener(
-    "click",
-    () => {
-
-        nav.classList.toggle(
-            "open"
-        );
-
-    }
-);
-
-
-/* =========================================
-   DARK / LIGHT MODE
-========================================= */
-
-const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
-
-
-const savedTheme =
-    localStorage.getItem(
-        "ethioUniTheme"
-    );
-
-
 if (
-    savedTheme === "dark"
+    mobileMenu &&
+    nav
 ) {
 
-    document.documentElement
-        .setAttribute(
-            "data-theme",
-            "dark"
-        );
+    mobileMenu.addEventListener(
+        "click",
+        () => {
+
+            nav.classList.toggle(
+                "open"
+            );
+
+        }
+    );
 
 }
 
 
-themeToggle.addEventListener(
-    "click",
-    () => {
+/* ================= LUCIDE ================= */
 
-        const isDark =
-            document.documentElement
-                .getAttribute(
-                    "data-theme"
-                ) === "dark";
-
-
-        if (isDark) {
-
-            document.documentElement
-                .removeAttribute(
-                    "data-theme"
-                );
-
-
-            localStorage.setItem(
-                "ethioUniTheme",
-                "light"
-            );
-
-        }
-
-        else {
-
-            document.documentElement
-                .setAttribute(
-                    "data-theme",
-                    "dark"
-                );
-
-
-            localStorage.setItem(
-                "ethioUniTheme",
-                "dark"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   LUCIDE ICONS
-========================================= */
-
-if (window.lucide) {
+if (
+    window.lucide
+) {
 
     lucide.createIcons();
 
 }
 
 
-/* =========================================
-   START
-========================================= */
+/* ================= START ================= */
 
 renderCalendar();
 

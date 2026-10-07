@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hawassa University Academic Calendar | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body data-university="hawassa">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <a href="index.html" class="brand">
+
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo" class="brand-logo">
+
+            <div class="brand-text">
+
+                <span class="brand-name">
+                    Ethio-Uni-Guide
+                </span>
+
+                <span class="brand-subtitle">
+                    Find your uni. Shape your future.
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+
+                <i data-lucide="home"></i>
+
+                Home
+
+            </a>
+
+
+            <a href="#">
+
+                <i data-lucide="graduation-cap"></i>
+
+                Universities
+
+            </a>
+
+
+            <a href="#">
+
+                <i data-lucide="book-open"></i>
+
+                Courses
+
+            </a>
+
+
+            <!-- ACADEMIC CALENDAR DROPDOWN -->
+
+            <div class="calendar-menu">
+
+                <button type="button" class="calendar-menu-btn">
+
+                    Academic Calendar
+
+                    <span class="calendar-arrow">
+                        ▾
+                    </span>
+
+                </button>
+
+
+                <div class="calendar-menu-list">
+
+                    <a href="aau-calendar.html">
+                        Addis Ababa University
+                    </a>
+
+                    <a href="hawassa-calendar.html">
+                        Hawassa University
+                    </a>
+
+                </div>
+
+            </div>
+            <label class="theme" for="theme">
+                <span class="theme__toggle-wrap">
+
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
+
+                    <span class="theme__icon">
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                    </span>
+
+                </span>
+            </label>
+        </nav>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+            <button class="mobile-menu" id="mobileMenu" aria-label="Open menu" type="button">
+
+                <i data-lucide="menu"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="page">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+
+                    <i data-lucide="calendar-days"></i>
+
+                    2026/27 Academic Year
+
+                </div>
+
+
+                <h1 id="universityTitle">
+
+                    Hawassa University
+                    <br>
+                    Academic Calendar
+
+                </h1>
+
+
+                <p id="universityDescription">
+
+                    Stay updated with registration, classes,
+                    examinations, deadlines and important
+                    university activities.
+
+                </p>
+
+            </div>
+
+
+            <!-- UNIVERSITY LOGO -->
+
+            <div class="hero-badge">
+
+                <img src="images/hawassa-logo.png" alt="Hawassa University Logo" class="university-logo"
+                    id="universityLogo">
+
+                <span id="academicYearBadge">
+                    2019 E.C.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CALENDAR ================= -->
+
+        <section class="calendar-container">
+
+
+            <!-- TOOLBAR -->
+
+            <div class="calendar-toolbar">
+
+                <div class="month-controls">
+
+                    <button class="icon-btn" id="prevMonth" aria-label="Previous month" type="button">
+
+                        <i data-lucide="chevron-left"></i>
+
+                    </button>
+
+
+                    <div class="month-title">
+
+                        <h2 id="monthTitle">
+                            September 2026
+                        </h2>
+
+                        <span id="semesterLabel">
+                            First Semester
+                        </span>
+
+                    </div>
+
+
+                    <button class="icon-btn" id="nextMonth" aria-label="Next month" type="button">
+
+                        <i data-lucide="chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="toolbar-actions">
+
+                    <button class="today-btn" id="todayBtn" type="button">
+
+                        <i data-lucide="calendar-check"></i>
+
+                        Today
+
+                    </button>
+
+
+                    <button class="search-btn" id="searchToggle" aria-label="Search events" type="button">
+
+                        <i data-lucide="search"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-panel" id="searchPanel">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input type="text" id="eventSearch" placeholder="Search academic events...">
+
+                    <button id="clearSearch" aria-label="Clear search" type="button">
+
+                        <i data-lucide="x"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div id="searchResults" class="search-results"></div>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+                <button class="filter active" data-filter="all" type="button">
+                    All
+                </button>
+
+                <button class="filter" data-filter="registration" type="button">
+                    Registration
+                </button>
+
+                <button class="filter" data-filter="classes" type="button">
+                    Classes
+                </button>
+
+                <button class="filter" data-filter="exam" type="button">
+                    Exams
+                </button>
+
+                <button class="filter" data-filter="deadline" type="button">
+                    Deadlines
+                </button>
+
+                <button class="filter" data-filter="university" type="button">
+                    University
+                </button>
+
+            </div>
+
+
+            <!-- WEEKDAYS -->
+
+            <div class="weekdays">
+
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+
+            </div>
+
+
+            <!-- CALENDAR DAYS -->
+
+            <div class="calendar-scroll">
+
+                <div class="calendar-grid" id="calendarGrid"></div>
+
+            </div>
+
+
+            <!-- LEGEND -->
+
+            <div class="legend">
+
+                <span>
+                    <i class="dot registration"></i>
+                    Registration
+                </span>
+
+                <span>
+                    <i class="dot classes"></i>
+                    Classes
+                </span>
+
+                <span>
+                    <i class="dot exam"></i>
+                    Exams
+                </span>
+
+                <span>
+                    <i class="dot deadline"></i>
+                    Deadline
+                </span>
+
+                <span>
+                    <i class="dot university"></i>
+                    University
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BOTTOM ================= -->
+
+        <section class="bottom-section">
+
+
+            <!-- UPCOMING EVENTS -->
+
+            <div class="upcoming-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="small-label">
+                            DON'T MISS
+                        </span>
+
+                        <h2>
+                            Upcoming Events
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div id="upcomingEvents" class="upcoming-list"></div>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div class="info-card">
+
+                <div class="info-icon">
+
+                    <i data-lucide="info"></i>
+
+                </div>
+
+
+                <h3>
+                    Academic Year
+                </h3>
+
+
+                <p id="academicDescription">
+
+                    Hawassa University Academic Calendar
+                    for the 2026/2027 academic year
+                    (2019 E.C.).
+
+                </p>
+
+
+                <div class="semester-box">
+
+                    <span>
+                        First Semester
+                    </span>
+
+                    <strong>
+                        September 2026 – January 2027
+                    </strong>
+
+                </div>
+
+
+                <div class="semester-box">
+
+                    <span>
+                        Second Semester
+                    </span>
+
+                    <strong>
+                        February – June 2027
+                    </strong>
+
+                </div>
+
+
+                <div class="semester-box">
+
+                    <span>
+                        Summer / Kiremt Semester
+                    </span>
+
+                    <strong>
+                        July – September 2027
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= EVENT MODAL ================= -->
+
+    <div class="modal-overlay" id="eventModal">
+
+        <div class="event-modal">
+
+            <button class="modal-close" id="modalClose" type="button">
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+
+            <div class="modal-date" id="modalDate"></div>
+
+
+            <span class="event-category" id="modalCategory"></span>
+
+
+            <h2 id="modalTitle"></h2>
+
+
+            <p id="modalDescription"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="calendar.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
