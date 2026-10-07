@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academic Calendar | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="topbar">
+
+        <a href="index.html" class="brand">
+
+
+
+            <div class="brand-text">
+                <span class="brand-name">Ethio-Uni-Guide</span>
+                <span class="brand-subtitle">
+                    Your academic journey, simplified
+                </span>
+            </div>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                <i data-lucide="home"></i>
+                Home
+            </a>
+
+            <a href="#">
+                <i data-lucide="graduation-cap"></i>
+                Universities
+            </a>
+
+            <a href="#">
+                <i data-lucide="book-open"></i>
+                Courses
+            </a>
+
+            <a href="calendar.html" class="active">
+                <i data-lucide="calendar-days"></i>
+                Calendar
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+
+                <i data-lucide="sun" class="sun-icon"></i>
+
+                <i data-lucide="moon" class="moon-icon"></i>
+
+            </button>
+
+
+            <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+
+                <i data-lucide="menu"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="page">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+
+                    <i data-lucide="calendar-days"></i>
+
+                    2026/27 Academic Year
+
+                </div>
+
+
+                <h1>
+                    Academic Calendar
+                </h1>
+
+
+                <p>
+                    Stay updated with registration, classes, examinations,
+                    deadlines and important university activities.
+                </p>
+
+            </div>
+
+
+            <div class="hero-badge">
+
+                <strong>AAU</strong>
+
+                <span>2019 E.C.</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CALENDAR ================= -->
+
+        <section class="calendar-container">
+
+
+            <!-- TOOLBAR -->
+
+            <div class="calendar-toolbar">
+
+                <div class="month-controls">
+
+                    <button class="icon-btn" id="prevMonth" aria-label="Previous month">
+
+                        <i data-lucide="chevron-left"></i>
+
+                    </button>
+
+
+                    <div class="month-title">
+
+                        <h2 id="monthTitle">
+                            September 2026
+                        </h2>
+
+                        <span id="semesterLabel">
+                            First Semester
+                        </span>
+
+                    </div>
+
+
+                    <button class="icon-btn" id="nextMonth" aria-label="Next month">
+
+                        <i data-lucide="chevron-right"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="toolbar-actions">
+
+                    <button class="today-btn" id="todayBtn">
+
+                        <i data-lucide="calendar-check"></i>
+
+                        Today
+
+                    </button>
+
+
+                    <button class="search-btn" id="searchToggle" aria-label="Search events">
+
+                        <i data-lucide="search"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEARCH -->
+
+            <div class="search-panel" id="searchPanel">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input type="text" id="eventSearch" placeholder="Search academic events...">
+
+                    <button id="clearSearch" aria-label="Clear search">
+
+                        <i data-lucide="x"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div id="searchResults" class="search-results">
+                </div>
+
+            </div>
+
+
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+                <button class="filter active" data-filter="all">
+
+                    All
+
+                </button>
+
+
+                <button class="filter" data-filter="registration">
+
+                    Registration
+
+                </button>
+
+
+                <button class="filter" data-filter="classes">
+
+                    Classes
+
+                </button>
+
+
+                <button class="filter" data-filter="exam">
+
+                    Exams
+
+                </button>
+
+
+                <button class="filter" data-filter="deadline">
+
+                    Deadlines
+
+                </button>
+
+
+                <button class="filter" data-filter="university">
+
+                    University
+
+                </button>
+
+            </div>
+
+
+
+            <!-- WEEKDAYS -->
+
+            <div class="weekdays">
+
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+
+            </div>
+
+
+            <!-- CALENDAR DAYS -->
+
+            <div class="calendar-grid" id="calendarGrid">
+            </div>
+
+
+            <!-- LEGEND -->
+
+            <div class="legend">
+
+                <span>
+                    <i class="dot registration"></i>
+                    Registration
+                </span>
+
+                <span>
+                    <i class="dot classes"></i>
+                    Classes
+                </span>
+
+                <span>
+                    <i class="dot exam"></i>
+                    Exams
+                </span>
+
+                <span>
+                    <i class="dot deadline"></i>
+                    Deadline
+                </span>
+
+                <span>
+                    <i class="dot university"></i>
+                    University
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= BOTTOM ================= -->
+
+        <section class="bottom-section">
+
+
+            <div class="upcoming-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="small-label">
+                            DON'T MISS
+                        </span>
+
+                        <h2>
+                            Upcoming Events
+                        </h2>
+
+                    </div>
+
+                    <i data-lucide="bell"></i>
+
+                </div>
+
+
+                <div id="upcomingEvents" class="upcoming-list">
+                </div>
+
+            </div>
+
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+
+                    <i data-lucide="info"></i>
+
+                </div>
+
+
+                <h3>
+                    Academic Year
+                </h3>
+
+
+                <p>
+                    The Addis Ababa University academic year
+                    consists of two sixteen-week semesters.
+                </p>
+
+
+                <div class="semester-box">
+
+                    <span>
+                        First Semester
+                    </span>
+
+                    <strong>
+                        September 2026 – January 2027
+                    </strong>
+
+                </div>
+
+
+                <div class="semester-box">
+
+                    <span>
+                        Second Semester
+                    </span>
+
+                    <strong>
+                        February – June 2027
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= EVENT MODAL ================= -->
+
+    <div class="modal-overlay" id="eventModal">
+
+        <div class="event-modal">
+
+            <button class="modal-close" id="modalClose">
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+
+            <div class="modal-date" id="modalDate">
+            </div>
+
+
+            <span class="event-category" id="modalCategory">
+            </span>
+
+
+            <h2 id="modalTitle">
+            </h2>
+
+
+            <p id="modalDescription">
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="calendar.js"></script>
+
+</body>
+
+</html>
