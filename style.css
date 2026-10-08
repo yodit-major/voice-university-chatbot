@@ -243,27 +243,60 @@ ACADEMIC CALENDAR MENU=========================*/ .calendar-menu {
 /* PROFILE */
 
 .profile-button {
-    width: 40px;
-    height: 40px;
-    border: none;
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    border: 2px solid var(--surface);
     border-radius: 50%;
+
     background: var(--primary);
-    color: white;
+
+    color: #b8d9ff;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    text-decoration: none;
+
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    box-shadow: 0 4px 12px rgba(28, 105, 210, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .profile-button:hover {
     background: var(--primary-dark);
-    transform: translateY(-1px);
+
+    color: #b8d9ff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(28, 105, 210, 0.28);
+}
+
+.profile-button:active {
+    transform: scale(0.96);
 }
 
 .profile-button svg {
-    width: 19px;
-    height: 19px;
+    width: 25px;
+    height: 25px;
+    stroke: #b8d9ff;
+    stroke-width: 2.2;
+
+    transition: transform 0.2s ease;
+}
+
+.profile-button:hover svg {
+    transform: scale(1.08);
 }
 
 /* DARK MODE TOGGLE BUTTON */

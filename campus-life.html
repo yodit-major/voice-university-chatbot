@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Life | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="campus-life.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide">
+            <span>Ethio-Uni-Guide</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="universities.html">Universities</a>
+            <a href="academic-calendar.html">Academic Calendar</a>
+            <a href="campus-life.html" class="active">Campus Life</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="profile.html" class="profile-button" aria-label="Profile">
+                <i data-lucide="user"></i>
+            </a>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    <i data-lucide="compass"></i>
+                    CAMPUS EXPLORER
+                </span>
+
+                <h1>
+                    Explore Your
+                    <span>Campus</span>
+                </h1>
+
+                <p>
+                    Find the places, services and resources you need
+                    to make everyday university life easier.
+                </p>
+
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="campus-search" placeholder="Search campus places or services...">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="explorer-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">CAMPUS GUIDE</span>
+                    <h2>What are you looking for?</h2>
+                </div>
+
+                <p>
+                    Quickly find useful places and services around campus.
+                </p>
+            </div>
+
+
+            <div class="category-grid">
+
+                <button class="category-card" data-category="study">
+                    <div class="category-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <h3>Study Spaces</h3>
+                    <p>Libraries, study areas and computer labs.</p>
+                </button>
+
+
+                <button class="category-card" data-category="food">
+                    <div class="category-icon">
+                        <i data-lucide="utensils"></i>
+                    </div>
+                    <h3>Food & Dining</h3>
+                    <p>Cafeterias, restaurants and food spots.</p>
+                </button>
+
+
+                <button class="category-card" data-category="transport">
+                    <div class="category-icon">
+                        <i data-lucide="bus"></i>
+                    </div>
+                    <h3>Transportation</h3>
+                    <p>Transport options and routes around campus.</p>
+                </button>
+
+
+                <button class="category-card" data-category="services">
+                    <div class="category-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h3>Student Services</h3>
+                    <p>Registrar, administration and student support.</p>
+                </button>
+
+
+                <button class="category-card" data-category="essentials">
+                    <div class="category-icon">
+                        <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <h3>Campus Essentials</h3>
+                    <p>Printing, stationery, ATMs and useful facilities.</p>
+                </button>
+
+
+                <button class="category-card" data-category="health">
+                    <div class="category-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+                    <h3>Health & Safety</h3>
+                    <p>Clinics, security and emergency support.</p>
+                </button>
+
+            </div>
+
+
+            <div class="results-header">
+
+                <div>
+                    <span class="small-title">CAMPUS DIRECTORY</span>
+                    <h2 id="results-title">Popular Places</h2>
+                </div>
+
+                <span id="result-count">6 places</span>
+
+            </div>
+
+
+            <div class="places-grid" id="places-grid">
+
+                <article class="place-card" data-category="study">
+
+                    <div class="place-icon">
+                        <i data-lucide="library"></i>
+                    </div>
+
+                    <div class="place-content">
+
+                        <span class="place-category">Study</span>
+
+                        <h3>Main Library</h3>
+
+                        <p>
+                            A quiet space for studying, reading and academic research.
+                        </p>
+
+                        <div class="place-info">
+                            <span>
+                                <i data-lucide="clock"></i>
+                                8:00 AM – 8:00 PM
+                            </span>
+
+                            <span>
+                                <i data-lucide="wifi"></i>
+                                Wi-Fi
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button class="view-button" data-place="Main Library">
+                        View
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="place-card" data-category="food">
+
+                    <div class="place-icon">
+                        <i data-lucide="coffee"></i>
+                    </div>
+
+                    <div class="place-content">
+
+                        <span class="place-category">Food</span>
+
+                        <h3>Campus Cafeteria</h3>
+
+                        <p>
+                            A convenient place for affordable meals and drinks.
+                        </p>
+
+                        <div class="place-info">
+                            <span>
+                                <i data-lucide="clock"></i>
+                                7:00 AM – 6:00 PM
+                            </span>
+
+                            <span>
+                                <i data-lucide="utensils"></i>
+                                Meals
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button class="view-button" data-place="Campus Cafeteria">
+                        View
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="place-card" data-category="transport">
+
+                    <div class="place-icon">
+                        <i data-lucide="bus-front"></i>
+                    </div>
+
+                    <div class="place-content">
+
+                        <span class="place-category">Transport</span>
+
+                        <h3>Campus Transport</h3>
+
+                        <p>
+                            Find transport options for getting to and from campus.
+                        </p>
+
+                        <div class="place-info">
+                            <span>
+                                <i data-lucide="map-pin"></i>
+                                Main Gate
+                            </span>
+
+                            <span>
+                                <i data-lucide="route"></i>
+                                Routes
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button class="view-button" data-place="Campus Transport">
+                        View
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="place-card" data-category="services">
+
+                    <div class="place-icon">
+                        <i data-lucide="landmark"></i>
+                    </div>
+
+                    <div class="place-content">
+
+                        <span class="place-category">Services</span>
+
+                        <h3>Registrar Office</h3>
+
+                        <p>
+                            Access important academic and administrative services.
+                        </p>
+
+                        <div class="place-info">
+                            <span>
+                                <i data-lucide="clock"></i>
+                                Office Hours
+                            </span>
+
+                            <span>
+                                <i data-lucide="file-text"></i>
+                                Academic
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button class="view-button" data-place="Registrar Office">
+                        View
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="place-card" data-category="essentials">
+
+                    <div class="place-icon">
+                        <i data-lucide="printer"></i>
+                    </div>
+
+                    <div class="place-content">
+
+                        <span class="place-category">Essentials</span>
+
+                        <h3>Printing & Stationery</h3>
+
+                        <p>
+                            Find places for printing, photocopying and supplies.
+                        </p>
+
+                        <div class="place-info">
+                            <span>
+                                <i data-lucide="printer"></i>
+                                Printing
+                            </span>
+
+                            <span>
+                                <i data-lucide="shopping-bag"></i>
+                                Supplies
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button class="view-button" data-place="Printing & Stationery">
+                        View
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="place-card" data-category="health">
+
+                    <div class="place-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+
+                    <div class="place-content">
+
+                        <span class="place-category">Health</span>
+
+                        <h3>Campus Clinic</h3>
+
+                        <p>
+                            Find basic healthcare and student health support.
+                        </p>
+
+                        <div class="place-info">
+                            <span>
+                                <i data-lucide="heart-pulse"></i>
+                                Healthcare
+                            </span>
+
+                            <span>
+                                <i data-lucide="shield"></i>
+                                Safety
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <button class="view-button" data-place="Campus Clinic">
+                        View
+                        <i data-lucide="arrow-up-right"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <div class="no-results" id="no-results">
+
+                <div>
+                    <i data-lucide="search-x"></i>
+                </div>
+
+                <h3>No places found</h3>
+
+                <p>
+                    Try searching for something else.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="quick-section">
+
+            <div class="quick-content">
+
+                <div>
+                    <span class="small-title">QUICK ACCESS</span>
+
+                    <h2>
+                        Need something
+                        <span>right now?</span>
+                    </h2>
+
+                    <p>
+                        Quickly access the most important campus information.
+                    </p>
+                </div>
+
+
+                <div class="quick-links">
+
+                    <a href="#" class="quick-link">
+                        <i data-lucide="map"></i>
+                        <span>Campus Map</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+
+                    <a href="#" class="quick-link">
+                        <i data-lucide="phone"></i>
+                        <span>Important Contacts</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+
+                    <a href="#" class="quick-link">
+                        <i data-lucide="wallet"></i>
+                        <span>Student Budget</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div class="modal" id="place-modal">
+
+        <div class="modal-overlay"></div>
+
+        <div class="modal-box">
+
+            <button class="close-modal" id="close-modal">
+                <i data-lucide="x"></i>
+            </button>
+
+            <div class="modal-icon">
+                <i data-lucide="map-pin"></i>
+            </div>
+
+            <span class="small-title">CAMPUS LOCATION</span>
+
+            <h2 id="modal-title">Main Library</h2>
+
+            <p id="modal-description">
+                Campus location information.
+            </p>
+
+            <div class="modal-details">
+
+                <div>
+                    <i data-lucide="map-pin"></i>
+                    <span id="modal-location">Main Campus</span>
+                </div>
+
+                <div>
+                    <i data-lucide="clock"></i>
+                    <span id="modal-hours">8:00 AM – 8:00 PM</span>
+                </div>
+
+            </div>
+
+            <button class="modal-map-button">
+                <i data-lucide="map"></i>
+                View on Map
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="campus-life.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

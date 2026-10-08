@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="profile.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <main class="profile-page">
+
+        <section class="profile-card">
+
+            <div class="profile-icon">
+                <i data-lucide="user"></i>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="login-section">
+
+                <h1>Welcome Back</h1>
+                <p class="subtitle">Sign in to your Ethio-Uni-Guide account</p>
+
+                <form id="login-form">
+
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+
+                        <div class="input-wrapper">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="login-email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+
+                        <div class="input-wrapper">
+                            <i data-lucide="lock"></i>
+
+                            <input type="password" id="login-password" placeholder="Enter your password" required>
+
+                            <button type="button" class="password-toggle" id="login-password-toggle"
+                                aria-label="Show password">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Sign In
+                    </button>
+
+                    <p id="login-message" class="message"></p>
+
+                </form>
+
+                <div class="switch-section">
+                    <span>Don't have an account?</span>
+
+                    <button type="button" id="show-signup" class="link-button">
+                        Create Account
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- SIGN UP -->
+            <div id="signup-section" class="hidden">
+
+                <h1>Create Account</h1>
+                <p class="subtitle">Join Ethio-Uni-Guide</p>
+
+                <form id="signup-form">
+
+                    <div class="input-group">
+                        <label for="signup-name">Full Name</label>
+
+                        <div class="input-wrapper">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-email">Email</label>
+
+                        <div class="input-wrapper">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="signup-email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+
+                        <div class="input-wrapper">
+                            <i data-lucide="lock"></i>
+
+                            <input type="password" id="signup-password" placeholder="Create a password" required>
+
+                            <button type="button" class="password-toggle" id="signup-password-toggle"
+                                aria-label="Show password">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+
+                        <div class="input-wrapper">
+                            <i data-lucide="lock-keyhole"></i>
+
+                            <input type="password" id="signup-confirm-password" placeholder="Confirm your password"
+                                required>
+
+                            <button type="button" class="password-toggle" id="signup-confirm-password-toggle"
+                                aria-label="Show password">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signup-role">Role</label>
+
+                        <div class="input-wrapper select-wrapper">
+                            <i data-lucide="shield"></i>
+
+                            <select id="signup-role" required>
+                                <option value="" disabled selected>
+                                    Select Your Role
+                                </option>
+
+                                <option value="student">
+                                    Student
+                                </option>
+
+                                <option value="admin">
+                                    Admin
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Create Account
+                    </button>
+
+                    <p id="signup-message" class="message"></p>
+
+                </form>
+
+                <div class="switch-section">
+                    <span>Already have an account?</span>
+
+                    <button type="button" id="show-login" class="link-button">
+                        Sign In
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE -->
+            <div id="profile-section" class="hidden">
+
+                <div class="success-icon">
+                    <i data-lucide="circle-check"></i>
+                </div>
+
+                <h1 id="profile-title">Welcome!</h1>
+
+                <p class="subtitle">
+                    Your Ethio-Uni-Guide profile
+                </p>
+
+                <div class="profile-info">
+
+                    <div class="info-row">
+                        <div class="info-icon">
+                            <i data-lucide="user"></i>
+                        </div>
+
+                        <div>
+                            <span class="info-label">Name</span>
+                            <strong id="profile-name"></strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon">
+                            <i data-lucide="mail"></i>
+                        </div>
+
+                        <div>
+                            <span class="info-label">Email</span>
+                            <strong id="profile-email"></strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="info-icon">
+                            <i data-lucide="shield"></i>
+                        </div>
+
+                        <div>
+                            <span class="info-label">Role</span>
+                            <strong id="profile-role"></strong>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="button" id="logout-button" class="logout-button">
+                    <i data-lucide="log-out"></i>
+                    Log Out
+                </button>
+
+            </div>
+
+            <a href="index.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+                Back to Ethio-Uni-Guide
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="profile.js"></script>
+
+</body>
+
+</html>
