@@ -258,7 +258,7 @@ async function sendMessage(message = null) {
 
         const response =
             await fetch(
-                "/api/chat",
+                "http://localhost:3000/api/chat",
                 {
                     method: "POST",
 
@@ -465,7 +465,7 @@ function stopVoiceUI() {
 
 /* VOXIDE */
 
-function initializeVoxide() {
+async function initializeVoxide() {
 
     if (
         typeof Voxide === "undefined" ||
@@ -492,60 +492,72 @@ function initializeVoxide() {
             new Voxide.VoxideClient({
 
                 publicKey:
-                    "vox_pub_YOUR_ACTUAL_KEY_HERE"
+                    "vox_pub_6fce45630be41da07c9ddc88f8c6125b3d5d63959df1a491"
 
             });
-
+        await voiceAgent.init();
 
         voiceAgent.register({
 
-            searchUnisByCity: {
+            askUniversityQuestion: {
+    description:
+        "Answers questions about universities, departments, programs, courses, events, and other university information using the university database.",
 
-                description:
-                    "Searches and displays Ethiopian universities based on a city or location given by the user.",
+    params: {
+        question: {
+            type: "string",
+            required: true
+        }
+    },
 
-                params: {
+    handler: async function ({ question }) {
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/chat",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        message: question
+                    })
+                }
+            );
 
-                    cityName: {
-                        type: "string",
-                        required: true
-                    }
-
-                },
-
-                handler:
-                    async function ({ cityName }) {
-
-                        if (
-                            typeof searchUnisByCity ===
-                            "function"
-                        ) {
-
-                            const result =
-                                await searchUnisByCity(
-                                    cityName
-                                );
-
-                            return result || {
-                                status: "success",
-                                city: cityName
-                            };
-
-                        }
-
-                        console.warn(
-                            "searchUnisByCity() has not been provided by the backend/team yet."
-                        );
-
-                        return {
-                            status: "unavailable",
-                            message:
-                                "The university search function is not connected yet."
-                        };
-
-                    }
-
+            if (!response.ok) {
+                return {
+                    status: "error",
+                    message:
+                        "The university database could not be reached."
+                };
             }
+
+            const data = await response.json();
+
+            return {
+                status: "success",
+                answer:
+                    data.answer ||
+                    data.response ||
+                    data.message ||
+                    "No answer was found."
+            };
+
+        } catch (error) {
+            console.error(
+                "University database error:",
+                error
+            );
+
+            return {
+                status: "error",
+                message:
+                    "I could not connect to the university database."
+            };
+        }
+    }
+},
 
         });
 
