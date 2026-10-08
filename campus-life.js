@@ -1,247 +1,150 @@
-const searchInput = document.getElementById("campus-search");
-const categoryCards = document.querySelectorAll(".category-card");
-const placeCards = document.querySelectorAll(".place-card");
-const placesGrid = document.getElementById("places-grid");
-const noResults = document.getElementById("no-results");
-const resultsTitle = document.getElementById("results-title");
-const resultCount = document.getElementById("result-count");
+lucide.createIcons();
 
-const modal = document.getElementById("place-modal");
-const closeModal = document.getElementById("close-modal");
-const modalTitle = document.getElementById("modal-title");
-const modalDescription = document.getElementById("modal-description");
-const modalLocation = document.getElementById("modal-location");
-const modalHours = document.getElementById("modal-hours");
 
-let activeCategory = "all";
+/* UNIVERSITY DATA */
 
-const placeData = {
-    "Main Library": {
-        description: "A quiet space for studying, reading and academic research.",
-        location: "Main Campus",
-        hours: "8:00 AM – 8:00 PM"
+const universityData = {
+
+    aau: {
+        shortName: "AAU",
+        name: "Addis Ababa University",
+        title: "Your university experience is more than lectures.",
+        description:
+            "Find your community, discover events, explore campus spaces, and make the most of your student years."
     },
 
-    "Campus Cafeteria": {
-        description: "A convenient place for affordable meals and drinks.",
-        location: "Main Campus",
-        hours: "7:00 AM – 6:00 PM"
-    },
-
-    "Campus Transport": {
-        description: "Find transport options for getting to and from campus.",
-        location: "Main Gate",
-        hours: "Daily transport service"
-    },
-
-    "Registrar Office": {
-        description: "Access important academic and administrative services.",
-        location: "Administration Building",
-        hours: "8:30 AM – 5:00 PM"
-    },
-
-    "Printing & Stationery": {
-        description: "Find places for printing, photocopying and essential student supplies.",
-        location: "Student Services Area",
-        hours: "8:00 AM – 6:00 PM"
-    },
-
-    "Campus Clinic": {
-        description: "Find basic healthcare and student health support.",
-        location: "Student Health Center",
-        hours: "8:00 AM – 5:00 PM"
+    hawassa: {
+        shortName: "Hawassa University",
+        name: "Hawassa University",
+        title: "Discover life beyond the classroom.",
+        description:
+            "Explore student communities, campus activities, accommodation, events and everyday university life at Hawassa University."
     }
+
 };
 
 
-function updateResults() {
+/* UNIVERSITY SWITCHING */
 
-    const searchTerm = searchInput.value.toLowerCase().trim();
+const universityTabs = document.querySelectorAll(".university-tab");
 
-    let visibleCount = 0;
+const universityName = document.getElementById("universityName");
+const heroTitle = document.getElementById("heroTitle");
+const heroDescription = document.getElementById("heroDescription");
 
-    placeCards.forEach(card => {
 
-        const category = card.dataset.category;
-        const text = card.textContent.toLowerCase();
+universityTabs.forEach(tab => {
 
-        const matchesCategory =
-            activeCategory === "all" ||
-            category === activeCategory;
+    tab.addEventListener("click", () => {
 
-        const matchesSearch =
-            searchTerm === "" ||
-            text.includes(searchTerm);
+        const university = tab.dataset.university;
 
-        if (matchesCategory && matchesSearch) {
-
-            card.style.display = "flex";
-            visibleCount++;
-
-        } else {
-
-            card.style.display = "none";
-
+        if (!university) {
+            return;
         }
 
-    });
 
+        const data = universityData[university];
 
-    resultCount.textContent =
-        `${visibleCount} ${visibleCount === 1 ? "place" : "places"}`;
-
-
-    if (visibleCount === 0) {
-
-        placesGrid.style.display = "none";
-        noResults.classList.add("show");
-
-    } else {
-
-        placesGrid.style.display = "grid";
-        noResults.classList.remove("show");
-
-    }
-
-
-    if (activeCategory === "all") {
-
-        resultsTitle.textContent =
-            searchTerm ? "Search Results" : "Popular Places";
-
-    } else {
-
-        const selectedCard =
-            document.querySelector(
-                `.category-card[data-category="${activeCategory}"]`
-            );
-
-        if (selectedCard) {
-
-            const title =
-                selectedCard.querySelector("h3").textContent;
-
-            resultsTitle.textContent = title;
-
+        if (!data) {
+            return;
         }
 
-    }
-}
 
-
-categoryCards.forEach(card => {
-
-    card.addEventListener("click", () => {
-
-        const selectedCategory = card.dataset.category;
-
-        if (activeCategory === selectedCategory) {
-
-            activeCategory = "all";
-            card.classList.remove("active");
-
-        } else {
-
-            categoryCards.forEach(item => {
-                item.classList.remove("active");
-            });
-
-            activeCategory = selectedCategory;
-            card.classList.add("active");
-
-        }
-
-        updateResults();
-
-        document.querySelector(".results-header").scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+        universityTabs.forEach(item => {
+            item.classList.remove("active");
         });
 
-    });
 
-});
-
-
-searchInput.addEventListener("input", updateResults);
+        tab.classList.add("active");
 
 
-document.querySelectorAll(".view-button").forEach(button => {
+        universityName.textContent = data.shortName;
 
-    button.addEventListener("click", () => {
+        heroTitle.textContent = data.title;
 
-        const placeName = button.dataset.place;
-        const data = placeData[placeName];
-
-        if (!data) return;
-
-        modalTitle.textContent = placeName;
-        modalDescription.textContent = data.description;
-        modalLocation.textContent = data.location;
-        modalHours.textContent = data.hours;
-
-        modal.classList.add("show");
-
-        document.body.style.overflow = "hidden";
-
-        lucide.createIcons();
+        heroDescription.textContent = data.description;
 
     });
 
 });
 
 
-function closePlaceModal() {
+/* MORE UNIVERSITIES */
 
-    modal.classList.remove("show");
+const comingSoon = document.querySelector(".coming-soon");
 
-    document.body.style.overflow = "";
+if (comingSoon) {
+
+    comingSoon.addEventListener("click", () => {
+
+        const comingSection = document.querySelector(".coming-section");
+
+        if (comingSection) {
+
+            comingSection.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
 
 }
 
 
-closeModal.addEventListener("click", closePlaceModal);
+/* SEARCH BUTTON */
 
+const searchButton = document.querySelector(".nav-search-button");
 
-document.querySelector(".modal-overlay").addEventListener(
-    "click",
-    closePlaceModal
-);
+if (searchButton) {
 
+    searchButton.addEventListener("click", () => {
 
-document.addEventListener("keydown", event => {
+        const searchPage = "search.html";
 
-    if (event.key === "Escape") {
-        closePlaceModal();
-    }
-
-});
-
-
-document.querySelector(".modal-map-button").addEventListener(
-    "click",
-    () => {
-
-        alert("The interactive campus map will be connected here.");
-
-    }
-);
-
-
-document.querySelectorAll(".quick-link").forEach(link => {
-
-    link.addEventListener("click", event => {
-
-        event.preventDefault();
-
-        const text =
-            link.querySelector("span").textContent;
-
-        alert(`${text} will be available here.`);
+        window.location.href = searchPage;
 
     });
 
+}
+
+
+/* =========================
+   DARK / LIGHT MODE
+   SAME LOGIC AS INDEX
+========================= */
+
+const themeToggle = document.getElementById("theme");
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+
+    themeToggle.checked = true;
+
+} else {
+
+    themeToggle.checked = false;
+
+}
+
+
+themeToggle.addEventListener("change", () => {
+
+    if (themeToggle.checked) {
+
+        localStorage.setItem("theme", "dark");
+
+    } else {
+
+        localStorage.setItem("theme", "light");
+
+    }
+
 });
 
 
-updateResults();
+/* ICONS */
+
+lucide.createIcons();
