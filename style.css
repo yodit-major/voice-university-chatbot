@@ -201,6 +201,11 @@ ACADEMIC CALENDAR MENU=========================*/ .calendar-menu {
     color: var(--primary);
 }
 
+.coming-soon-plus {
+    font-size: 12px;
+    margin-right: 5px;
+}
+
 /* NAV RIGHT */
 
 .navbar-right {

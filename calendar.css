@@ -334,6 +334,10 @@ body {
     color: var(--primary);
 }
 
+.coming-soon-plus {
+    font-size: 12px;
+    margin-right: 5px;
+}
 
 /* HEADER ACTIONS */
 
@@ -350,9 +354,10 @@ body {
 /* ========================================================= */
 
 .theme {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: fixed;
+    top: 20px;
+    right: 15px;
+    z-index: 1000;
 }
 
 

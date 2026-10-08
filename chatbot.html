@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Assistant | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </a>
+
+        <div class="nav-actions">
+
+            <label class="theme" for="theme">
+
+                <span class="theme__toggle-wrap">
+
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
+
+                    <span class="theme__icon">
+
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+
+                    </span>
+
+                </span>
+
+            </label>
+
+        </div>
+
+    </header>
+
+
+    <main class="chat-page">
+
+        <section class="chat-container">
+
+            <div class="chat-header">
+
+                <div class="chat-header-left">
+
+                    <div class="avatar-area">
+                        <button class="avatar-button" id="avatarButton" type="button">
+                            <img id="userAvatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Tyobista"
+                                alt="Your avatar">
+                        </button>
+
+                        <div class="avatar-menu" id="avatarMenu">
+
+                            <div class="avatar-menu-header">
+                                <h3>Customize Avatar</h3>
+                                <button id="closeAvatarMenu" type="button">×</button>
+                            </div>
+
+                            <div class="avatar-preview">
+                                <img id="avatarPreview" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Tyobista"
+                                    alt="Avatar preview">
+                            </div>
+
+                            <div class="avatar-section">
+
+                                <h4>Choose an avatar</h4>
+
+                                <div class="avatar-options">
+
+                                    <button class="avatar-option"
+                                        data-avatar="https://api.dicebear.com/9.x/adventurer/svg?seed=Alex"
+                                        type="button">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Alex" alt="Avatar">
+                                    </button>
+
+                                    <button class="avatar-option"
+                                        data-avatar="https://api.dicebear.com/9.x/adventurer/svg?seed=Sam"
+                                        type="button">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Sam" alt="Avatar">
+                                    </button>
+
+                                    <button class="avatar-option"
+                                        data-avatar="https://api.dicebear.com/9.x/adventurer/svg?seed=Taylor"
+                                        type="button">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Taylor" alt="Avatar">
+                                    </button>
+
+                                    <button class="avatar-option"
+                                        data-avatar="https://api.dicebear.com/9.x/adventurer/svg?seed=Jordan"
+                                        type="button">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Jordan" alt="Avatar">
+                                    </button>
+
+                                    <button class="avatar-option"
+                                        data-avatar="https://api.dicebear.com/9.x/adventurer/svg?seed=Chris"
+                                        type="button">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Chris" alt="Avatar">
+                                    </button>
+
+                                    <button class="avatar-option"
+                                        data-avatar="https://api.dicebear.com/9.x/adventurer/svg?seed=Jamie"
+                                        type="button">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Jamie" alt="Avatar">
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="avatar-section">
+
+                                <h4>Upload your own</h4>
+
+                                <label class="upload-avatar">
+                                    📷 Upload Photo
+                                    <input type="file" id="avatarUpload" accept="image/*">
+                                </label>
+
+                            </div>
+
+                            <button class="save-avatar" id="saveAvatar" type="button">
+                                Save Avatar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <h1>
+                            Ethio-Uni Assistant
+                        </h1>
+
+                        <div class="status">
+
+                            <span class="status-dot"></span>
+
+                            <span>
+                                Online
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="index.html" class="back-button">
+
+                    <i data-lucide="arrow-left"></i>
+
+                    <span>
+                        Back
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="chat-messages" id="chat-messages">
+
+                <div class="message bot-message">
+
+                    <div class="message-avatar">
+                        🤖
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-bubble">
+
+                            <p>
+                                Hi! 👋 I'm the Ethio-Uni Assistant.
+                            </p>
+
+                            <p>
+                                I can help you find information about
+                                Ethiopian universities, programs,
+                                courses and academic calendars.
+                            </p>
+
+                        </div>
+
+                        <span class="message-time">
+                            Just now
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="suggestions" id="suggestions">
+
+                    <button class="suggestion-button" data-question="What universities are available?">
+                        🎓 Universities
+                    </button>
+
+                    <button class="suggestion-button" data-question="Tell me about Addis Ababa University.">
+                        🏛️ Addis Ababa University
+                    </button>
+
+                    <button class="suggestion-button" data-question="Tell me about Hawassa University.">
+                        🏫 Hawassa University
+                    </button>
+
+                    <button class="suggestion-button" data-question="What academic calendars are available?">
+                        📅 Academic Calendar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="voice-status" id="voice-status">
+
+                <div class="voice-animation">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <span>
+                    Listening...
+                </span>
+
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <div class="chat-input-wrapper">
+
+                    <textarea id="chat-input" rows="1" placeholder="Ask me anything..."
+                        aria-label="Type your message"></textarea>
+
+
+                    <button class="voice-button" id="voice-button" type="button" aria-label="Use voice input"
+                        title="Voice input">
+
+                        <i data-lucide="mic"></i>
+
+                    </button>
+
+                    <select id="voiceLanguage">
+
+                        <option value="en-US">
+                            English
+                        </option>
+
+                        <option value="am-ET">
+                            Amharic
+                        </option>
+
+                    </select>
+
+
+                    <button class="send-button" id="send-button" type="button" aria-label="Send message"
+                        title="Send message">
+
+                        <i data-lucide="send"></i>
+
+                    </button>
+
+                </div>
+
+                <p class="input-note">
+                    Ask about universities, programs, courses or academic calendars.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://unpkg.com/@voxide/react@0.8.0/dist/voxide.browser.js"></script>
+
+    <script src="chatbot.js"></script>
+
+</body>
+
+</html>

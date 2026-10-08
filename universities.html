@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Universities | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="universities.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="universities.html" class="active">
+                Universities
+            </a>
+
+            <a href="#">Campus life</a>
+
+            <div class="calendar-menu">
+
+                <button type="button" class="calendar-menu-btn">
+                    Academic Calendar
+                    <span class="calendar-arrow">▾</span>
+                </button>
+
+                <div class="calendar-menu-list">
+
+                    <a href="aau-calendar.html">
+                        Addis Ababa University
+                    </a>
+
+                    <a href="hawassa-calendar.html">
+                        Hawassa University
+                    </a>
+                    <a href="#">
+                        <span class="coming-soon-plus">➕</span>
+                        More universities coming soon
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <label class="theme" for="theme">
+
+                <span class="theme__toggle-wrap">
+
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
+
+                    <span class="theme__icon">
+
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+
+                    </span>
+
+                </span>
+
+            </label>
+
+            <button class="menu-btn" id="menu-btn" aria-label="Open menu">
+                <i data-lucide="menu"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    🎓 UNIVERSITIES
+                </span>
+
+                <h1>
+                    Explore Ethiopian
+                    <span>Universities</span>
+                </h1>
+
+                <p>
+                    Discover universities across Ethiopia and learn more
+                    about their campuses, programs and student opportunities.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="universities-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        UNIVERSITY PROFILES
+                    </span>
+
+                    <h2>
+                        Start Exploring
+                    </h2>
+
+                    <p>
+                        Explore the universities currently featured on
+                        Ethio-Uni-Guide. More university profiles will be
+                        added as the platform grows.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="universities-grid" id="universities-grid"></div>
+
+        </section>
+
+
+        <section class="growing-section">
+
+            <div class="growing-content">
+
+                <div class="growing-icon">
+                    <i data-lucide="plus"></i>
+                </div>
+
+                <div>
+
+                    <span class="section-label">
+                        GROWING WITH YOU
+                    </span>
+
+                    <h2>
+                        More Universities Coming Soon
+                    </h2>
+
+                    <p>
+                        Ethio-Uni-Guide is starting with a small number of
+                        universities and will continue expanding to include
+                        more universities from across Ethiopia.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="growth-decoration">
+                🎓
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div class="modal-overlay" id="modal-overlay">
+
+        <div class="university-modal">
+
+            <button class="modal-close" id="modal-close" aria-label="Close">
+                <i data-lucide="x"></i>
+            </button>
+
+            <div class="modal-icon" id="modal-icon">
+                🏛️
+            </div>
+
+            <span class="modal-type" id="modal-type">
+                PUBLIC UNIVERSITY
+            </span>
+
+            <h2 id="modal-name">
+                Addis Ababa University
+            </h2>
+
+            <div class="modal-location">
+
+                <i data-lucide="map-pin"></i>
+
+                <span id="modal-city">
+                    Addis Ababa
+                </span>
+
+            </div>
+
+            <p id="modal-description"></p>
+
+            <div class="modal-info">
+
+                <div class="info-item">
+
+                    <span>🏛️</span>
+
+                    <div>
+
+                        <small>
+                            University Type
+                        </small>
+
+                        <strong id="modal-type-info">
+                            Public
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>📍</span>
+
+                    <div>
+
+                        <small>
+                            Location
+                        </small>
+
+                        <strong id="modal-location-info">
+                            Addis Ababa
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button class="modal-button" id="modal-button">
+
+                Visit University Website
+
+                <i data-lucide="arrow-up-right"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="universities.js"></script>
+
+</body>
+
+</html>
