@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Academic Calendar - Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="university"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item">
+                <i data-lucide="library"></i>
+                <span>Library</span>
+            </a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+                <i data-lucide="bed-double"></i>
+                <span>Dormitory</span>
+            </a>
+
+            <a href="admin-student-services.html" class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Student Services</span>
+            </a>
+
+            <a href="admin-events.html" class="nav-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Events & Announcements</span>
+            </a>
+
+            <a href="admin-academic-calendar.html"
+               class="nav-item active">
+                <i data-lucide="calendar"></i>
+                <span>Academic Calendar</span>
+            </a>
+
+            <a href="admin-settings.html" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <button id="logoutButton" class="nav-item logout-button">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- HEADER -->
+        <header class="admin-header">
+
+            <div>
+                <h1>Academic Calendar</h1>
+                <p>Manage important academic dates and schedules</p>
+            </div>
+
+            <button class="primary-button" id="addCalendarButton">
+                <i data-lucide="plus"></i>
+                Add Calendar Event
+            </button>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content-card">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="calendarSearch"
+                        placeholder="Search academic calendar..."
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- ACADEMIC CALENDAR TABLE -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Academic Year</th>
+                            <th>Semester</th>
+                            <th>Event</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="calendarTableBody">
+
+                        <tr>
+                            <td>1</td>
+                            <td>2026/2027</td>
+                            <td>Semester 1</td>
+                            <td>Semester Begins</td>
+                            <td>2026-09-01</td>
+                            <td>2026-09-01</td>
+                            <td>All Campuses</td>
+
+                            <td>
+                                <button class="table-action">
+                                    <i data-lucide="edit"></i>
+                                </button>
+
+                                <button class="table-action">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>2</td>
+                            <td>2026/2027</td>
+                            <td>Semester 1</td>
+                            <td>Course Registration</td>
+                            <td>2026-09-05</td>
+                            <td>2026-09-15</td>
+                            <td>Registration Office</td>
+
+                            <td>
+                                <button class="table-action">
+                                    <i data-lucide="edit"></i>
+                                </button>
+
+                                <button class="table-action">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>3</td>
+                            <td>2026/2027</td>
+                            <td>Semester 1</td>
+                            <td>Mid-Semester Examination</td>
+                            <td>2026-11-10</td>
+                            <td>2026-11-20</td>
+                            <td>All Campuses</td>
+
+                            <td>
+                                <button class="table-action">
+                                    <i data-lucide="edit"></i>
+                                </button>
+
+                                <button class="table-action">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>4</td>
+                            <td>2026/2027</td>
+                            <td>Semester 1</td>
+                            <td>Final Examination</td>
+                            <td>2027-01-10</td>
+                            <td>2027-01-25</td>
+                            <td>All Campuses</td>
+
+                            <td>
+                                <button class="table-action">
+                                    <i data-lucide="edit"></i>
+                                </button>
+
+                                <button class="table-action">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>5</td>
+                            <td>2026/2027</td>
+                            <td>Semester 2</td>
+                            <td>Semester Begins</td>
+                            <td>2027-02-01</td>
+                            <td>2027-02-01</td>
+                            <td>All Campuses</td>
+
+                            <td>
+                                <button class="table-action">
+                                    <i data-lucide="edit"></i>
+                                </button>
+
+                                <button class="table-action">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="admin-academic-calendar.js"></script>
+
+</body>
+</html>

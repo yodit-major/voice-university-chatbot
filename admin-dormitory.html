@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dormitory - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="network"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item">
+                <i data-lucide="library"></i>
+                <span>Library</span>
+            </a>
+
+            <a href="admin-dormitory.html" class="nav-item active">
+                <i data-lucide="bed-double"></i>
+                <span>Dormitory</span>
+            </a>
+
+            <a href="admin-student-services.html" class="nav-item">
+    <i data-lucide="users"></i>
+    <span>Student Services</span>
+</a>
+            <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="nav-item logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Dormitory</h1>
+
+                <p>
+                    Manage student dormitories, registration information, and facilities.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addButton">
+                <i data-lucide="plus"></i>
+                Add Dormitory
+            </button>
+
+        </header>
+
+
+        <!-- TABS -->
+        <div class="management-tabs">
+
+            <button class="management-tab active" data-tab="dormitories">
+                <i data-lucide="bed-double"></i>
+                Dormitories
+            </button>
+
+            <button class="management-tab" data-tab="facilities">
+                <i data-lucide="building"></i>
+                Facilities
+            </button>
+
+        </div>
+
+
+        <!-- DORMITORIES -->
+        <section class="content-card tab-content active" id="dormitories">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="dormitorySearch"
+                        placeholder="Search dormitories..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Dormitory</th>
+                            <th>Campus</th>
+                            <th>Building</th>
+                            <th>Capacity</th>
+                            <th>Room Capacity</th>
+                            <th>Fee</th>
+                            <th>Application Deadline</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="dormitoryTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Engineering Student Dormitory</strong>
+                            </td>
+
+                            <td>CTBE</td>
+
+                            <td>Samsung Building</td>
+
+                            <td>200</td>
+
+                            <td>4</td>
+
+                            <td>1,500 ETB</td>
+
+                            <td>September 15, 2026</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Natural Sciences Student Dormitory</strong>
+                            </td>
+
+                            <td>CNCS</td>
+
+                            <td>Science Block</td>
+
+                            <td>180</td>
+
+                            <td>4</td>
+
+                            <td>1,500 ETB</td>
+
+                            <td>September 15, 2026</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- FACILITIES -->
+        <section class="content-card tab-content" id="facilities">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="facilitySearch"
+                        placeholder="Search facilities..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Facility</th>
+                            <th>Dormitory</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="facilityTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Study Room</strong>
+                            </td>
+
+                            <td>Engineering Student Dormitory</td>
+
+                            <td>
+                                Dedicated quiet space for students to study.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Common Room</strong>
+                            </td>
+
+                            <td>Engineering Student Dormitory</td>
+
+                            <td>
+                                Shared area for student activities and relaxation.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>3</td>
+
+                            <td>
+                                <strong>Laundry Area</strong>
+                            </td>
+
+                            <td>Engineering Student Dormitory</td>
+
+                            <td>
+                                Shared laundry facilities for residents.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>4</td>
+
+                            <td>
+                                <strong>Internet Access</strong>
+                            </td>
+
+                            <td>Engineering Student Dormitory</td>
+
+                            <td>
+                                Internet access available for residents.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>5</td>
+
+                            <td>
+                                <strong>Dining Area</strong>
+                            </td>
+
+                            <td>Engineering Student Dormitory</td>
+
+                            <td>
+                                Shared dining area for students.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="admin-dormitory.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

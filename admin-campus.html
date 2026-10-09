@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus & Buildings - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="network"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item active">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item">
+    <i data-lucide="library"></i>
+    <span>Library</span>
+</a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+    <i data-lucide="bed-double"></i>
+    <span>Dormitory</span>
+</a>
+
+            <a href="admin-student-services.html" class="nav-item">
+    <i data-lucide="users"></i>
+    <span>Student Services</span>
+</a>
+
+            <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="nav-item logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Campus & Buildings</h1>
+
+                <p>
+                    Manage campuses, buildings, and rooms.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addButton">
+
+                <i data-lucide="plus"></i>
+
+                Add Campus
+
+            </button>
+
+        </header>
+
+
+        <!-- TABS -->
+        <div class="management-tabs">
+
+            <button class="management-tab active" data-tab="campuses">
+                <i data-lucide="map"></i>
+                Campuses
+            </button>
+
+            <button class="management-tab" data-tab="buildings">
+                <i data-lucide="building-2"></i>
+                Buildings
+            </button>
+
+            <button class="management-tab" data-tab="rooms">
+                <i data-lucide="door-open"></i>
+                Rooms
+            </button>
+
+        </div>
+
+
+        <!-- CAMPUSES -->
+        <section class="content-card tab-content active" id="campuses">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="campusSearch"
+                        placeholder="Search campuses..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Campus</th>
+                            <th>University</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="campusTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>CTBE</strong>
+                            </td>
+
+                            <td>
+                                Addis Ababa University
+                            </td>
+
+                            <td>
+                                Addis Ababa, Ethiopia
+                            </td>
+
+                            <td>
+                                Engineering-related programs
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>CNCS</strong>
+                            </td>
+
+                            <td>
+                                Addis Ababa University
+                            </td>
+
+                            <td>
+                                Addis Ababa, Ethiopia
+                            </td>
+
+                            <td>
+                                Natural and computational sciences
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUILDINGS -->
+        <section class="content-card tab-content" id="buildings">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="buildingSearch"
+                        placeholder="Search buildings..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Building</th>
+                            <th>Number</th>
+                            <th>Campus</th>
+                            <th>Floors</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="buildingTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Main Building</strong>
+                            </td>
+
+                            <td>ENG-01</td>
+
+                            <td>CTBE</td>
+
+                            <td>4</td>
+
+                            <td>
+                                Engineering teaching and laboratory building.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Samsung Building</strong>
+                            </td>
+
+                            <td>ENG-02</td>
+
+                            <td>CTBE</td>
+
+                            <td>3</td>
+
+                            <td>
+                                Software and biomedical engineering building.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>3</td>
+
+                            <td>
+                                <strong>Science Block</strong>
+                            </td>
+
+                            <td>SCI-01</td>
+
+                            <td>CNCS</td>
+
+                            <td>3</td>
+
+                            <td>
+                                Natural sciences teaching and laboratory building.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ROOMS -->
+        <section class="content-card tab-content" id="rooms">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="roomSearch"
+                        placeholder="Search rooms..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Room</th>
+                            <th>Building</th>
+                            <th>Floor</th>
+                            <th>Type</th>
+                            <th>Capacity</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="roomTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>E101</strong>
+                            </td>
+
+                            <td>Main Building</td>
+
+                            <td>1</td>
+
+                            <td>Lecture Hall</td>
+
+                            <td>60</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>E102</strong>
+                            </td>
+
+                            <td>Main Building</td>
+
+                            <td>1</td>
+
+                            <td>Laboratory</td>
+
+                            <td>30</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="admin-campus.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

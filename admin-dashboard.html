@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+                <span>Ethio-Uni-Guide</span>
+            </div>
+
+            <nav class="admin-nav">
+
+                <a href="admin-dashboard.html" class="nav-item active">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i data-lucide="building-2"></i>
+                    <span>Universities</span>
+                </a>
+
+                <a href="admin-programs.html" class="nav-item">
+    <i data-lucide="graduation-cap"></i>
+    <span>Programs</span>
+</a>
+
+                <a href="admin-courses.html" class="nav-item">
+    <i data-lucide="book-open"></i>
+    <span>Courses</span>
+</a>
+
+                <a href="#" class="nav-item">
+                    <i data-lucide="users"></i>
+                    <span>Departments</span>
+                </a>
+
+                <a href="admin-campus.html" class="nav-item">
+    <i data-lucide="map-pin"></i>
+    <span>Campus & Buildings</span>
+</a>
+
+                <a href="admin-library.html" class="nav-item">
+    <i data-lucide="library"></i>
+    <span>Library</span>
+</a>
+
+                <a href="admin-dormitory.html" class="nav-item">
+    <i data-lucide="bed-double"></i>
+    <span>Dormitory</span>
+</a>
+
+                <a href="admin-student-services.html" class="nav-item">
+    <i data-lucide="users"></i>
+    <span>Student Services</span>
+</a>
+
+                <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+                <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+
+                <button id="logoutButton" class="logout-button">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <!-- TOP BAR -->
+            <header class="admin-header">
+
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Manage university information and content.</p>
+                </div>
+
+                <div class="admin-profile">
+                    <div class="profile-icon">
+                        <i data-lucide="user"></i>
+                    </div>
+
+                    <div>
+                        <strong>Administrator</strong>
+                        <small>Admin</small>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+
+                    <div>
+                        <p>Universities</p>
+                        <h2>2</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+
+                    <div>
+                        <p>Courses</p>
+                        <h2>6</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+
+                    <div>
+                        <p>Programs</p>
+                        <h2>--</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i data-lucide="megaphone"></i>
+                    </div>
+
+                    <div>
+                        <p>Announcements</p>
+                        <h2>--</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Quick Actions</h2>
+                        <p>Quickly manage university information.</p>
+                    </div>
+                </div>
+
+
+                <div class="quick-actions">
+
+                    <button class="action-card">
+                        <i data-lucide="book-plus"></i>
+                        <span>Add Course</span>
+                    </button>
+
+                    <button class="action-card">
+                        <i data-lucide="building"></i>
+                        <span>Add Building</span>
+                    </button>
+
+                    <button class="action-card">
+                        <i data-lucide="library"></i>
+                        <span>Manage Library</span>
+                    </button>
+
+                    <button class="action-card">
+                        <i data-lucide="megaphone"></i>
+                        <span>Add Announcement</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT UPDATES -->
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Recent Updates</h2>
+                        <p>Recently added or updated information.</p>
+                    </div>
+                </div>
+
+
+                <div class="recent-updates">
+
+                    <div class="empty-state">
+                        <i data-lucide="inbox"></i>
+
+                        <h3>No recent updates</h3>
+
+                        <p>
+                            Recent university information changes
+                            will appear here.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script src="admin-dashboard.js"></script>
+
+</body>
+</html>

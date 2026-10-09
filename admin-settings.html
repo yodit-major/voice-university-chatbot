@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings - Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="university"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item">
+                <i data-lucide="library"></i>
+                <span>Library</span>
+            </a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+                <i data-lucide="bed-double"></i>
+                <span>Dormitory</span>
+            </a>
+
+            <a href="admin-student-services.html" class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Student Services</span>
+            </a>
+
+            <a href="admin-events.html" class="nav-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Events & Announcements</span>
+            </a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+                <i data-lucide="calendar"></i>
+                <span>Academic Calendar</span>
+            </a>
+
+            <a href="admin-settings.html" class="nav-item active">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <button id="logoutButton" class="nav-item logout-button">
+            <i data-lucide="log-out"></i>
+            <span>Logout</span>
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <!-- HEADER -->
+        <header class="admin-header">
+
+            <div>
+                <h1>Settings</h1>
+                <p>Manage your administrator account and system preferences</p>
+            </div>
+
+        </header>
+
+
+        <!-- ADMIN PROFILE -->
+        <section class="content-card settings-card">
+
+            <div class="settings-section-header">
+
+                <div class="settings-icon">
+                    <i data-lucide="user"></i>
+                </div>
+
+                <div>
+                    <h2>Admin Profile</h2>
+                    <p>Manage your administrator account information.</p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-form">
+
+                <div class="form-group">
+
+                    <label for="adminName">
+                        Admin Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="adminName"
+                        value="Administrator"
+                        placeholder="Enter admin name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="adminEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        value="admin@ethio-uniguide.com"
+                        placeholder="Enter admin email"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="saveProfileButton"
+                >
+                    <i data-lucide="save"></i>
+                    Save Profile
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHATBOT SETTINGS -->
+        <section class="content-card settings-card">
+
+            <div class="settings-section-header">
+
+                <div class="settings-icon">
+                    <i data-lucide="bot"></i>
+                </div>
+
+                <div>
+                    <h2>Chatbot Settings</h2>
+                    <p>Manage how the university chatbot behaves.</p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-form">
+
+                <div class="form-group">
+
+                    <label for="welcomeMessage">
+                        Welcome Message
+                    </label>
+
+                    <textarea
+                        id="welcomeMessage"
+                        rows="4"
+                        placeholder="Enter chatbot welcome message"
+                    >Hello! Welcome to Ethio-Uni-Guide. How can I help you today?</textarea>
+
+                </div>
+
+
+                <div class="setting-toggle">
+
+                    <div>
+                        <strong>Voice Assistant</strong>
+
+                        <p>
+                            Enable voice interaction for the chatbot.
+                        </p>
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="voiceToggle"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="saveChatbotButton"
+                >
+                    <i data-lucide="save"></i>
+                    Save Chatbot Settings
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECURITY -->
+        <section class="content-card settings-card">
+
+            <div class="settings-section-header">
+
+                <div class="settings-icon">
+                    <i data-lucide="shield"></i>
+                </div>
+
+                <div>
+                    <h2>Security</h2>
+                    <p>Manage your administrator account security.</p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-form">
+
+                <div class="form-group">
+
+                    <label for="currentPassword">
+                        Current Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        placeholder="Enter current password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newPassword">
+                        New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Enter new password"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm new password"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="changePasswordButton"
+                >
+                    <i data-lucide="key-round"></i>
+                    Change Password
+                </button>
+
+                <p id="settingsMessage" class="settings-message"></p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="admin-settings.js"></script>
+
+</body>
+</html>

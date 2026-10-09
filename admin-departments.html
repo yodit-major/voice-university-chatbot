@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Departments - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item active">
+                <i data-lucide="network"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+    <i data-lucide="map-pin"></i>
+    <span>Campus & Buildings</span>
+</a>
+
+            <a href="admin-library.html" class="nav-item">
+    <i data-lucide="library"></i>
+    <span>Library</span>
+</a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+    <i data-lucide="bed-double"></i>
+    <span>Dormitory</span>
+</a>
+
+            <a href="admin-student-services.html" class="nav-item">
+    <i data-lucide="users"></i>
+    <span>Student Services</span>
+</a>
+
+            <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="nav-item logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+            <div>
+                <h1>Departments</h1>
+                <p>Manage university departments and their information.</p>
+            </div>
+
+            <button class="primary-button" id="addDepartmentButton">
+                <i data-lucide="plus"></i>
+                Add Department
+            </button>
+        </header>
+
+
+        <!-- Search -->
+        <section class="content-card">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="departmentSearch"
+                        placeholder="Search departments..."
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- Departments Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Department</th>
+                            <th>University</th>
+                            <th>Campus</th>
+                            <th>Head</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="departmentTableBody">
+
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <strong>Engineering</strong>
+                            </td>
+                            <td>Addis Ababa University</td>
+                            <td>Engineering Campus</td>
+                            <td>Dr. Abebe Kebede</td>
+                            <td>011-123-4501</td>
+                            <td>
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <strong>Natural Sciences</strong>
+                            </td>
+                            <td>Addis Ababa University</td>
+                            <td>Science Campus</td>
+                            <td>Dr. Hana Tesfaye</td>
+                            <td>011-123-4502</td>
+                            <td>
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="admin-departments.js"></script>
+
+</body>
+</html>

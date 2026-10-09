@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Services - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="network"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item">
+                <i data-lucide="library"></i>
+                <span>Library</span>
+            </a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+                <i data-lucide="bed-double"></i>
+                <span>Dormitory</span>
+            </a>
+
+            <a href="admin-student-services.html" class="nav-item active">
+                <i data-lucide="users"></i>
+                <span>Student Services</span>
+            </a>
+
+            <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="nav-item logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Student Services</h1>
+
+                <p>
+                    Manage services available to university students.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addServiceButton">
+                <i data-lucide="plus"></i>
+                Add Service
+            </button>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content-card">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="serviceSearch"
+                        placeholder="Search student services..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Service</th>
+                            <th>Location</th>
+                            <th>Opening</th>
+                            <th>Closing</th>
+                            <th>Fee</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="serviceTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Registrar Service</strong>
+                            </td>
+
+                            <td>
+                                Engineering Campus
+                            </td>
+
+                            <td>8:30 AM</td>
+
+                            <td>5:00 PM</td>
+
+                            <td>50 ETB</td>
+
+                            <td>
+                                011-123-4401
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Student ID Service</strong>
+                            </td>
+
+                            <td>
+                                Engineering Campus
+                            </td>
+
+                            <td>8:30 AM</td>
+
+                            <td>4:30 PM</td>
+
+                            <td>100 ETB</td>
+
+                            <td>
+                                011-123-4402
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>3</td>
+
+                            <td>
+                                <strong>Academic Advising</strong>
+                            </td>
+
+                            <td>
+                                Engineering Campus
+                            </td>
+
+                            <td>9:00 AM</td>
+
+                            <td>4:00 PM</td>
+
+                            <td>Free</td>
+
+                            <td>
+                                011-123-4403
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>4</td>
+
+                            <td>
+                                <strong>Student Health Service</strong>
+                            </td>
+
+                            <td>
+                                Science Campus
+                            </td>
+
+                            <td>8:00 AM</td>
+
+                            <td>5:00 PM</td>
+
+                            <td>Free</td>
+
+                            <td>
+                                011-123-4404
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>5</td>
+
+                            <td>
+                                <strong>Student Support Service</strong>
+                            </td>
+
+                            <td>
+                                Science Campus
+                            </td>
+
+                            <td>8:30 AM</td>
+
+                            <td>4:30 PM</td>
+
+                            <td>Free</td>
+
+                            <td>
+                                011-123-4405
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="admin-student-services.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>
