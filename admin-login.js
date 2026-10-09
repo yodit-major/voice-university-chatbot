@@ -108,7 +108,7 @@ if (adminLoginForm) {
             // OPEN ADMIN DASHBOARD
             // =========================
 
-            window.location.href = "http://127.0.0.1:5500/admin-dashboard.html";
+            window.location.href = "http://127.0.0.1:5500/voice-university-chatbot/admin-dashboard.html";
 
         } catch (error) {
 
