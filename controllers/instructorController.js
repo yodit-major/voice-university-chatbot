@@ -1,8 +1,7 @@
-
-import pool from("../config/database");
+import db from "../config/database.js";
 
 // GET all instructors
-exports.getAllInstructors = (req, res) => {
+export const getAllInstructors = (req, res) => {
     const sql = `
         SELECT
             instructor_id,
@@ -26,8 +25,7 @@ exports.getAllInstructors = (req, res) => {
     });
 };
 
-// GET instructor by ID
-exports.getInstructorById = (req, res) => {
+export const getInstructorById = (req, res) => {
     const { id } = req.params;
 
     const sql = `
@@ -61,7 +59,7 @@ exports.getInstructorById = (req, res) => {
 };
 
 // GET instructors by department
-exports.getInstructorsByDepartment = (req, res) => {
+export const getInstructorsByDepartment = (req, res) => {
     const { departmentId } = req.params;
 
     const sql = `

@@ -1,11 +1,17 @@
-const express = require("express");
+
+import express from "express";
+
+import {
+    getAllInstructors,
+    getInstructorById
+} from "../controllers/instructorController.js";
+
 const router = express.Router();
 
-const instructorController = require("../controllers/instructorController");
+// Get all instructors
+router.get("/", getAllInstructors);
 
-
-router.get("/", instructorController.getAllInstructors);
-router.get("/:id", instructorController.getInstructorById);
-router.get("/department/:departmentId",instructorController.getInstructorsByDepartment);
+// Get instructor by ID
+router.get("/:id", getInstructorById);
 
 export default router;

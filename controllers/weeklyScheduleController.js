@@ -1,7 +1,8 @@
-import pool from("../config/database");
 
-// GET all course schedules
-exports.getAllSchedules = (req, res) => {
+import db from "../config/database.js";
+
+// Get all weekly schedules
+export const getAllWeeklySchedules = (req, res) => {
     const sql = `
         SELECT *
         FROM course_schedule
@@ -10,9 +11,9 @@ exports.getAllSchedules = (req, res) => {
 
     db.query(sql, (err, results) => {
         if (err) {
-            console.error("Error fetching schedules:", err);
+            console.error("Error fetching weekly schedules:", err);
             return res.status(500).json({
-                message: "Failed to retrieve course schedules"
+                message: "Failed to fetch weekly schedules"
             });
         }
 
@@ -20,8 +21,8 @@ exports.getAllSchedules = (req, res) => {
     });
 };
 
-// GET schedule by ID
-exports.getScheduleById = (req, res) => {
+// Get one weekly schedule by ID
+export const getWeeklyScheduleById = (req, res) => {
     const { id } = req.params;
 
     const sql = `
@@ -32,15 +33,15 @@ exports.getScheduleById = (req, res) => {
 
     db.query(sql, [id], (err, results) => {
         if (err) {
-            console.error("Error fetching schedule:", err);
+            console.error("Error fetching weekly schedule:", err);
             return res.status(500).json({
-                message: "Failed to retrieve course schedule"
+                message: "Failed to fetch weekly schedule"
             });
         }
 
         if (results.length === 0) {
             return res.status(404).json({
-                message: "Course schedule not found"
+                message: "Weekly schedule not found"
             });
         }
 
@@ -48,14 +49,14 @@ exports.getScheduleById = (req, res) => {
     });
 };
 
-// GET schedules by day
-exports.getSchedulesByDay = (req, res) => {
+// Get weekly schedules by day
+export const getWeeklySchedulesByDay = (req, res) => {
     const { day } = req.params;
 
     const sql = `
         SELECT *
         FROM course_schedule
-        WHERE LOWER(day_of_week) = LOWER(?)
+        WHERE day_of_week = ?
         ORDER BY start_time
     `;
 
@@ -63,11 +64,10 @@ exports.getSchedulesByDay = (req, res) => {
         if (err) {
             console.error("Error fetching schedules by day:", err);
             return res.status(500).json({
-                message: "Failed to retrieve schedules for this day"
+                message: "Failed to fetch schedules by day"
             });
         }
 
         res.status(200).json(results);
     });
 };
-

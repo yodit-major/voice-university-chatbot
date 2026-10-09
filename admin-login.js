@@ -80,7 +80,7 @@ if (adminLoginForm) {
             // CHECK ADMIN ROLE
             // =========================
 
-            if (payload.role !== "admin") {
+            if (String(payload.role).toLowerCase() !== "admin") {
 
                 loginMessage.textContent =
                     "Access denied. Admin account required.";

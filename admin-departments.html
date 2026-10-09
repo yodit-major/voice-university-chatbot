@@ -149,50 +149,12 @@
                         </tr>
                     </thead>
 
-                    <tbody id="departmentTableBody">
-
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <strong>Engineering</strong>
-                            </td>
-                            <td>Addis Ababa University</td>
-                            <td>Engineering Campus</td>
-                            <td>Dr. Abebe Kebede</td>
-                            <td>011-123-4501</td>
-                            <td>
-                                <button class="table-action edit">
-                                    <i data-lucide="pencil"></i>
-                                </button>
-
-                                <button class="table-action delete">
-                                    <i data-lucide="trash-2"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                <strong>Natural Sciences</strong>
-                            </td>
-                            <td>Addis Ababa University</td>
-                            <td>Science Campus</td>
-                            <td>Dr. Hana Tesfaye</td>
-                            <td>011-123-4502</td>
-                            <td>
-                                <button class="table-action edit">
-                                    <i data-lucide="pencil"></i>
-                                </button>
-
-                                <button class="table-action delete">
-                                    <i data-lucide="trash-2"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-
+                    
+<tbody id="departmentTableBody">
+    <tr>
+        <td colspan="7">Loading departments...</td>
+    </tr>
+</tbody>
                 </table>
 
             </div>
@@ -203,6 +165,75 @@
 
 </div>
 
+<!-- Department Modal -->
+<div class="modal-overlay" id="departmentModal">
+    <div class="department-modal">
+        <div class="modal-header">
+            <div>
+                <h2 id="departmentModalTitle">Add Department</h2>
+                <p>Enter the department information below.</p>
+            </div>
+            <button type="button" class="modal-close" id="closeDepartmentModal">
+                &times;
+            </button>
+        </div>
+
+        <form id="departmentForm">
+            <div class="department-form-grid">
+                <div class="form-group">
+                    <label for="departmentName">Department Name *</label>
+                    <input id="departmentName" name="department_name"
+                           placeholder="e.g. Software Engineering" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="departmentUniversity">University ID *</label>
+                    <input id="departmentUniversity" name="university_id"
+                           type="number" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="departmentCampus">Campus ID</label>
+                    <input id="departmentCampus" name="campus_id"
+                           type="number" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="departmentHead">Department Head</label>
+                    <input id="departmentHead" name="head_name"
+                           placeholder="Enter head's name">
+                </div>
+
+                <div class="form-group">
+                    <label for="departmentPhone">Contact Phone</label>
+                    <input id="departmentPhone" name="contact_phone"
+                           type="tel" placeholder="Phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="departmentEmail">Contact Email</label>
+                    <input id="departmentEmail" name="contact_email"
+                           type="email" placeholder="Email address">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="departmentDescription">Description *</label>
+                    <textarea id="departmentDescription"
+                              name="description"
+                              placeholder="Enter department description"
+                              required></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="cancel-button"
+                        id="cancelDepartmentModal">Cancel</button>
+                <button type="submit" class="primary-button"
+                        id="saveDepartmentButton">Save Department</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script>
     lucide.createIcons();

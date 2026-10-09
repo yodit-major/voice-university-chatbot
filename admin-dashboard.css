@@ -1385,3 +1385,145 @@ tbody tr:hover {
         width: 100%;
     }
 }
+
+/* Department modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(25, 35, 55, 0.55);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.department-modal {
+    background: #fff;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 24px;
+    padding: 36px 42px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 28px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e7ebf2;
+}
+
+.modal-header h2 {
+    margin: 0 0 12px;
+    font-size: 32px;
+    color: #192235;
+}
+
+.modal-header p {
+    margin: 0;
+    color: #718096;
+    font-size: 17px;
+}
+
+.modal-close {
+    width: 54px;
+    height: 54px;
+    border: 0;
+    border-radius: 14px;
+    background: #f0f3f9;
+    color: #344054;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.department-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group label {
+    font-size: 17px;
+    font-weight: 600;
+    color: #344054;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 60px;
+    padding: 15px 18px;
+    border: 1px solid #d2dbea;
+    border-radius: 12px;
+    font: inherit;
+    font-size: 17px;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3157e8;
+    box-shadow: 0 0 0 4px rgba(49, 87, 232, 0.12);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid #e7ebf2;
+}
+
+.cancel-button {
+    padding: 14px 22px;
+    border: 1px solid #d2dbea;
+    border-radius: 10px;
+    background: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    .department-modal {
+        padding: 24px;
+    }
+
+    .department-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .modal-header h2 {
+        font-size: 25px;
+    }
+}
