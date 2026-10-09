@@ -1,4 +1,4 @@
-
+/*getBuilding*/
 import express from "express";
 
 import {

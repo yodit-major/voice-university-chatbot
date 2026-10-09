@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all books
+
 export const getAllBooks = (req, res) => {
     const sql = "SELECT * FROM book ORDER BY title";
 

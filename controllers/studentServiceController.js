@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all student services
+
 export const getAllStudentServices = (req, res) => {
     const sql = "SELECT * FROM student_service ORDER BY service_name";
 

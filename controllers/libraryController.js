@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all libraries
+
 export const getAllLibraries = (req, res) => {
     const sql = "SELECT * FROM library";
 

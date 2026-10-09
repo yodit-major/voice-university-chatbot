@@ -1,3 +1,4 @@
+
 import express from "express";
 
 import { getEvents, createEvent } from "../controllers/eventController.js";

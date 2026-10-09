@@ -1,4 +1,4 @@
-
+/*getDormitoryFacilities*/
 import express from "express";
 
 import {

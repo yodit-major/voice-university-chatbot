@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// GET all programs, including their department names
+
 export const getAllPrograms = async (req, res) => {
     try {
         const [programs] = await db.query(`

@@ -1,4 +1,4 @@
-
+/*getCoursesSections*/
 import express from "express";
 
 import {

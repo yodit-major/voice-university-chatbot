@@ -10,7 +10,7 @@ import {
 
 const router = express.Router();
 
-// Get all announcements
+
 router.get("/", getAllAnnouncements);
 
 // Search announcements

@@ -17,9 +17,7 @@ export const chat = async (req, res, next) => {
         let contextParts = [];
         let sources = [];
 
-        // --------------------------------------------------
-        // 1. Department retrieval
-        // --------------------------------------------------
+        
 
         if (
             question.includes("department") ||

@@ -1,6 +1,6 @@
 import db from "../config/database.js";
 
-// GET all instructors
+
 export const getAllInstructors = (req, res) => {
     const sql = `
         SELECT

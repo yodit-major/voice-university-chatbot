@@ -1,6 +1,6 @@
 import db from "../config/database.js";
 
-// GET all campuses
+
 export const getAllCampuses = (req, res) => {
     const sql = `
         SELECT *

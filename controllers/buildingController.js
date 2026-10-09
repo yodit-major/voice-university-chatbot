@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all buildings
+
 export const getAllBuildings = (req, res) => {
     const sql = "SELECT * FROM building ORDER BY building_name";
 

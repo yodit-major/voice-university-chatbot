@@ -1,7 +1,7 @@
 
 import pool from "../config/database.js";
 
-// GET: Get all course offerings
+s
 export const getCourseOfferings = async (req, res) => {
     try {
         const [rows] = await pool.query(`

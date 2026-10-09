@@ -1,4 +1,4 @@
-
+/*getAllDormitories*/
 import express from "express";
 
 import {

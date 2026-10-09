@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all dormitory facilities
+
 export const getAllDormitoryFacilities = (req, res) => {
     const sql = `
         SELECT *

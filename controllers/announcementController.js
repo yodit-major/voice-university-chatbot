@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all announcements
+
 export const getAllAnnouncements = (req, res) => {
     const sql = `
         SELECT *

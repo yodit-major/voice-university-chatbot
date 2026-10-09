@@ -1,7 +1,7 @@
 
 import db from "../config/database.js";
 
-// Get all library services
+
 export const getAllLibraryServices = (req, res) => {
     const sql = "SELECT * FROM library_service ORDER BY service_name";
 
