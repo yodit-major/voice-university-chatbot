@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="network"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item active">
+                <i data-lucide="library"></i>
+                <span>Library</span>
+            </a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+    <i data-lucide="bed-double"></i>
+    <span>Dormitory</span>
+</a>
+
+            <a href="admin-student-services.html" class="nav-item">
+    <i data-lucide="users"></i>
+    <span>Student Services</span>
+</a>
+
+            <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+           <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="nav-item logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Library</h1>
+
+                <p>
+                    Manage libraries, books, and library services.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addButton">
+                <i data-lucide="plus"></i>
+                Add Library
+            </button>
+
+        </header>
+
+
+        <!-- TABS -->
+        <div class="management-tabs">
+
+            <button class="management-tab active" data-tab="libraries">
+                <i data-lucide="library"></i>
+                Libraries
+            </button>
+
+            <button class="management-tab" data-tab="books">
+                <i data-lucide="book"></i>
+                Books
+            </button>
+
+            <button class="management-tab" data-tab="services">
+                <i data-lucide="concierge-bell"></i>
+                Services
+            </button>
+
+        </div>
+
+
+        <!-- LIBRARIES -->
+        <section class="content-card tab-content active" id="libraries">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="librarySearch"
+                        placeholder="Search libraries..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Library</th>
+                            <th>Campus</th>
+                            <th>Building</th>
+                            <th>Opening</th>
+                            <th>Closing</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="libraryTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Main University Library</strong>
+                            </td>
+
+                            <td>CTBE</td>
+
+                            <td>Main Building</td>
+
+                            <td>8:00 AM</td>
+
+                            <td>8:00 PM</td>
+
+                            <td>011-123-4500</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOOKS -->
+        <section class="content-card tab-content" id="books">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="bookSearch"
+                        placeholder="Search books..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Category</th>
+                            <th>Shelf</th>
+                            <th>Status</th>
+                            <th>Copies</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="bookTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Software Engineering</strong>
+                            </td>
+
+                            <td>Ian Sommerville</td>
+
+                            <td>978-0133943030</td>
+
+                            <td>Computer Science</td>
+
+                            <td>A-12</td>
+
+                            <td>Available</td>
+
+                            <td>5</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Database System Concepts</strong>
+                            </td>
+
+                            <td>Abraham Silberschatz</td>
+
+                            <td>978-0078022159</td>
+
+                            <td>Database</td>
+
+                            <td>A-15</td>
+
+                            <td>Available</td>
+
+                            <td>3</td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+        <section class="content-card tab-content" id="services">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="serviceSearch"
+                        placeholder="Search services..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Service</th>
+                            <th>Library</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="serviceTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Book Borrowing</strong>
+                            </td>
+
+                            <td>Main University Library</td>
+
+                            <td>
+                                Borrow and return library books.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Digital Library</strong>
+                            </td>
+
+                            <td>Main University Library</td>
+
+                            <td>
+                                Access digital learning resources.
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="admin-library.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

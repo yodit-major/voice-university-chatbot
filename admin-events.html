@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events & Announcements - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="sidebar-logo">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="admin-programs.html" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="admin-courses.html" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="admin-departments.html" class="nav-item">
+                <i data-lucide="network"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+                <i data-lucide="map-pin"></i>
+                <span>Campus & Buildings</span>
+            </a>
+
+            <a href="admin-library.html" class="nav-item">
+                <i data-lucide="library"></i>
+                <span>Library</span>
+            </a>
+
+            <a href="admin-dormitory.html" class="nav-item">
+                <i data-lucide="bed-double"></i>
+                <span>Dormitory</span>
+            </a>
+
+            <a href="admin-student-services.html" class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Student Services</span>
+            </a>
+
+            <a href="admin-events.html" class="nav-item active">
+                <i data-lucide="calendar-days"></i>
+                <span>Events & Announcements</span>
+            </a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="nav-item logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Events & Announcements</h1>
+
+                <p>
+                    Manage university events and announcements.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addButton">
+                <i data-lucide="plus"></i>
+                Add Event
+            </button>
+
+        </header>
+
+
+        <!-- TABS -->
+        <div class="management-tabs">
+
+            <button class="management-tab active" data-tab="events">
+                <i data-lucide="calendar-days"></i>
+                Events
+            </button>
+
+            <button class="management-tab" data-tab="announcements">
+                <i data-lucide="megaphone"></i>
+                Announcements
+            </button>
+
+        </div>
+
+
+        <!-- EVENTS -->
+        <section class="content-card tab-content active" id="events">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="eventSearch"
+                        placeholder="Search events..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                            <th>Organizer</th>
+                            <th>Target Students</th>
+                            <th>Registration</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="eventTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Software Engineering Workshop</strong>
+                            </td>
+
+                            <td>Oct 5, 2026</td>
+
+                            <td>9:00 AM - 12:00 PM</td>
+
+                            <td>CTBE / Main Building / E101</td>
+
+                            <td>
+                                Department of Software Engineering
+                            </td>
+
+                            <td>
+                                Software Engineering Students
+                            </td>
+
+                            <td>
+                                Required
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Web Development Seminar</strong>
+                            </td>
+
+                            <td>Oct 12, 2026</td>
+
+                            <td>10:00 AM - 1:00 PM</td>
+
+                            <td>CTBE / Samsung Building / E102</td>
+
+                            <td>
+                                Department of Software Engineering
+                            </td>
+
+                            <td>
+                                All Students
+                            </td>
+
+                            <td>
+                                Not Required
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANNOUNCEMENTS -->
+        <section class="content-card tab-content" id="announcements">
+
+            <div class="table-toolbar">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input
+                        type="text"
+                        id="announcementSearch"
+                        placeholder="Search announcements..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Published</th>
+                            <th>Expires</th>
+                            <th>Target Students</th>
+                            <th>Important</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="announcementTableBody">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                <strong>Course Registration Deadline</strong>
+                            </td>
+
+                            <td>Sep 1, 2026</td>
+
+                            <td>Sep 15, 2026</td>
+
+                            <td>
+                                All Students
+                            </td>
+
+                            <td>
+                                Yes
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                <strong>Library Orientation Program</strong>
+                            </td>
+
+                            <td>Sep 5, 2026</td>
+
+                            <td>Sep 30, 2026</td>
+
+                            <td>
+                                First Year Students
+                            </td>
+
+                            <td>
+                                No
+                            </td>
+
+                            <td>
+
+                                <button class="table-action edit">
+                                    <i data-lucide="pencil"></i>
+                                </button>
+
+                                <button class="table-action delete">
+                                    <i data-lucide="trash-2"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="admin-events.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Universities - Admin</title>
+
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+            <span>Ethio-Uni-Guide</span>
+        </div>
+
+        <nav class="admin-nav">
+
+            <a href="admin-dashboard.html" class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="admin-universities.html" class="nav-item active">
+                <i data-lucide="building-2"></i>
+                <span>Universities</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="graduation-cap"></i>
+                <span>Programs</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="book-open"></i>
+                <span>Courses</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Departments</span>
+            </a>
+
+            <a href="admin-campus.html" class="nav-item">
+    <i data-lucide="map-pin"></i>
+    <span>Campus & Buildings</span>
+</a>
+            <a href="admin-library.html" class="nav-item">
+    <i data-lucide="library"></i>
+    <span>Library</span>
+</a>
+
+           <a href="admin-dormitory.html" class="nav-item">
+    <i data-lucide="bed-double"></i>
+    <span>Dormitory</span>
+</a>
+
+            <a href="admin-student-services.html" class="nav-item">
+    <i data-lucide="users"></i>
+    <span>Student Services</span>
+</a>
+
+            <a href="admin-events.html" class="nav-item">
+    <i data-lucide="calendar-days"></i>
+    <span>Events & Announcements</span>
+</a>
+
+            <a href="admin-academic-calendar.html" class="nav-item">
+    <i data-lucide="calendar"></i>
+    <span>Academic Calendar</span>
+</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutButton" class="logout-button">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+
+        <header class="admin-header">
+
+            <div>
+                <h1>Universities</h1>
+                <p>Manage universities in the system.</p>
+            </div>
+
+            <button class="primary-button" id="addUniversityButton">
+                <i data-lucide="plus"></i>
+                Add University
+            </button>
+
+        </header>
+
+
+        <!-- SEARCH -->
+        <section class="university-toolbar">
+
+            <div class="search-box">
+
+                <i data-lucide="search"></i>
+
+                <input
+                    type="text"
+                    id="universitySearch"
+                    placeholder="Search universities..."
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- UNIVERSITY TABLE -->
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>University List</h2>
+                    <p>View and manage registered universities.</p>
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>University</th>
+                            <th>Location</th>
+                            <th>Website</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="universityTableBody">
+
+                        <tr>
+                            <td colspan="5" class="loading-cell">
+                                Loading universities...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+<script src="admin-universities.js"></script>
+
+</body>
+</html>
