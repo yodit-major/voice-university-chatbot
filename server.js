@@ -30,6 +30,12 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+// Serve frontend files
+app.use(express.static("."));
+
+app.get("/", (req, res) => {
+    res.sendFile(process.cwd() + "/index.html");
+});
 
 // Department routes
 app.use("/api", departmentRoutes);
