@@ -124,15 +124,18 @@ const universityData = {
         accommodationItemThreeText:
             "Keep your student information and required documents ready when accommodation registration opens."
     }
+
 };
 
 
-/* ========================================================= 
-   ELEMENTS 
+/* =========================================================
+   ELEMENTS
 ========================================================= */
 
 const universityTabs =
-    document.querySelectorAll(".university-tab[data-university]");
+    document.querySelectorAll(
+        ".university-tab[data-university]"
+    );
 
 const universityName =
     document.getElementById("universityName");
@@ -180,18 +183,8 @@ const accommodationItemThreeText =
     document.getElementById("accommodationItemThreeText");
 
 
-/* ========================================================= 
-   TELEGRAM LINKS 
-========================================================= */
-
-const newsLinks =
-    document.querySelectorAll(
-        ".university-news-link, .primary-button, .view-all, .telegram-button"
-    );
-
-
-/* ========================================================= 
-   UPDATE TELEGRAM LINKS 
+/* =========================================================
+   UPDATE TELEGRAM LINKS
 ========================================================= */
 
 function updateNewsLinks(data) {
@@ -230,10 +223,6 @@ function updateNewsLinks(data) {
 
         } else if (link.classList.contains("primary-button")) {
 
-            /* 
-                Preserve the icon while changing the text. 
-            */
-
             const icon =
                 link.querySelector("svg");
 
@@ -243,15 +232,19 @@ function updateNewsLinks(data) {
                     node.nodeType === Node.TEXT_NODE &&
                     node.textContent.trim() !== ""
                 ) {
+
                     node.textContent =
                         ` ${data.newsName} & Announcements `;
+
                 }
 
             });
 
             if (!icon) {
+
                 link.textContent =
                     `${data.newsName} & Announcements`;
+
             }
 
         } else if (link.classList.contains("view-all")) {
@@ -265,25 +258,27 @@ function updateNewsLinks(data) {
                     node.nodeType === Node.TEXT_NODE &&
                     node.textContent.trim() !== ""
                 ) {
+
                     node.textContent =
                         ` More on ${data.newsName} `;
+
                 }
 
             });
 
             if (!icon) {
+
                 link.textContent =
                     `More on ${data.newsName}`;
+
             }
+
         }
 
     });
 
 
-    /* 
-       Update any older/hardcoded Telegram links 
-       that were left in the HTML. 
-    */
+    /* Update existing hardcoded Telegram links */
 
     document
         .querySelectorAll(
@@ -296,12 +291,11 @@ function updateNewsLinks(data) {
             link.target = "_blank";
 
             link.rel = "noopener noreferrer";
+
         });
 
 
-    /* 
-       Bottom Telegram section. 
-    */
+    /* Update Telegram section description */
 
     const telegramDescription =
         document.querySelector(
@@ -312,8 +306,11 @@ function updateNewsLinks(data) {
 
         telegramDescription.textContent =
             `Follow the ${data.newsName} Telegram channel for more university events, announcements and updates.`;
+
     }
 
+
+    /* Update Telegram button */
 
     const telegramButton =
         document.querySelector(
@@ -325,6 +322,10 @@ function updateNewsLinks(data) {
         telegramButton.href =
             data.newsLink;
 
+        telegramButton.target = "_blank";
+
+        telegramButton.rel = "noopener noreferrer";
+
         const icon =
             telegramButton.querySelector("svg");
 
@@ -334,22 +335,28 @@ function updateNewsLinks(data) {
                 node.nodeType === Node.TEXT_NODE &&
                 node.textContent.trim() !== ""
             ) {
+
                 node.textContent =
                     ` Join ${data.newsName} `;
+
             }
 
         });
 
         if (!icon) {
+
             telegramButton.textContent =
                 `Join ${data.newsName}`;
+
         }
+
     }
+
 }
 
 
-/* ========================================================= 
-   IMAGE FALLBACK 
+/* =========================================================
+   IMAGE FALLBACK
 ========================================================= */
 
 function addImageFallback(image, fallback) {
@@ -360,25 +367,23 @@ function addImageFallback(image, fallback) {
 
     image.onerror = function () {
 
-        /* 
-           Prevent infinite fallback loops. 
-        */
+        /* Prevent infinite fallback loops */
 
-        if (
-            image.dataset.fallbackUsed === "true"
-        ) {
+        if (image.dataset.fallbackUsed === "true") {
             return;
         }
 
         image.dataset.fallbackUsed = "true";
 
         image.src = fallback;
+
     };
+
 }
 
 
-/* ========================================================= 
-   UPDATE UNIVERSITY 
+/* =========================================================
+   UPDATE UNIVERSITY
 ========================================================= */
 
 function updateUniversity(universityKey) {
@@ -391,9 +396,7 @@ function updateUniversity(universityKey) {
     }
 
 
-    /* ------------------------- 
-       Active tab 
-    ------------------------- */
+    /* Active university tab */
 
     universityTabs.forEach(tab => {
 
@@ -409,54 +412,64 @@ function updateUniversity(universityKey) {
             "aria-selected",
             isActive ? "true" : "false"
         );
+
     });
 
 
-    /* ------------------------- 
-       Hero 
-    ------------------------- */
+    /* University name */
 
     if (universityName) {
+
         universityName.textContent =
             data.shortName;
+
     }
+
+
+    /* Hero title */
 
     if (heroTitle) {
+
         heroTitle.textContent =
             data.heroTitle;
+
     }
+
+
+    /* Hero description */
 
     if (heroDescription) {
+
         heroDescription.textContent =
             data.heroDescription;
+
     }
 
 
-    /* ------------------------- 
-       Hero images 
-    ------------------------- */
+    /* Hero images */
 
     if (heroImageOne) {
 
+        heroImageOne.dataset.fallbackUsed = "false";
+
         heroImageOne.src =
             data.heroImageOne;
+
     }
 
     if (heroImageTwo) {
 
         heroImageTwo.src =
             data.heroImageTwo;
+
     }
 
 
-    /* ------------------------- 
-       Accommodation image 
-    ------------------------- */
+    /* Accommodation image */
 
     if (accommodationImage) {
 
-        accommodationImage.dataset.fallbackUsed =
-            "false";
+        accommodationImage.dataset.fallbackUsed = "false";
 
         accommodationImage.src =
             data.accommodationImage;
@@ -464,137 +477,136 @@ function updateUniversity(universityKey) {
         accommodationImage.alt =
             `${data.name} student accommodation`;
 
-        /* 
-           If Hawassa image does not exist, 
-           use the existing Hawassa image. 
-        */
-
         if (universityKey === "hawassa") {
 
             addImageFallback(
                 accommodationImage,
                 "images/Hawassa.jfif"
             );
+
         }
+
     }
 
 
-    /* ------------------------- 
-       Accommodation badge 
-    ------------------------- */
+    /* Accommodation badge */
 
     if (accommodationBadge) {
 
         accommodationBadge.textContent =
             data.accommodationBadge;
+
     }
 
 
-    /* ------------------------- 
-       Accommodation title 
-    ------------------------- */
+    /* Accommodation title */
 
     if (accommodationTitle) {
 
         accommodationTitle.textContent =
             data.accommodationTitle;
+
     }
 
 
-    /* ------------------------- 
-       Accommodation description 
-    ------------------------- */
+    /* Accommodation description */
 
     if (accommodationDescription) {
 
         accommodationDescription.textContent =
             data.accommodationDescription;
+
     }
 
 
-    /* ------------------------- 
-       Accommodation item 1 
-    ------------------------- */
+    /* Accommodation item 1 */
 
     if (accommodationItemOneTitle) {
 
         accommodationItemOneTitle.textContent =
             data.accommodationItemOneTitle;
+
     }
 
     if (accommodationItemOneText) {
 
         accommodationItemOneText.textContent =
             data.accommodationItemOneText;
+
     }
 
 
-    /* ------------------------- 
-       Accommodation item 2 
-    ------------------------- */
+    /* Accommodation item 2 */
 
     if (accommodationItemTwoTitle) {
 
         accommodationItemTwoTitle.textContent =
             data.accommodationItemTwoTitle;
+
     }
 
     if (accommodationItemTwoText) {
 
         accommodationItemTwoText.textContent =
             data.accommodationItemTwoText;
+
     }
 
 
-    /* ------------------------- 
-       Accommodation item 3 
-    ------------------------- */
+    /* Accommodation item 3 */
 
     if (accommodationItemThreeTitle) {
 
         accommodationItemThreeTitle.textContent =
             data.accommodationItemThreeTitle;
+
     }
 
     if (accommodationItemThreeText) {
 
         accommodationItemThreeText.textContent =
             data.accommodationItemThreeText;
+
     }
 
 
-    /* ------------------------- 
-       Telegram 
-    ------------------------- */
+    /* Update Telegram links */
 
     updateNewsLinks(data);
 
 
-    /* ------------------------- 
-       Save selected university 
-    ------------------------- */
+    /* Save selected university */
 
-    localStorage.setItem(
-        "selectedUniversity",
-        universityKey
-    );
+    try {
+
+        localStorage.setItem(
+            "selectedUniversity",
+            universityKey
+        );
+
+    } catch (error) {
+
+        console.warn(
+            "Could not save the selected university.",
+            error
+        );
+
+    }
 
 
-    /* ------------------------- 
-       Refresh Lucide icons 
-    ------------------------- */
+    /* Refresh Lucide icons */
 
-    if (
-        typeof lucide !== "undefined"
-    ) {
+    if (typeof lucide !== "undefined") {
 
         lucide.createIcons();
+
     }
+
 }
 
 
-/* ========================================================= 
-   UNIVERSITY TAB CLICK 
+/* =========================================================
+   UNIVERSITY TAB CLICK
 ========================================================= */
 
 universityTabs.forEach(tab => {
@@ -607,13 +619,15 @@ universityTabs.forEach(tab => {
                 this.dataset.university;
 
             updateUniversity(university);
+
         }
     );
+
 });
 
 
-/* ========================================================= 
-   MORE UNIVERSITIES BUTTON 
+/* =========================================================
+   MORE UNIVERSITIES BUTTON
 ========================================================= */
 
 const comingSoonButton =
@@ -630,114 +644,183 @@ if (comingSoonButton) {
             alert(
                 "More universities are coming soon to Ethio-Uni-Guide."
             );
+
         }
     );
+
 }
 
 
-/* ========================================================= 
-   THEME TOGGLE 
+/* =========================================================
+   DARK / LIGHT MODE
+   Supports html[data-theme="dark"],
+   body[data-theme="dark"], and body.dark
 ========================================================= */
 
 const themeToggle =
     document.getElementById("theme");
 
 
-/* 
-   Apply theme to the page. 
-*/
+/* Apply the selected theme */
 
 function applyTheme(theme) {
 
-    if (theme === "dark") {
+    const isDark = theme === "dark";
 
-        document.body.classList.add("dark");
+    const currentTheme = isDark ? "dark" : "light";
+
+
+    /* Update the HTML element */
+
+    document.documentElement.setAttribute(
+        "data-theme",
+        currentTheme
+    );
+
+
+    /* Update the BODY element for compatibility with CSS */
+
+    if (document.body) {
 
         document.body.setAttribute(
             "data-theme",
-            "dark"
+            currentTheme
         );
 
-        if (themeToggle) {
-            themeToggle.checked = true;
-        }
+        document.body.classList.toggle(
+            "dark",
+            isDark
+        );
+
+    }
+
+
+    /* Synchronize the toggle switch */
+
+    if (themeToggle) {
+
+        themeToggle.checked = isDark;
+
+        themeToggle.setAttribute(
+            "aria-checked",
+            String(isDark)
+        );
+
+    }
+
+
+    /* Save the theme preference */
+
+    try {
+
+        localStorage.setItem(
+            "theme",
+            currentTheme
+        );
+
+    } catch (error) {
+
+        console.warn(
+            "Theme preference could not be saved.",
+            error
+        );
+
+    }
+
+}
+
+
+/* Initialize the theme */
+
+function initializeTheme() {
+
+    let savedTheme = null;
+
+    try {
+
+        savedTheme =
+            localStorage.getItem("theme");
+
+    } catch (error) {
+
+        console.warn(
+            "Saved theme could not be read.",
+            error
+        );
+
+    }
+
+
+    /* Use the saved theme if available */
+
+    if (
+        savedTheme === "dark" ||
+        savedTheme === "light"
+    ) {
+
+        applyTheme(savedTheme);
 
     } else {
 
-        document.body.classList.remove("dark");
+        /* Otherwise use the browser's preferred theme */
 
-        document.body.setAttribute(
-            "data-theme",
-            "light"
+        const prefersDark =
+            window.matchMedia &&
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+        applyTheme(
+            prefersDark ? "dark" : "light"
         );
 
-        if (themeToggle) {
-            themeToggle.checked = false;
-        }
     }
+
+
+    /* Listen for changes to the toggle */
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener(
+            "change",
+            function () {
+
+                applyTheme(
+                    this.checked ? "dark" : "light"
+                );
+
+            }
+        );
+
+    } else {
+
+        console.warn(
+            'Theme toggle not found. Check that your HTML contains an input with id="theme".'
+        );
+
+    }
+
 }
 
 
-/* 
-   Get saved theme. 
-*/
+/* Run after the HTML document is ready */
 
-const savedTheme =
-    localStorage.getItem("theme");
+if (document.readyState === "loading") {
 
-
-/* 
-   Use saved theme first. 
-   If nothing is saved, use the 
-   user's system preference. 
-*/
-
-if (
-    savedTheme === "dark" ||
-    (
-        !savedTheme &&
-        window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches
-    )
-) {
-
-    applyTheme("dark");
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeTheme
+    );
 
 } else {
 
-    applyTheme("light");
+    initializeTheme();
+
 }
 
 
-/* 
-   Toggle theme. 
-*/
-
-if (themeToggle) {
-
-    themeToggle.addEventListener(
-        "change",
-        function () {
-
-            const newTheme =
-                this.checked
-                    ? "dark"
-                    : "light";
-
-            applyTheme(newTheme);
-
-            localStorage.setItem(
-                "theme",
-                newTheme
-            );
-        }
-    );
-}
-
-
-/* ========================================================= 
-   IMAGE FALLBACKS FOR HERO 
+/* =========================================================
+   IMAGE FALLBACKS FOR HERO
 ========================================================= */
 
 if (heroImageOne) {
@@ -756,19 +839,32 @@ if (heroImageOne) {
 
             this.src =
                 "images/Hawassa.jfif";
+
         }
     );
+
 }
 
 
-/* ========================================================= 
-   INITIAL UNIVERSITY 
+/* =========================================================
+   INITIAL UNIVERSITY
 ========================================================= */
 
-const savedUniversity =
-    localStorage.getItem(
-        "selectedUniversity"
+let savedUniversity = null;
+
+try {
+
+    savedUniversity =
+        localStorage.getItem("selectedUniversity");
+
+} catch (error) {
+
+    console.warn(
+        "Could not retrieve the saved university.",
+        error
     );
+
+}
 
 
 if (
@@ -776,23 +872,21 @@ if (
     universityData[savedUniversity]
 ) {
 
-    updateUniversity(
-        savedUniversity
-    );
+    updateUniversity(savedUniversity);
 
 } else {
 
     updateUniversity("aau");
+
 }
 
 
-/* ========================================================= 
-   LUCIDE ICONS 
+/* =========================================================
+   LUCIDE ICONS
 ========================================================= */
 
-if (
-    typeof lucide !== "undefined"
-) {
+if (typeof lucide !== "undefined") {
 
     lucide.createIcons();
+
 }

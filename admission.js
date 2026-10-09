@@ -1,26 +1,37 @@
-// DARK 
-// MODE
-// =========================
+/* =========================
+   DARK / LIGHT MODE
+========================= */
 
 const themeToggle = document.getElementById("theme");
 const savedTheme = localStorage.getItem("theme");
 
-if (
-    savedTheme === "dark" ||
-    (
-        !savedTheme &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-    )
-) {
-    themeToggle.checked = true;
+function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+
+    if (themeToggle) {
+        themeToggle.checked = theme === "dark";
+    }
+
+    localStorage.setItem("theme", theme);
 }
 
-themeToggle.addEventListener("change", function () {
-    localStorage.setItem(
-        "theme",
-        this.checked ? "dark" : "light"
+// Initialize the theme
+if (savedTheme === "dark" || savedTheme === "light") {
+    applyTheme(savedTheme);
+} else {
+    applyTheme(
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
     );
-});
+}
+
+// Toggle between dark and light modes
+if (themeToggle) {
+    themeToggle.addEventListener("change", function () {
+        applyTheme(this.checked ? "dark" : "light");
+    });
+}
 /* ACADEMIC CALENDAR DROPDOWN */
 
 const calendarMenu = document.querySelector(".calendar-menu");
