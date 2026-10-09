@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-    signupForm.addEventListener("submit", (event) => {
+    signupForm.addEventListener("submit", async (event) => {
 
         event.preventDefault();
 
@@ -181,9 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .getElementById("signup-confirm-password")
             .value;
 
-        const role = document
-            .getElementById("signup-role")
-            .value;
+        
 
 
         if (!name) {
@@ -196,15 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        if (!role) {
-            setMessage(
-                signupMessage,
-                "Please select your role.",
-                "error"
-            );
-            return;
-        }
-
+        
 
         if (password.length < 6) {
             setMessage(
@@ -226,56 +216,59 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        const existingUser = getStoredUser();
+                try {
+            const response = await fetch(
+                "http://localhost:3000/api/auth/register",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        password
+                    })
+                }
+            );
 
-        if (
-            existingUser &&
-            existingUser.email === email
-        ) {
+            const data = await response.json();
+
+            if (!response.ok) {
+                setMessage(
+                    signupMessage,
+                    data.message || "Registration failed.",
+                    "error"
+                );
+                return;
+            }
+
             setMessage(
                 signupMessage,
-                "An account with this email already exists.",
+                "Account created successfully! Please log in.",
+                "success"
+            );
+
+            signupForm.reset();
+
+            setTimeout(() => {
+                showLoginSection();
+                document.getElementById("login-email").value = email;
+            }, 700);
+
+        } catch (error) {
+            console.error("Signup error:", error);
+
+            setMessage(
+                signupMessage,
+                "Cannot connect to the server. Please try again.",
                 "error"
             );
-            return;
         }
-
-
-        const user = {
-            name: name,
-            email: email,
-            password: password,
-            role: role
-        };
-
-
-        localStorage.setItem(
-            "ethioUniGuideUser",
-            JSON.stringify(user)
-        );
-
-        localStorage.setItem(
-            "ethioUniGuideLoggedIn",
-            "true"
-        );
-
-
-        setMessage(
-            signupMessage,
-            "Account created successfully!",
-            "success"
-        );
-
-
-        setTimeout(() => {
-            showProfile(user);
-        }, 700);
-
     });
 
 
-    loginForm.addEventListener("submit", (event) => {
-
+        loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const email = document
@@ -288,66 +281,91 @@ document.addEventListener("DOMContentLoaded", () => {
             .getElementById("login-password")
             .value;
 
+        loginMessage.textContent = "Logging in...";
 
-        const user = getStoredUser();
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/auth/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+                    })
+                }
+            );
 
+            const data = await response.json();
 
-        if (!user) {
+            if (!response.ok) {
+                setMessage(
+                    loginMessage,
+                    data.message || "Incorrect email or password.",
+                    "error"
+                );
+                return;
+            }
+
+            if (!data.token) {
+                setMessage(
+                    loginMessage,
+                    "Login failed: no authentication token received.",
+                    "error"
+                );
+                return;
+            }
+
+            const tokenPayload = JSON.parse(
+                atob(data.token.split(".")[1])
+            );
+
+            const user = {
+                name: tokenPayload.name,
+                email: tokenPayload.email || email,
+                role: tokenPayload.role
+            };
+
+            localStorage.setItem("ethioUniGuideToken", data.token);
+            localStorage.setItem(
+                "ethioUniGuideUser",
+                JSON.stringify(user)
+            );
+            localStorage.setItem("ethioUniGuideLoggedIn", "true");
+
             setMessage(
                 loginMessage,
-                "No account found. Please create an account first.",
-                "error"
+                "Login successful!",
+                "success"
             );
-            return;
-        }
 
+            setTimeout(() => {
+                showProfile(user);
+            }, 500);
 
-        if (
-            user.email !== email ||
-            user.password !== password
-        ) {
+        } catch (error) {
+            console.error("Login error:", error);
+
             setMessage(
                 loginMessage,
-                "Incorrect email or password.",
+                "Cannot connect to the server. Please try again.",
                 "error"
             );
-            return;
         }
-
-
-        localStorage.setItem(
-            "ethioUniGuideLoggedIn",
-            "true"
-        );
-
-
-        setMessage(
-            loginMessage,
-            "Login successful!",
-            "success"
-        );
-
-
-        setTimeout(() => {
-            showProfile(user);
-        }, 500);
-
     });
-
 
     logoutButton.addEventListener("click", () => {
+    localStorage.removeItem("ethioUniGuideLoggedIn");
+    localStorage.removeItem("ethioUniGuideUser");
+    localStorage.removeItem("ethioUniGuideToken");
 
-        localStorage.removeItem(
-            "ethioUniGuideLoggedIn"
-        );
+    loginForm.reset();
+    signupForm.reset();
 
-        loginForm.reset();
-
-        showLoginSection();
-
-    });
-
-
+    showLoginSection();
+});
     const storedUser = getStoredUser();
 
     const isLoggedIn =
