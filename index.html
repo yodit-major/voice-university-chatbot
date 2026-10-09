@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ethio-Uni-Guide</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/logo.png">
+
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
     <!-- NAVIGATION BAR -->
-
-    <!-- ================= NAVIGATION BAR ================= -->
 
     <header class="navbar">
 
@@ -23,7 +24,6 @@
             <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
             <span>Ethio-Uni-Guide</span>
         </a>
-
 
         <!-- DESKTOP NAVIGATION -->
         <nav class="navbar-links" id="navbarLinks">
@@ -36,12 +36,11 @@
                 Universities
             </a>
 
-            <a href="#campus-life" class="nav-link">
+            <a href="campus-life.html" class="nav-link">
                 Campus Life
             </a>
 
-
-            <!-- ACADEMIC CALENDAR DROPDOWN -->
+            <!-- ACADEMIC CALENDAR -->
             <div class="calendar-menu">
 
                 <button type="button" class="calendar-menu-btn">
@@ -57,16 +56,17 @@
                     <a href="hawassa-calendar.html">
                         Hawassa University
                     </a>
+
                     <a href="#">
                         <span class="coming-soon-plus">➕</span>
                         More universities coming soon
                     </a>
+
                 </div>
 
             </div>
 
         </nav>
-
 
         <!-- RIGHT SIDE -->
         <div class="navbar-right">
@@ -96,19 +96,21 @@
 
             </label>
 
-
             <!-- PROFILE -->
-            <button class="profile-button" type="button" aria-label="Profile">
+            <a href="profile.html" class="profile-button" aria-label="Profile">
                 <i data-lucide="user"></i>
-            </button>
+            </a>
 
         </div>
 
     </header>
 
-    <!--  MAIN CONTENT-->
+    <!-- MAIN CONTENT -->
 
     <main id="home">
+
+        <!-- HERO -->
+
         <section class="hero">
 
             <div class="hero-overlay"></div>
@@ -133,45 +135,40 @@
                     <input type="text" id="welcomeSearch" placeholder="Search universities, programs, courses...">
 
                     <button type="button" id="searchButton">
-
                         Search
-
                     </button>
 
                 </div>
 
             </div>
 
-            <!--  AI ASSISTANT -->
+            <!-- AI ASSISTANT -->
 
-            <a href="chatbot.html"> <button class="assistant-card" id="assistantButton" type="button">
+            <a href="chatbot.html" class="assistant-card" id="assistantButton">
 
-                    <div class="assistant-icon">
+                <div class="assistant-icon">
+                    <i data-lucide="bot"></i>
+                </div>
 
-                        <i data-lucide="bot"></i>
+                <div class="assistant-text">
 
-                    </div>
+                    <strong>
+                        Need help?
+                    </strong>
 
-                    <div class="assistant-text">
+                    <span>
+                        Chat with our AI assistant!
+                    </span>
 
-                        <strong>
-                            Need help?
-                        </strong>
+                </div>
 
-                        <span>
-                            Chat with our AI assistant!
-                        </span>
+                <i data-lucide="arrow-right" class="assistant-arrow"></i>
+
             </a>
-            </div>
-
-            <i data-lucide="arrow-right" class="assistant-arrow">
-            </i>
-
-            </button>
 
         </section>
 
-        <!-- INFORMATION CARDS-->
+        <!-- INFORMATION CARDS -->
 
         <section class="information-section">
 
@@ -247,160 +244,10 @@
 
             </a>
 
-            <!-- CAMPUS -->
-
-            <a href="#campuses-and-buildings" class="info-card green">
-
-                <div class="card-icon">
-                    🏛️
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Campus & Buildings
-                    </h3>
-
-                    <p>
-                        Get to know our campuses, buildings and facilities.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
-            <!-- LIBRARY -->
-
-            <a href="#libraries" class="info-card purple">
-
-                <div class="card-icon">
-                    📚
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Library
-                    </h3>
-
-                    <p>
-                        Books, resources and library services.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
-            <!-- DORMITORY -->
-
-            <a href="#dormitory" class="info-card mint">
-
-                <div class="card-icon">
-                    🏠
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Dormitory
-                    </h3>
-
-                    <p>
-                        Accommodation options and application process.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
-            <!-- STUDENT SERVICES -->
-
-            <a href="#student-services" class="info-card blue">
-
-                <div class="card-icon">
-                    👥
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Student Services
-                    </h3>
-
-                    <p>
-                        Support services for your academic journey.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
-            <!-- EVENTS -->
-
-            <a href="#events" class="info-card orange">
-
-                <div class="card-icon">
-                    🗓️
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Events & Announcements
-                    </h3>
-
-                    <p>
-                        Stay updated with the latest news and events.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
         </section>
 
     </main>
-    <!-- AI CHAT WINDOW -->
-<div class="chat-window" id="chatWindow">
 
-    <div class="chat-header">
-        <div>
-            <strong>Ethio-Uni-Guide AI</strong>
-            <span>University Assistant</span>
-        </div>
-
-        <button id="closeChat" type="button">×</button>
-    </div>
-
-    <div class="chat-messages" id="chatMessages">
-        <div class="bot-message">
-            Hello! 👋 How can I help you with university information?
-        </div>
-    </div>
-
-    <div class="chat-input-area">
-        <input
-            type="text"
-            id="chatInput"
-            placeholder="Ask a university question..."
-        >
-
-        <button id="sendMessage" type="button">
-            Send
-        </button>
-    </div>
-
-</div>
     <script src="script.js"></script>
 
 </body>

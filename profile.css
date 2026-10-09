@@ -1,0 +1,361 @@
+:root {
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+
+    --text: #101828;
+    --muted: #667085;
+
+    --border: #e4e7ec;
+
+    --primary: #1c69d2;
+    --primary-dark: #1555ad;
+    --primary-soft: #eaf2ff;
+
+    --danger: #d92d20;
+    --success: #12b76a;
+
+    --shadow: 0 24px 70px rgba(16, 24, 40, 0.10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.profile-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 470px;
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(228, 231, 236, 0.8);
+}
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: var(--primary-soft);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-icon svg {
+    width: 34px;
+    height: 34px;
+    stroke-width: 2;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper>svg {
+    position: absolute;
+    left: 14px;
+    width: 19px;
+    height: 19px;
+    color: var(--muted);
+    pointer-events: none;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    width: 100%;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 15px;
+    padding: 0 44px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(28, 105, 210, 0.10);
+}
+
+.input-wrapper input::placeholder {
+    color: #98a2b3;
+}
+
+.select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+    padding-left: 44px;
+    padding-right: 40px;
+}
+
+.select-wrapper::after {
+    content: "⌄";
+    position: absolute;
+    right: 16px;
+    color: var(--muted);
+    font-size: 18px;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-55%);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+.password-toggle svg {
+    width: 19px;
+    height: 19px;
+}
+
+.primary-button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-top: 5px;
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.message {
+    min-height: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.message.error {
+    color: var(--danger);
+}
+
+.message.success {
+    color: var(--success);
+}
+
+.switch-section {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.link-button {
+    border: none;
+    background: none;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 4px;
+    font-size: 14px;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.success-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #ecfdf3;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-icon svg {
+    width: 35px;
+    height: 35px;
+}
+
+.profile-info {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.info-label {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.info-row strong {
+    font-size: 14px;
+    word-break: break-word;
+}
+
+.logout-button {
+    width: 100%;
+    height: 46px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--danger);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s ease;
+}
+
+.logout-button:hover {
+    background: #fff5f4;
+    border-color: #fecdca;
+}
+
+.logout-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 25px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.back-link svg {
+    width: 17px;
+    height: 17px;
+}
+
+@media (max-width: 600px) {
+    .profile-page {
+        padding: 20px 15px;
+    }
+
+    .profile-card {
+        padding: 30px 22px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}

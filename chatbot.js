@@ -23,6 +23,79 @@ let voiceAgent = null;
 let voxideUnsubscribe = null;
 
 
+
+/* AVATAR */
+
+const avatarButton =
+    document.getElementById(
+        "avatarButton"
+    );
+
+const avatarMenu =
+    document.getElementById(
+        "avatarMenu"
+    );
+
+const closeAvatarMenu =
+    document.getElementById(
+        "closeAvatarMenu"
+    );
+
+const avatarPreview =
+    document.getElementById(
+        "avatarPreview"
+    );
+
+const userAvatar =
+    document.getElementById(
+        "userAvatar"
+    );
+
+const avatarUpload =
+    document.getElementById(
+        "avatarUpload"
+    );
+
+const saveAvatar =
+    document.getElementById(
+        "saveAvatar"
+    );
+
+const avatarOptions =
+    document.querySelectorAll(
+        ".avatar-option"
+    );
+
+let selectedAvatar =
+    localStorage.getItem(
+        "userAvatar"
+    );
+
+if (!selectedAvatar) {
+    selectedAvatar =
+        "https://api.dicebear.com/9.x/adventurer/svg?seed=Tyobista";
+}
+
+userAvatar.src =
+    selectedAvatar;
+
+avatarPreview.src =
+    selectedAvatar;
+
+function updateBotAvatars() {
+
+    document
+        .querySelectorAll(".bot-avatar-image")
+        .forEach(function (image) {
+
+            image.src = selectedAvatar;
+
+        });
+
+}
+
+
+
 /* THEME */
 
 const savedTheme = localStorage.getItem("theme");
@@ -36,18 +109,23 @@ if (
         ).matches
     )
 ) {
+
     themeToggle.checked = true;
+
 }
 
 themeToggle.addEventListener(
     "change",
     function () {
+
         localStorage.setItem(
             "theme",
             this.checked ? "dark" : "light"
         );
+
     }
 );
+
 
 
 /* TIME */
@@ -63,6 +141,7 @@ function getTime() {
     );
 
 }
+
 
 
 /* ADD USER MESSAGE */
@@ -82,17 +161,21 @@ function addUserMessage(message) {
                     ${escapeHTML(message)}
                 </p>
             </div>
+
             <span class="message-time">
                 ${getTime()}
             </span>
         </div>
     `;
 
-    chatMessages.appendChild(messageElement);
+    chatMessages.appendChild(
+        messageElement
+    );
 
     scrollToBottom();
 
 }
+
 
 
 /* ADD BOT MESSAGE */
@@ -107,15 +190,21 @@ function addBotMessage(message) {
 
     messageElement.innerHTML = `
         <div class="message-avatar">
-            🤖
+            <img
+                class="bot-avatar-image"
+                src="${escapeHTML(selectedAvatar)}"
+                alt="Assistant avatar"
+            >
         </div>
 
         <div class="message-content">
 
             <div class="message-bubble">
+
                 <p>
                     ${formatMessage(message)}
                 </p>
+
             </div>
 
             <span class="message-time">
@@ -125,11 +214,14 @@ function addBotMessage(message) {
         </div>
     `;
 
-    chatMessages.appendChild(messageElement);
+    chatMessages.appendChild(
+        messageElement
+    );
 
     scrollToBottom();
 
 }
+
 
 
 /* FORMAT BOT RESPONSE */
@@ -150,6 +242,7 @@ function formatMessage(message) {
 }
 
 
+
 /* ESCAPE HTML */
 
 function escapeHTML(text) {
@@ -157,11 +250,13 @@ function escapeHTML(text) {
     const element =
         document.createElement("div");
 
-    element.textContent = text;
+    element.textContent =
+        text;
 
     return element.innerHTML;
 
 }
+
 
 
 /* TYPING INDICATOR */
@@ -171,14 +266,19 @@ function showTyping() {
     const typing =
         document.createElement("div");
 
-    typing.id = "typing-indicator";
+    typing.id =
+        "typing-indicator";
 
     typing.className =
         "typing-message";
 
     typing.innerHTML = `
         <div class="message-avatar">
-            🤖
+            <img
+                class="bot-avatar-image"
+                src="${escapeHTML(selectedAvatar)}"
+                alt="Assistant avatar"
+            >
         </div>
 
         <div class="typing-bubble">
@@ -190,11 +290,14 @@ function showTyping() {
         </div>
     `;
 
-    chatMessages.appendChild(typing);
+    chatMessages.appendChild(
+        typing
+    );
 
     scrollToBottom();
 
 }
+
 
 
 /* HIDE TYPING */
@@ -213,16 +316,21 @@ function hideTyping() {
 }
 
 
+
 /* SCROLL */
 
 function scrollToBottom() {
 
     chatMessages.scrollTo({
+
         top: chatMessages.scrollHeight,
+
         behavior: "smooth"
+
     });
 
 }
+
 
 
 /* SEND MESSAGE */
@@ -258,7 +366,7 @@ async function sendMessage(message = null) {
 
         const response =
             await fetch(
-                "/api/chat",
+                "http://localhost:3000/api/chat",
                 {
                     method: "POST",
 
@@ -332,14 +440,18 @@ async function sendMessage(message = null) {
 }
 
 
+
 /* SEND BUTTON */
 
 sendButton.addEventListener(
     "click",
     function () {
+
         sendMessage();
+
     }
 );
+
 
 
 /* ENTER KEY */
@@ -363,11 +475,13 @@ chatInput.addEventListener(
 );
 
 
+
 /* TEXTAREA SIZE */
 
 function resizeInput() {
 
-    chatInput.style.height = "auto";
+    chatInput.style.height =
+        "auto";
 
     chatInput.style.height =
         Math.min(
@@ -383,10 +497,13 @@ chatInput.addEventListener(
 );
 
 
+
 /* SUGGESTIONS */
 
 document
-    .querySelectorAll(".suggestion-button")
+    .querySelectorAll(
+        ".suggestion-button"
+    )
     .forEach(
         function (button) {
 
@@ -397,13 +514,16 @@ document
                     const question =
                         button.dataset.question;
 
-                    sendMessage(question);
+                    sendMessage(
+                        question
+                    );
 
                 }
             );
 
         }
     );
+
 
 
 /* VOICE STATUS */
@@ -423,6 +543,7 @@ function setVoiceStatus(message) {
     }
 
 }
+
 
 
 /* START VOICE UI */
@@ -446,6 +567,7 @@ function startVoiceUI() {
 }
 
 
+
 /* STOP VOICE UI */
 
 function stopVoiceUI() {
@@ -463,9 +585,10 @@ function stopVoiceUI() {
 }
 
 
+
 /* VOXIDE */
 
-function initializeVoxide() {
+async function initializeVoxide() {
 
     if (
         typeof Voxide === "undefined" ||
@@ -485,69 +608,122 @@ function initializeVoxide() {
 
     }
 
-
     try {
 
         voiceAgent =
             new Voxide.VoxideClient({
 
                 publicKey:
-                    "vox_pub_YOUR_ACTUAL_KEY_HERE"
+                    "vox_pub_6fce45630be41da07c9ddc88f8c6125b3d5d63959df1a491"
 
             });
 
+        await voiceAgent.init();
 
         voiceAgent.register({
 
-            searchUnisByCity: {
+            askUniversityQuestion: {
 
                 description:
-                    "Searches and displays Ethiopian universities based on a city or location given by the user.",
+                    "Answers questions about universities, departments, programs, courses, events, and other university information using the university database.",
 
                 params: {
 
-                    cityName: {
+                    question: {
+
                         type: "string",
+
                         required: true
+
                     }
 
                 },
 
                 handler:
-                    async function ({ cityName }) {
+                    async function ({
+                        question
+                    }) {
 
-                        if (
-                            typeof searchUnisByCity ===
-                            "function"
-                        ) {
+                        try {
 
-                            const result =
-                                await searchUnisByCity(
-                                    cityName
+                            const response =
+                                await fetch(
+                                    "http://localhost:3000/api/chat",
+                                    {
+
+                                        method: "POST",
+
+                                        headers: {
+
+                                            "Content-Type":
+                                                "application/json"
+
+                                        },
+
+                                        body:
+                                            JSON.stringify({
+                                                message:
+                                                    question
+                                            })
+
+                                    }
                                 );
 
-                            return result || {
-                                status: "success",
-                                city: cityName
+                            if (!response.ok) {
+
+                                return {
+
+                                    status:
+                                        "error",
+
+                                    message:
+                                        "The university database could not be reached."
+
+                                };
+
+                            }
+
+                            const data =
+                                await response.json();
+
+                            return {
+
+                                status:
+                                    "success",
+
+                                answer:
+                                    data.answer ||
+                                    data.response ||
+                                    data.message ||
+                                    "No answer was found."
+
+                            };
+
+                        } catch (error) {
+
+                            console.error(
+                                "University database error:",
+                                error
+                            );
+
+                            return {
+
+                                status:
+                                    "error",
+
+                                message:
+                                    "I could not connect to the university database."
+
                             };
 
                         }
-
-                        console.warn(
-                            "searchUnisByCity() has not been provided by the backend/team yet."
-                        );
-
-                        return {
-                            status: "unavailable",
-                            message:
-                                "The university search function is not connected yet."
-                        };
 
                     }
 
             }
 
         });
+
 
 
         voxideUnsubscribe =
@@ -568,7 +744,8 @@ function initializeVoxide() {
                         status === "listening"
                     ) {
 
-                        isListening = true;
+                        isListening =
+                            true;
 
                         voiceButton.classList.add(
                             "listening"
@@ -664,7 +841,6 @@ function initializeVoxide() {
                 }
             );
 
-
         voiceButton.disabled = false;
 
         voiceButton.title =
@@ -687,6 +863,7 @@ function initializeVoxide() {
     }
 
 }
+
 
 
 /* VOICE BUTTON */
@@ -724,7 +901,6 @@ voiceButton.addEventListener(
 
         }
 
-
         try {
 
             const snapshot =
@@ -745,13 +921,11 @@ voiceButton.addEventListener(
 
             }
 
-
             startVoiceUI();
 
             setVoiceStatus(
                 "Connecting..."
             );
-
 
             await voiceAgent.connect();
 
@@ -787,6 +961,7 @@ voiceButton.addEventListener(
 );
 
 
+
 /* VOICE LANGUAGE */
 
 voiceLanguage.addEventListener(
@@ -806,6 +981,7 @@ voiceLanguage.addEventListener(
 );
 
 
+
 /* INITIALIZE */
 
 lucide.createIcons();
@@ -815,62 +991,8 @@ chatInput.focus();
 initializeVoxide();
 
 
+
 /* AVATAR */
-
-const avatarButton =
-    document.getElementById(
-        "avatarButton"
-    );
-
-const avatarMenu =
-    document.getElementById(
-        "avatarMenu"
-    );
-
-const closeAvatarMenu =
-    document.getElementById(
-        "closeAvatarMenu"
-    );
-
-const avatarPreview =
-    document.getElementById(
-        "avatarPreview"
-    );
-
-const userAvatar =
-    document.getElementById(
-        "userAvatar"
-    );
-
-const avatarUpload =
-    document.getElementById(
-        "avatarUpload"
-    );
-
-const saveAvatar =
-    document.getElementById(
-        "saveAvatar"
-    );
-
-const avatarOptions =
-    document.querySelectorAll(
-        ".avatar-option"
-    );
-
-let selectedAvatar =
-    localStorage.getItem(
-        "userAvatar"
-    );
-
-if (selectedAvatar) {
-
-    userAvatar.src =
-        selectedAvatar;
-
-    avatarPreview.src =
-        selectedAvatar;
-
-}
 
 avatarButton.addEventListener(
     "click",
@@ -976,7 +1098,9 @@ avatarUpload.addEventListener(
 
             };
 
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(
+            file
+        );
 
     }
 );
@@ -996,6 +1120,8 @@ saveAvatar.addEventListener(
 
         userAvatar.src =
             selectedAvatar;
+
+        updateBotAvatars();
 
         avatarMenu.classList.remove(
             "active"
@@ -1022,3 +1148,5 @@ document.addEventListener(
 
     }
 );
+
+updateBotAvatars();
