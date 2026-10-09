@@ -1,4 +1,4 @@
-```javascript
+
 import express from "express";
 
 import {
@@ -16,4 +16,4 @@ router.get("/university/:universityId", getCampusesByUniversity);
 router.get("/:id", getCampusById);
 
 export default router;
-```
+
