@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Explore undergraduate, master's, and doctoral academic programs at Ethiopian universities with Ethio-Uni-Guide.">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Academic Programs | Ethio-Uni-Guide</title>
+
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="stylesheet" href="academic.css">
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="academic.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html" class="brand">
+                <img src="images/logo.png" alt="Ethio-Uni-Guide logo">
+                <span>Ethio-Uni-Guide</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="navMenu">
+
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="universities.html" class="nav-link">Universities</a>
+                <a href="campus-life.html" class="nav-link">Campus Life</a>
+                <!-- ACADEMIC CALENDAR -->
+                <div class="calendar-menu">
+
+                    <button type="button" class="calendar-menu-btn">
+                        Academic Calendar ▾
+                    </button>
+
+                    <div class="calendar-menu-list">
+
+                        <a href="aau-calendar.html">
+                            Addis Ababa University
+                        </a>
+
+                        <a href="hawassa-calendar.html">
+                            Hawassa University
+                        </a>
+
+                        <a href="#">
+                            <span class="coming-soon-plus">➕</span>
+                            More universities coming soon
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="nav-actions">
+                <!-- DARK / LIGHT MODE -->
+                <label class="theme" for="theme">
+
+                    <span class="theme__toggle-wrap">
+
+                        <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
+
+                        <span class="theme__icon">
+
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+                            <span class="theme__icon-part"></span>
+
+                        </span>
+
+                    </span>
+
+                </label>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    <i data-lucide="graduation-cap"></i>
+                    YOUR FUTURE STARTS HERE
+                </span>
+
+                <h1>
+                    Find Your Path.<br>
+                    <span>Build Your Future.</span>
+                </h1>
+
+                <p>
+                    Explore academic programs at Ethiopian universities.
+                    Discover degree options, compare fields of study,
+                    and find a program that matches your goals.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#explore-programs" class="btn btn-primary">
+                        Explore Programs
+                        <i data-lucide="arrow-down"></i>
+                    </a>
+
+                    <a href="#degree-levels" class="btn btn-secondary">
+                        Explore Degrees
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+                    <i data-lucide="info"></i>
+
+                    <span>
+                        Start exploring. Verify program availability
+                        with the university before applying.
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+
+                <div class="hero-illustration">
+
+                    <div class="illustration-circle circle-one"></div>
+                    <div class="illustration-circle circle-two"></div>
+
+                    <div class="illustration-card main-illustration-card">
+
+                        <div class="illustration-icon">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+
+                        <h3>Your Next Chapter</h3>
+
+                        <p>Discover what you can become.</p>
+
+                        <div class="illustration-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-tag tag-one">
+                        <i data-lucide="book-open"></i>
+                        Bachelor's
+                    </div>
+
+                    <div class="floating-tag tag-two">
+                        <i data-lucide="flask-conical"></i>
+                        Master's
+                    </div>
+
+                    <div class="floating-tag tag-three">
+                        <i data-lucide="microscope"></i>
+                        Research
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- DEGREE LEVELS -->
+
+        <section class="degree-section section-container" id="degree-levels">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">CHOOSE YOUR LEVEL</span>
+
+                    <h2>Explore Degree Levels</h2>
+
+                    <p>
+                        Whether you're starting university or continuing
+                        your education, find the level that fits your goals.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="degree-grid">
+
+                <button class="degree-card" type="button" data-level="Undergraduate">
+
+                    <div class="degree-icon undergraduate-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+
+                    <span class="degree-number">01</span>
+
+                    <h3>Bachelor's Degree</h3>
+
+                    <p>
+                        Begin your university journey and develop the
+                        knowledge and skills for your chosen field.
+                    </p>
+
+                    <span class="degree-link">
+                        Explore programs
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </button>
+
+                <button class="degree-card" type="button" data-level="Postgraduate">
+
+                    <div class="degree-icon postgraduate-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+
+                    <span class="degree-number">02</span>
+
+                    <h3>Master's Degree</h3>
+
+                    <p>
+                        Build advanced knowledge, specialize in a field,
+                        and prepare for professional or research careers.
+                    </p>
+
+                    <span class="degree-link">
+                        Explore programs
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </button>
+
+                <button class="degree-card" type="button" data-level="Doctoral">
+
+                    <div class="degree-icon doctoral-icon">
+                        <i data-lucide="microscope"></i>
+                    </div>
+
+                    <span class="degree-number">03</span>
+
+                    <h3>Doctoral Degree</h3>
+
+                    <p>
+                        Pursue advanced research, contribute new knowledge,
+                        and develop expertise in your discipline.
+                    </p>
+
+                    <span class="degree-link">
+                        Explore programs
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- FIELDS OF STUDY -->
+
+        <section class="fields-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">FIND YOUR INTEREST</span>
+
+                        <h2>Browse by Field of Study</h2>
+
+                        <p>
+                            Explore different academic fields and discover
+                            programs related to your interests.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="fields-grid">
+
+                    <button class="field-card" type="button" data-field="Engineering">
+                        <span class="field-icon"><i data-lucide="cog"></i></span>
+                        <span class="field-text">
+                            <strong>Engineering</strong>
+                            <small>Mechanical, Civil, Electrical</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Computing">
+                        <span class="field-icon"><i data-lucide="code-2"></i></span>
+                        <span class="field-text">
+                            <strong>Computing &amp; IT</strong>
+                            <small>Computer Science, IT</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Health Sciences">
+                        <span class="field-icon"><i data-lucide="heart-pulse"></i></span>
+                        <span class="field-text">
+                            <strong>Health Sciences</strong>
+                            <small>Medicine, Nursing, Public Health</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Business">
+                        <span class="field-icon"><i data-lucide="chart-no-axes-combined"></i></span>
+                        <span class="field-text">
+                            <strong>Business &amp; Economics</strong>
+                            <small>Management, Accounting</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Natural Sciences">
+                        <span class="field-icon"><i data-lucide="atom"></i></span>
+                        <span class="field-text">
+                            <strong>Natural Sciences</strong>
+                            <small>Biology, Physics, Chemistry</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Agriculture">
+                        <span class="field-icon"><i data-lucide="sprout"></i></span>
+                        <span class="field-text">
+                            <strong>Agriculture</strong>
+                            <small>Agricultural and plant sciences</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Social Sciences">
+                        <span class="field-icon"><i data-lucide="users"></i></span>
+                        <span class="field-text">
+                            <strong>Social Sciences</strong>
+                            <small>Sociology, Psychology</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                    <button class="field-card" type="button" data-field="Humanities">
+                        <span class="field-icon"><i data-lucide="languages"></i></span>
+                        <span class="field-text">
+                            <strong>Humanities &amp; Languages</strong>
+                            <small>History, Languages, Literature</small>
+                        </span>
+                        <i data-lucide="arrow-up-right" class="field-arrow"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ACADEMIC PROGRAM DIRECTORY -->
+
+        <section class="program-section section-container" id="explore-programs">
+
+            <div class="section-heading program-heading">
+
+                <div>
+                    <span class="section-label">YOUR OPTIONS</span>
+
+                    <h2>Explore Academic Programs</h2>
+
+                    <p>
+                        Search programs and narrow your options by university,
+                        degree level, and field.
+                    </p>
+                </div>
+
+                <span class="sample-badge">
+                    <i data-lucide="info"></i>
+                    Example program directory
+                </span>
+
+            </div>
+
+            <div class="search-box">
+
+                <i data-lucide="search"></i>
+
+                <input type="search" id="programSearch" placeholder="Search a program, degree, or field..."
+                    aria-label="Search academic programs">
+
+                <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search" hidden>
+
+                    <i data-lucide="x"></i>
+
+                </button>
+
+            </div>
+
+            <div class="filter-row">
+
+                <div class="filter-control">
+                    <label for="universityFilter">University</label>
+
+                    <select id="universityFilter">
+                        <option value="all">All Universities</option>
+                        <option value="aau">Addis Ababa University</option>
+                        <option value="hawassa">Hawassa University</option>
+                    </select>
+                </div>
+
+                <div class="filter-control">
+                    <label for="degreeFilter">Degree Level</label>
+
+                    <select id="degreeFilter">
+                        <option value="all">All Degree Levels</option>
+                        <option value="Undergraduate">Bachelor's</option>
+                        <option value="Postgraduate">Master's</option>
+                        <option value="Doctoral">Doctoral</option>
+                    </select>
+                </div>
+
+                <div class="filter-control">
+                    <label for="fieldFilter">Field of Study</label>
+
+                    <select id="fieldFilter">
+                        <option value="all">All Fields</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Computing">Computing &amp; IT</option>
+                        <option value="Health Sciences">Health Sciences</option>
+                        <option value="Business">Business &amp; Economics</option>
+                        <option value="Natural Sciences">Natural Sciences</option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Social Sciences">Social Sciences</option>
+                        <option value="Humanities">Humanities &amp; Languages</option>
+                    </select>
+                </div>
+
+                <button type="button" class="reset-button" id="resetFilters">
+                    <i data-lucide="rotate-ccw"></i>
+                    Reset
+                </button>
+
+            </div>
+
+            <div class="results-toolbar">
+
+                <p id="resultsCount" aria-live="polite">
+                    Loading programs...
+                </p>
+
+                <span class="results-note">
+                    Program availability must be confirmed officially.
+                </span>
+
+            </div>
+
+            <div class="program-grid" id="programGrid"></div>
+
+            <div class="empty-state" id="emptyState" hidden>
+
+                <div class="empty-icon">
+                    <i data-lucide="search-x"></i>
+                </div>
+
+                <h3>No programs found</h3>
+
+                <p>Try another search term or change your filters.</p>
+
+                <button type="button" class="btn btn-primary" id="emptyReset">
+                    Reset Filters
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- UNIVERSITIES -->
+
+        <section class="universities-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">EXPLORE INSTITUTIONS</span>
+
+                        <h2>Explore Our Universities</h2>
+
+                        <p>
+                            Visit official university websites to verify
+                            program details and admission information.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="university-grid">
+
+                    <article class="university-card">
+
+                        <div class="university-card-top">
+                            <div class="university-monogram">AAU</div>
+                            <span class="university-tag">Addis Ababa</span>
+                        </div>
+
+                        <h3>Addis Ababa University</h3>
+
+                        <p>
+                            Explore academic programs across engineering,
+                            sciences, health, business, humanities, and
+                            other disciplines.
+                        </p>
+
+                        <a href="https://www.aau.edu.et/" target="_blank" rel="noopener noreferrer"
+                            class="university-link">
+
+                            Visit Official Website
+                            <i data-lucide="external-link"></i>
+
+                        </a>
+
+                    </article>
+
+                    <article class="university-card">
+
+                        <div class="university-card-top">
+                            <div class="university-monogram hawassa-monogram">HU</div>
+                            <span class="university-tag">Hawassa</span>
+                        </div>
+
+                        <h3>Hawassa University</h3>
+
+                        <p>
+                            Explore academic opportunities across agriculture,
+                            engineering, health sciences, business, education,
+                            and other disciplines.
+                        </p>
+
+                        <a href="https://www.hu.edu.et/" target="_blank" rel="noopener noreferrer"
+                            class="university-link">
+
+                            Visit Official Website
+                            <i data-lucide="external-link"></i>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ADMISSION INFORMATION -->
+
+        <section class="admission-note-section section-container">
+
+            <div class="admission-note">
+
+                <div class="admission-note-icon">
+                    <i data-lucide="clipboard-check"></i>
+                </div>
+
+                <div class="admission-note-content">
+
+                    <h2>Ready to Apply?</h2>
+
+                    <p>
+                        Program availability, degree titles, entry requirements,
+                        and application dates can change. Always confirm the
+                        latest information with the university before applying.
+                    </p>
+
+                </div>
+
+                <a href="admission.html" class="btn btn-primary">
+                    Admission Information
+                    <i data-lucide="arrow-right"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PROGRAM DETAILS MODAL -->
+
+    <div class="modal-overlay" id="programModal" aria-hidden="true">
+
+        <section class="program-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+            aria-describedby="modalDescription" tabindex="-1">
+
+            <button type="button" class="modal-close" id="modalClose" aria-label="Close program details">
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+            <div class="modal-top-icon">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+
+            <span class="modal-university" id="modalUniversity"></span>
+
+            <h2 id="modalTitle">Program Details</h2>
+
+            <p class="modal-description" id="modalDescription"></p>
+
+            <div class="modal-details">
+
+                <div class="modal-detail-item">
+                    <span>Degree Level</span>
+                    <strong id="modalDegree"></strong>
+                </div>
+
+                <div class="modal-detail-item">
+                    <span>Field of Study</span>
+                    <strong id="modalField"></strong>
+                </div>
+
+                <div class="modal-detail-item">
+                    <span>Official Verification</span>
+                    <strong>Required</strong>
+                </div>
+
+            </div>
+
+            <div class="modal-notice">
+
+                <i data-lucide="info"></i>
+
+                <p>
+                    This directory contains illustrative entries, not a
+                    verified live catalogue. Confirm the exact program name,
+                    degree awarded, availability, duration, and admission
+                    requirements with the university.
+                </p>
+
+            </div>
+
+            <a href="https://www.aau.edu.et/" target="_blank" rel="noopener noreferrer" id="modalOfficialLink"
+                class="btn btn-primary modal-official-link">
+
+                Visit Official University Website
+                <i data-lucide="external-link"></i>
+
+            </a>
+
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <a href="index.html" class="footer-brand">
+                <img src="images/logo.png" alt="">
+                <span>Ethio-Uni-Guide</span>
+            </a>
+
+            <p>Explore your future through education.</p>
+
+            <span class="footer-copy">
+                <span id="currentYear"></span> Ethio-Uni-Guide.
+                All rights reserved.
+            </span>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

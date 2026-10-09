@@ -892,17 +892,15 @@ body:has(.theme__toggle:checked) .assistant-arrow {
 }
 
 /* INFORMATION SECTION */
-
 .information-section {
     width: calc(100% - 80px);
-
     margin: 24px auto 50px;
 
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 
-    gap: 15px;
 }
 
 /* INFORMATION CARD */
@@ -1009,7 +1007,7 @@ body:has(.theme__toggle:checked) .card-icon {
 /* CARD CONTENT */
 
 .card-content {
-    padding-right: 18px;
+    padding: 18px;
 }
 
 .card-content h3 {

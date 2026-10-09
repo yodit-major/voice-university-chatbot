@@ -1,3 +1,7 @@
+/* =========================
+   ROOT COLORS
+========================= */
+
 :root {
     --bg: #f4f7fb;
     --surface: #ffffff;
@@ -18,11 +22,21 @@
     --shadow: 0 24px 70px rgba(16, 24, 40, 0.10);
 }
 
+
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* =========================
+   BODY
+========================= */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -31,6 +45,11 @@ body {
     min-height: 100vh;
 }
 
+
+/* =========================
+   PROFILE PAGE
+========================= */
+
 .profile-page {
     min-height: 100vh;
     display: flex;
@@ -38,6 +57,11 @@ body {
     justify-content: center;
     padding: 40px 20px;
 }
+
+
+/* =========================
+   PROFILE CARD
+========================= */
 
 .profile-card {
     width: 100%;
@@ -49,6 +73,11 @@ body {
     border: 1px solid rgba(228, 231, 236, 0.8);
 }
 
+
+/* =========================
+   PROFILE ICON
+========================= */
+
 .profile-icon {
     width: 70px;
     height: 70px;
@@ -56,6 +85,7 @@ body {
     border-radius: 50%;
     background: var(--primary-soft);
     color: var(--primary);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,6 +97,11 @@ body {
     stroke-width: 2;
 }
 
+
+/* =========================
+   HEADINGS
+========================= */
+
 h1 {
     text-align: center;
     font-size: 28px;
@@ -77,8 +112,14 @@ h1 {
     text-align: center;
     color: var(--muted);
     font-size: 15px;
+    line-height: 1.6;
     margin-bottom: 30px;
 }
+
+
+/* =========================
+   INPUT GROUPS
+========================= */
 
 .input-group {
     margin-bottom: 20px;
@@ -90,6 +131,11 @@ h1 {
     font-weight: 600;
     margin-bottom: 8px;
 }
+
+
+/* =========================
+   INPUT WRAPPER
+========================= */
 
 .input-wrapper {
     position: relative;
@@ -110,12 +156,16 @@ h1 {
 .input-wrapper select {
     width: 100%;
     height: 48px;
+
     border: 1px solid var(--border);
     border-radius: 12px;
+
     background: var(--surface);
     color: var(--text);
+
     font-size: 15px;
     padding: 0 44px;
+
     outline: none;
     transition: 0.2s ease;
 }
@@ -128,6 +178,15 @@ h1 {
 
 .input-wrapper input::placeholder {
     color: #98a2b3;
+}
+
+
+/* =========================
+   SELECT INPUTS
+========================= */
+
+.select-wrapper {
+    position: relative;
 }
 
 .select-wrapper select {
@@ -148,18 +207,27 @@ h1 {
     transform: translateY(-55%);
 }
 
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
 .password-toggle {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
+
     border: none;
     background: none;
     color: var(--muted);
+
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 5px;
 }
 
@@ -172,17 +240,27 @@ h1 {
     height: 19px;
 }
 
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
 .primary-button {
     width: 100%;
-    height: 48px;
+    min-height: 48px;
+
     border: none;
     border-radius: 12px;
+
     background: var(--primary);
     color: white;
+
     font-size: 15px;
     font-weight: 600;
+
     cursor: pointer;
     transition: 0.2s ease;
+
     margin-top: 5px;
 }
 
@@ -190,6 +268,11 @@ h1 {
     background: var(--primary-dark);
     transform: translateY(-1px);
 }
+
+
+/* =========================
+   LOGIN AND SIGNUP MESSAGES
+========================= */
 
 .message {
     min-height: 20px;
@@ -206,6 +289,11 @@ h1 {
     color: var(--success);
 }
 
+
+/* =========================
+   SWITCH LOGIN AND SIGNUP
+========================= */
+
 .switch-section {
     text-align: center;
     margin-top: 25px;
@@ -217,8 +305,10 @@ h1 {
     border: none;
     background: none;
     color: var(--primary);
+
     font-weight: 600;
     cursor: pointer;
+
     margin-left: 4px;
     font-size: 14px;
 }
@@ -227,17 +317,30 @@ h1 {
     text-decoration: underline;
 }
 
+
+/* =========================
+   HIDDEN SECTIONS
+========================= */
+
 .hidden {
     display: none !important;
 }
 
+
+/* =========================
+   SUCCESS ICON
+========================= */
+
 .success-icon {
     width: 68px;
     height: 68px;
+
     margin: 0 auto 20px;
+
     border-radius: 50%;
     background: #ecfdf3;
     color: var(--success);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,6 +350,11 @@ h1 {
     width: 35px;
     height: 35px;
 }
+
+
+/* =========================
+   PROFILE INFORMATION
+========================= */
 
 .profile-info {
     background: var(--surface-2);
@@ -260,7 +368,9 @@ h1 {
     display: flex;
     align-items: center;
     gap: 14px;
+
     padding: 17px;
+
     border-bottom: 1px solid var(--border);
 }
 
@@ -272,9 +382,11 @@ h1 {
     width: 40px;
     height: 40px;
     flex-shrink: 0;
+
     border-radius: 10px;
     background: var(--primary-soft);
     color: var(--primary);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,20 +409,31 @@ h1 {
     word-break: break-word;
 }
 
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
 .logout-button {
     width: 100%;
-    height: 46px;
+    min-height: 46px;
+
     border: 1px solid var(--border);
     background: white;
     color: var(--danger);
+
     border-radius: 12px;
+
     font-size: 15px;
     font-weight: 600;
+
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+
     transition: 0.2s ease;
 }
 
@@ -324,38 +447,407 @@ h1 {
     height: 18px;
 }
 
+
+/* =========================
+   ADMIN LOGIN CONTAINER
+========================= */
+
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================
+   ADMIN LOGIN SECTION
+========================= */
+
+.admin-login-section {
+    display: block;
+    width: 100%;
+    margin-top: 22px;
+}
+
+.admin-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.admin-divider::before,
+.admin-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.admin-divider span {
+    letter-spacing: 1px;
+}
+
+.admin-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 48px;
+
+    padding: 12px 16px;
+
+    background: var(--surface);
+    color: var(--primary);
+
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.admin-login-button>svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.admin-login-button .admin-arrow {
+    margin-left: auto;
+}
+
+.admin-login-button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(28, 105, 210, 0.15);
+}
+
+.admin-login-button:focus-visible {
+    outline: 3px solid rgba(28, 105, 210, 0.25);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   ROLE SELECTION PAGE
+========================= */
+
+.role-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 16px;
+
+    background: linear-gradient(135deg, #eaf2ff, #f8fafc);
+}
+
+.role-card {
+    width: 100%;
+    max-width: 520px;
+
+    background: var(--surface);
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* =========================
+   ROLE PAGE HEADINGS
+========================= */
+
+.role-card h1 {
+    font-size: 27px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+}
+
+.role-card .subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   ROLE SECTIONS
+========================= */
+
+.role-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.role-button {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    width: 100%;
+    min-height: 100px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    text-align: left;
+    text-decoration: none;
+
+    color: var(--text);
+    background: var(--surface);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.role-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(28, 105, 210, 0.12);
+
+    border-color: var(--primary);
+    background: #f8fbff;
+}
+
+.role-button:focus-visible {
+    outline: 3px solid rgba(28, 105, 210, 0.35);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   ROLE ICONS
+========================= */
+
+.role-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+.role-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+
+/* =========================
+   ROLE TEXT
+========================= */
+
+.role-info {
+    flex: 1;
+}
+
+.role-info h2 {
+    font-size: 17px;
+    margin-bottom: 7px;
+    color: var(--primary-dark);
+}
+
+.role-info p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+
+/* =========================
+   ROLE ARROW
+========================= */
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    color: var(--muted);
+
+    transition: transform 0.25s ease;
+}
+
+.role-button:hover .arrow-icon {
+    transform: translateX(4px);
+    color: var(--primary);
+}
+
+
+/* =========================
+   BACK TO HOME LINK
+========================= */
+
 .back-link {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
-    margin-top: 25px;
-    color: var(--muted);
+
+    margin-top: 20px;
+
+    color: var(--primary);
     text-decoration: none;
+
     font-size: 14px;
+
     transition: 0.2s ease;
 }
 
 .back-link:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 
 .back-link svg {
     width: 17px;
     height: 17px;
+    flex-shrink: 0;
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
 @media (max-width: 600px) {
+
     .profile-page {
         padding: 20px 15px;
+        align-items: flex-start;
     }
 
     .profile-card {
         padding: 30px 22px;
         border-radius: 20px;
+        margin: auto 0;
     }
 
-    h1 {
+    .role-card {
+        padding: 28px 20px;
+        border-radius: 20px;
+    }
+
+    .profile-card h1,
+    .role-card h1 {
         font-size: 25px;
+    }
+
+    .profile-card .subtitle,
+    .role-card .subtitle {
+        font-size: 14px;
+    }
+
+    .role-button {
+        gap: 12px;
+        padding: 15px;
+        min-height: 90px;
+    }
+
+    .role-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+    }
+
+    .role-icon svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .role-info h2 {
+        font-size: 15px;
+    }
+
+    .role-info p {
+        font-size: 12px;
+    }
+
+    .arrow-icon {
+        width: 17px;
+        height: 17px;
+    }
+
+    .admin-login-button {
+        min-height: 46px;
+        font-size: 14px;
+    }
+
+    .admin-login-section+.back-link {
+        margin-top: 22px;
     }
 }
