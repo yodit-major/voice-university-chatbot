@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="University admission and application information for Addis Ababa University and Hawassa University.">
+
+    <title>Admission & Application | Ethio-Uni-Guide</title>
+
+    <link rel="stylesheet" href="admission.css">
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html" class="logo-area">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+
+            <div>
+                <h2>Ethio-Uni-Guide</h2>
+                <span>Find your uni. Shape your future.</span>
+            </div>
+        </a>
+
+        <nav class="navbar" aria-label="Main navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="universities.html">Universities</a>
+
+            <a href="campus-life.html">Courses</a>
+
+            <div class="calendar-menu">
+
+                <button type="button" class="calendar-menu-btn" aria-expanded="false">
+                    Academic Calendar
+                    <i data-lucide="chevron-down"></i>
+                </button>
+
+                <div class="calendar-menu-list">
+
+                    <a href="aau-calendar.html">
+                        Addis Ababa University
+                    </a>
+
+                    <a href="hawassa-calendar.html">
+                        Hawassa University
+                    </a>
+
+                    <a href="#" class="coming-soon-link">
+                        <i data-lucide="plus-circle"></i>
+                        More universities coming soon
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <label class="theme" for="theme" aria-label="Toggle dark mode">
+
+            <span class="theme__toggle-wrap">
+
+                <input id="theme" class="theme__toggle" type="checkbox" role="switch" aria-label="Dark mode">
+
+                <span class="theme__icon" aria-hidden="true">
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon-part"></span>
+                </span>
+
+            </span>
+
+        </label>
+
+    </header>
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">UNIVERSITY ADMISSION</span>
+
+            <h1>Start your university journey.</h1>
+
+            <p>
+                Learn how admission works, complete your application,
+                and take the next step toward your university education.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="university-section">
+
+        <div class="section-title">
+
+            <span>CHOOSE YOUR PATH</span>
+
+            <h2>Where do you want to study?</h2>
+
+            <p>Select a university to see its admission process.</p>
+
+        </div>
+
+        <div class="university-buttons">
+
+            <button class="uni-button active" data-university="aau" type="button">
+                <i data-lucide="building-2"></i>
+                Addis Ababa University
+            </button>
+
+            <button class="uni-button" data-university="hawassa" type="button">
+                <i data-lucide="school"></i>
+                Hawassa University
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <main id="aauContent" class="admission-content">
+
+        <div class="uni-heading">
+
+            <div class="uni-icon">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+
+            <div>
+                <span>AAU ADMISSION</span>
+                <h2>Addis Ababa University</h2>
+            </div>
+
+        </div>
+
+        <section class="process">
+
+            <h2>How to apply</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+
+                    <div>
+                        <h3>Get a Wereda Support Letter</h3>
+
+                        <p>
+                            Obtain the required support letter from your
+                            Wereda before continuing with your application.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+
+                    <div>
+                        <h3>Fill in the Application Form</h3>
+
+                        <p>
+                            Provide your personal information, educational
+                            background and preferred field of study.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+
+                    <div>
+                        <h3>Take the UAT</h3>
+
+                        <p>
+                            Complete the University Admission Test (UAT)
+                            as part of the admission process.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+
+                    <div>
+                        <h3>Admission Decision</h3>
+
+                        <p>
+                            After completing the requirements, wait for
+                            the university's admission result.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="info-card">
+
+            <i data-lucide="info"></i>
+
+            <div>
+                <h3>Important</h3>
+
+                <p>
+                    Admission requirements and procedures may change.
+                    Check the latest instructions from the official
+                    university or relevant admission authority.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <main id="hawassaContent" class="admission-content hidden">
+
+        <div class="uni-heading">
+
+            <div class="uni-icon">
+                <i data-lucide="school"></i>
+            </div>
+
+            <div>
+                <span>HAWASSA ADMISSION</span>
+                <h2>Hawassa University</h2>
+            </div>
+
+        </div>
+
+        <section class="allocation-card">
+
+            <div class="allocation-icon">
+                <i data-lucide="map-pin"></i>
+            </div>
+
+            <h2>You may be allocated to Hawassa University</h2>
+
+            <p>
+                Students may be allocated to Hawassa University based on
+                the applicable university placement and admission system.
+                Whether a separate application is needed depends on your
+                student category and the current admission requirements.
+            </p>
+
+        </section>
+
+        <section class="process">
+
+            <h2>How the allocation works</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+
+                    <div>
+                        <h3>Complete Your Information</h3>
+
+                        <p>
+                            Make sure your academic and personal information
+                            is complete and accurate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+
+                    <div>
+                        <h3>Complete the Required Process</h3>
+
+                        <p>
+                            Follow the admission and placement requirements
+                            applicable to your student category.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+
+                    <div>
+                        <h3>Wait for Placement</h3>
+
+                        <p>
+                            Your result will determine whether you are
+                            allocated to Hawassa University or another
+                            institution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+
+                    <div>
+                        <h3>Check Your Result</h3>
+
+                        <p>
+                            Check your placement result and follow the
+                            university's registration instructions.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="info-card">
+
+            <i data-lucide="info"></i>
+
+            <div>
+                <h3>Important</h3>
+
+                <p>
+                    Admission and placement requirements can change.
+                    Always verify the latest requirements with the
+                    relevant university or official admission authority.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <script src="admission.js"></script>
+
+</body>
+
+</html>

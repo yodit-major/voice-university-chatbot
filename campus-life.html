@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <title>Campus Life | Ethio-Uni-Guide</title>
 
     <link rel="stylesheet" href="campus-life.css">
     <link rel="shortcut icon" href="images/logo.png">
 
     <script src="https://unpkg.com/lucide@latest"></script>
+
+
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
 
     <header class="navbar">
 
@@ -26,17 +28,12 @@
 
         <nav class="navbar-links">
 
-            <a href="index.html" class="nav-link">
-                Home
-            </a>
+            <a href="index.html" class="nav-link">Home</a>
 
-            <a href="universities.html" class="nav-link">
-                Universities
-            </a>
-            <a href="campus-life.html" class="nav-link active">
-                Campus Life
-            </a>
-            <!-- ACADEMIC CALENDAR -->
+            <a href="universities.html" class="nav-link">Universities</a>
+
+            <a href="campus-life.html" class="nav-link active">Campus Life</a>
+
             <div class="calendar-menu">
 
                 <button type="button" class="calendar-menu-btn">
@@ -44,60 +41,49 @@
                 </button>
 
                 <div class="calendar-menu-list">
-
-                    <a href="aau-calendar.html">
-                        Addis Ababa University
-                    </a>
-
-                    <a href="hawassa-calendar.html">
-                        Hawassa University
-                    </a>
-
+                    <a href="aau-calendar.html">Addis Ababa University</a>
+                    <a href="hawassa-calendar.html">Hawassa University</a>
                     <a href="#">
                         <span class="coming-soon-plus">➕</span>
                         More universities coming soon
                     </a>
-
                 </div>
 
             </div>
 
         </nav>
 
-
         <div class="navbar-right">
 
-
-
-
             <!-- DARK / LIGHT MODE -->
-
             <label class="theme" for="theme">
 
-                <input class="theme__toggle" id="theme" type="checkbox" role="switch" aria-label="Toggle dark mode">
+                <span class="theme__toggle-wrap">
 
-                <span class="theme__icon">
+                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
 
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
-                    <span class="theme__icon-part"></span>
+                    <span class="theme__icon">
+
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+                        <span class="theme__icon-part"></span>
+
+                    </span>
 
                 </span>
 
             </label>
-
         </div>
 
     </header>
 
 
-    <!-- UNIVERSITY INTRO -->
 
     <section class="university-section">
 
@@ -112,19 +98,18 @@
 
             <p>
                 Discover what student life looks like beyond the classroom.
-                Explore campuses, communities, activities and everyday university experiences.
+                Explore campus spaces, activities, accommodation and events.
             </p>
 
         </div>
+
 
 
         <div class="university-selector">
 
             <button class="university-tab active" data-university="aau">
 
-                <span class="uni-logo">
-                    AAU
-                </span>
+                <span class="uni-logo">AAU</span>
 
                 <span>
                     <strong>Addis Ababa University</strong>
@@ -134,11 +119,10 @@
             </button>
 
 
+
             <button class="university-tab" data-university="hawassa">
 
-                <span class="uni-logo hawassa">
-                    HU
-                </span>
+                <span class="uni-logo hawassa">HU</span>
 
                 <span>
                     <strong>Hawassa University</strong>
@@ -148,11 +132,10 @@
             </button>
 
 
+
             <button class="university-tab coming-soon">
 
-                <span class="uni-logo more">
-                    +
-                </span>
+                <span class="uni-logo more">+</span>
 
                 <span>
                     <strong>More Universities</strong>
@@ -166,44 +149,33 @@
     </section>
 
 
+
     <main>
-
-
-        <!-- HERO -->
 
         <section class="campus-hero">
 
             <div class="hero-content">
 
                 <span class="hero-label">
-
                     <i data-lucide="sparkles"></i>
-
                     LIFE AT <span id="universityName">AAU</span>
-
                 </span>
-
 
                 <h2 id="heroTitle">
                     Your university experience is more than lectures.
                 </h2>
 
-
                 <p id="heroDescription">
-                    Find your community, discover events, explore campus spaces,
-                    and make the most of your student years.
+                    Stay informed about campus life, university activities,
+                    accommodation and important announcements.
                 </p>
-
 
                 <div class="hero-buttons">
 
-                    <a href="#events" class="primary-button">
-                        Explore events
-                        <i data-lucide="arrow-right"></i>
-                    </a>
-
-                    <a href="#clubs" class="secondary-button">
-                        Find your community
+                    <a href="https://t.me/AAUNEWS1" target="_blank" class="university-news-link primary-button"
+                        rel="noopener noreferrer">
+                        AAU News & Announcements
+                        <i data-lucide="send"></i>
                     </a>
 
                 </div>
@@ -211,34 +183,20 @@
             </div>
 
 
-            <!-- FLOATING IMAGE AREA -->
 
             <div class="floating-campus">
 
                 <div class="floating-card card-one">
-
-                    <img src="images/aau-building.jpg" alt="University campus">
-
+                    <img id="heroImageOne" src="images/aau-building.jpg" alt="Addis Ababa University campus">
                 </div>
-
-
-                <!-- SECOND IMAGE SPACE -->
 
                 <div class="floating-card card-two">
-
-                    <img src="images/Hawassa.jfif" alt="Students on campus">
-
+                    <img id="heroImageTwo" src="images/Hawassa.jfif" alt="Hawassa University campus">
                 </div>
-
-
-                <!-- THIRD IMAGE SPACE -->
 
                 <div class="floating-card card-three">
-
-                    <img src="images/grad.jpg" alt="Students studying together">
-
+                    <img src="images/grad.jpg" alt="University students">
                 </div>
-
 
                 <div class="floating-orb orb-one"></div>
                 <div class="floating-orb orb-two"></div>
@@ -248,19 +206,14 @@
         </section>
 
 
-        <!-- QUICK ACCESS -->
 
         <section class="quick-section">
 
             <div class="section-title">
-
                 <span>QUICK ACCESS</span>
-
-                <h2>
-                    Everything campus life has to offer
-                </h2>
-
+                <h2>Everything campus life has to offer</h2>
             </div>
+
 
 
             <div class="quick-grid">
@@ -282,6 +235,7 @@
                 </a>
 
 
+
                 <a href="#events" class="quick-card">
 
                     <div class="quick-icon">
@@ -299,38 +253,23 @@
                 </a>
 
 
+
                 <a href="#clubs" class="quick-card">
 
                     <div class="quick-icon">
                         <i data-lucide="users"></i>
                     </div>
 
-                    <h3>Clubs</h3>
+                    <h3>Clubs & Activities</h3>
 
                     <p>
-                        Find people who share your interests.
+                        Discover student activities and organizations.
                     </p>
 
                     <i data-lucide="arrow-up-right" class="corner-icon"></i>
 
                 </a>
 
-
-                <a href="#food" class="quick-card">
-
-                    <div class="quick-icon">
-                        <i data-lucide="utensils"></i>
-                    </div>
-
-                    <h3>Food & Cafeterias</h3>
-
-                    <p>
-                        Explore food spots and everyday essentials.
-                    </p>
-
-                    <i data-lucide="arrow-up-right" class="corner-icon"></i>
-
-                </a>
 
 
                 <a href="#sports" class="quick-card">
@@ -342,24 +281,7 @@
                     <h3>Sports & Recreation</h3>
 
                     <p>
-                        Stay active and have some fun.
-                    </p>
-
-                    <i data-lucide="arrow-up-right" class="corner-icon"></i>
-
-                </a>
-
-
-                <a href="#voices" class="quick-card">
-
-                    <div class="quick-icon">
-                        <i data-lucide="message-circle"></i>
-                    </div>
-
-                    <h3>Student Voices</h3>
-
-                    <p>
-                        Hear what students have to say.
+                        Stay active and enjoy university life.
                     </p>
 
                     <i data-lucide="arrow-up-right" class="corner-icon"></i>
@@ -371,7 +293,6 @@
         </section>
 
 
-        <!-- EVENTS -->
 
         <section class="content-section" id="events">
 
@@ -380,132 +301,176 @@
                 <div>
 
                     <span class="section-label">
-
                         <i data-lucide="calendar"></i>
-
                         WHAT'S HAPPENING
-
                     </span>
 
-                    <h2>
-                        Upcoming events
-                    </h2>
+                    <h2>Upcoming events & announcements</h2>
 
                 </div>
 
 
-                <a href="events.html" class="view-all">
 
-                    View all
-
-                    <i data-lucide="arrow-right"></i>
-
+                <a href="https://t.me/AAUNEWS1" target="_blank" class="university-news-link view-all"
+                    rel="noopener noreferrer">
+                    More on AAU News
+                    <i data-lucide="send"></i>
                 </a>
 
             </div>
 
 
+
             <div class="events-grid">
 
-                <article class="event-card">
+                <article class="event-card event-card-featured">
 
                     <div class="event-date">
-                        <strong>15</strong>
+                        <strong>09</strong>
                         <span>OCT</span>
                     </div>
 
                     <div class="event-info">
 
-                        <span class="event-type">
-                            ACADEMIC
-                        </span>
+                        <span class="event-type">MECHANICAL ENGINEERING</span>
 
-                        <h3>
-                            Engineering Innovation Talk
-                        </h3>
+                        <h3>Beginning-of-Year Workshop</h3>
 
                         <p>
-                            Meet students and professionals exploring
-                            engineering and technology.
+                            To all mechanical engineering students and interested students:
+                            the beginning-of-year workshop is around the corner. The event
+                            includes MiNT vision sharing, internship experience-sharing,
+                            poster exhibition, robotics and more.
                         </p>
 
-                        <div class="event-location">
+                        <p class="event-note">
+                            All SMiE students are expected to be part of this event.
+                            Afternoon classes are suspended so students can attend.
+                        </p>
 
-                            <i data-lucide="map-pin"></i>
+                        <div class="event-details">
+                            <div>
+                                <i data-lucide="calendar-days"></i>
+                                Friday, October 09, 2026
+                            </div>
 
-                            Engineering Building
+                            <div>
+                                <i data-lucide="clock-3"></i>
+                                01:30 - 04:00 PM
+                            </div>
 
+                            <div>
+                                <i data-lucide="map-pin"></i>
+                                CTBE Auditorium
+                            </div>
                         </div>
+
+                        <strong class="event-closing">
+                            You missed it last year. Don't miss it this year!
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
                 <article class="event-card">
 
                     <div class="event-date">
-                        <strong>18</strong>
-                        <span>OCT</span>
+                        <strong>11</strong>
+                        <span>TIKIMT</span>
                     </div>
 
                     <div class="event-info">
 
-                        <span class="event-type">
-                            STUDENT LIFE
-                        </span>
+                        <span class="event-type">CULTURE & MUSIC</span>
 
-                        <h3>
-                            Student Clubs Fair
-                        </h3>
+                        <h3>Legendary Art Night</h3>
 
                         <p>
-                            Discover organizations, clubs and communities
-                            you can join.
+                            A special 61st evening celebrating the legendary Ethiopian
+                            music artist Abegaz Kibrework Shiyota and his contribution
+                            to Ethiopia's musical history.
                         </p>
 
-                        <div class="event-location">
+                        <p>
+                            The evening will feature music, poetry, storytelling,
+                            criticism, dance and a fashion show, with celebrated
+                            singers performing in his honor.
+                        </p>
 
-                            <i data-lucide="map-pin"></i>
+                        <div class="event-details">
+                            <div>
+                                <i data-lucide="calendar-days"></i>
+                                Wednesday, Tikimt 11, 2019 E.C.
+                            </div>
 
-                            Main Campus
+                            <div>
+                                <i data-lucide="clock-3"></i>
+                                11:30 AM
+                            </div>
 
+                            <div>
+                                <i data-lucide="map-pin"></i>
+                                AAU Cultural Center, 6 Kilo Campus
+                            </div>
                         </div>
+
+                        <strong class="event-closing">
+                            One evening, many stories. One stage, a thousand emotions.
+                        </strong>
 
                     </div>
 
                 </article>
 
 
+
                 <article class="event-card">
 
                     <div class="event-date">
-                        <strong>24</strong>
+                        <strong>10</strong>
                         <span>OCT</span>
                     </div>
 
                     <div class="event-info">
 
-                        <span class="event-type">
-                            SPORTS
-                        </span>
+                        <span class="event-type">LEARNING</span>
 
-                        <h3>
-                            Inter-University Games
-                        </h3>
+                        <h3>Learn Ethiopian Sign Language</h3>
 
                         <p>
-                            Support your university and enjoy a day
-                            of sports and competition.
+                            The Department of Linguistics and Philology, Ethiopian Sign
+                            Language Program Unit, is launching a non-credit Ethiopian
+                            Sign Language course at reasonable fees.
                         </p>
 
-                        <div class="event-location">
+                        <div class="event-details">
+                            <div>
+                                <i data-lucide="calendar-days"></i>
+                                Classes start October 10
+                            </div>
 
-                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <i data-lucide="clock-3"></i>
+                                Every Saturday at 9:00 AM
+                            </div>
 
-                            University Stadium
+                            <div>
+                                <i data-lucide="map-pin"></i>
+                                NCR G-16, 15, 14 and 13
+                            </div>
 
+                            <div>
+                                <i data-lucide="clipboard-list"></i>
+                                Register at OCR 423-424
+                            </div>
                         </div>
+
+                        <strong class="event-closing">
+                            Open to students and staff, inside and outside AAU.
+                        </strong>
 
                     </div>
 
@@ -516,59 +481,40 @@
         </section>
 
 
-        <!-- CLUBS -->
 
         <section class="community-section" id="clubs">
 
             <div class="community-text">
 
                 <span class="section-label">
-
                     <i data-lucide="users"></i>
-
-                    FIND YOUR COMMUNITY
-
+                    CAMPUS ACTIVITIES
                 </span>
 
-
-                <h2>
-                    There's probably a club for that.
-                </h2>
-
+                <h2>There is more to university life than lectures.</h2>
 
                 <p>
-                    From engineering and technology to sports, leadership,
-                    volunteering and creative communities, find people
-                    who share your interests.
+                    Explore student clubs, engineering activities, cultural events,
+                    leadership opportunities, volunteering, technology and creative
+                    communities across campus.
                 </p>
-
-
-                <a href="clubs.html" class="primary-button">
-
-                    Explore clubs
-
-                    <i data-lucide="arrow-right"></i>
-
-                </a>
 
             </div>
 
 
-            <div class="club-stack">
 
-                <div class="club-card club-back">
-                    <span>🌍</span>
-                    <strong>Community</strong>
+            <div class="sports-gallery">
+
+                <div class="sports-image sports-image-one">
+                    <img src="images/culture-day.jpg" alt="University cultural activities">
                 </div>
 
-                <div class="club-card club-middle">
-                    <span>⚙️</span>
-                    <strong>Engineering</strong>
+                <div class="sports-image sports-image-two">
+                    <img src="images/robotics.jpg" alt="Students working with robotics">
                 </div>
 
-                <div class="club-card club-front">
-                    <span>🤖</span>
-                    <strong>Technology</strong>
+                <div class="sports-image sports-image-three">
+                    <img src="images/hackton.jpg" alt="Students participating in a hackathon">
                 </div>
 
             </div>
@@ -576,355 +522,197 @@
         </section>
 
 
-        <!-- DORMS -->
 
         <section class="living-section" id="dorms">
 
             <div class="living-image">
 
-                <img src="images/dormitory.jpg" alt="Student accommodation">
-
-                <div class="image-badge">
-
-                    <i data-lucide="house"></i>
-
-                    Student Living
-
+                <div class="floating-card card-two">
+                    <img id="heroImageTwo" src="images/aau-dorm.jfif" alt="Addis Ababa University dormitory">
                 </div>
-
             </div>
+
 
 
             <div class="living-content">
 
                 <span class="section-label">
-
                     <i data-lucide="home"></i>
-
                     LIVING ON CAMPUS
-
                 </span>
 
 
-                <h2>
+
+                <h2 id="accommodationTitle">
                     Make your campus feel like home.
                 </h2>
 
 
-                <p>
-                    Find useful information about accommodation,
-                    dormitories and everyday life around your university.
+
+                <p id="accommodationDescription">
+                    For Addis Ababa University students who live in Addis Ababa
+                    and Sheger Sub-city, accommodation requires a support letter
+                    from your Wereda and submission through the university's
+                    online accommodation form.
                 </p>
+
 
 
                 <div class="living-list">
 
                     <div>
-
-                        <i data-lucide="bed-double"></i>
-
-                        <span>
-
-                            <strong>Dormitories</strong>
-
-                            <small>
-                                Explore available student housing.
-                            </small>
-
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
-                        <i data-lucide="wallet"></i>
-
-                        <span>
-
-                            <strong>Costs</strong>
-
-                            <small>
-                                Understand accommodation expenses.
-                            </small>
-
-                        </span>
-
-                    </div>
-
-
-                    <div>
-
                         <i data-lucide="file-text"></i>
 
                         <span>
+                            <strong id="accommodationItemOneTitle">
+                                Wereda support letter
+                            </strong>
 
-                            <strong>How to apply</strong>
-
-                            <small>
-                                Learn about the housing process.
+                            <small id="accommodationItemOneText">
+                                Students living in Addis Ababa and Sheger Sub-city
+                                need to obtain a support letter from their Wereda.
                             </small>
-
                         </span>
+                    </div>
 
+
+
+                    <div>
+                        <i data-lucide="send"></i>
+
+                        <span>
+                            <strong id="accommodationItemTwoTitle">
+                                Online submission
+                            </strong>
+
+                            <small id="accommodationItemTwoText">
+                                Submit the required support letter through the
+                                university's online accommodation form.
+                            </small>
+                        </span>
+                    </div>
+
+
+
+                    <div>
+                        <i data-lucide="clipboard-check"></i>
+
+                        <span>
+                            <strong id="accommodationItemThreeTitle">
+                                Accommodation process
+                            </strong>
+
+                            <small id="accommodationItemThreeText">
+                                Make sure your required documents are ready before
+                                completing the online submission.
+                            </small>
+                        </span>
                     </div>
 
                 </div>
-
-
-                <a href="dormitories.html" class="secondary-button">
-
-                    Explore accommodation
-
-                    <i data-lucide="arrow-right"></i>
-
-                </a>
 
             </div>
 
         </section>
 
 
-        <!-- FOOD + SPORTS -->
 
-        <section class="mini-section">
+        <section class="sports-section" id="sports">
 
-            <article class="feature-card" id="food">
+            <div class="sports-content">
 
-                <div class="feature-icon">
-                    <i data-lucide="utensils"></i>
-                </div>
-
-                <span>
-                    EVERYDAY CAMPUS LIFE
-                </span>
-
-                <h2>
-                    Food & Cafeterias
-                </h2>
-
-                <p>
-                    Find cafeterias, food spots and places to grab
-                    something between classes.
-                </p>
-
-                <a href="food.html">
-
-                    Explore food
-
-                    <i data-lucide="arrow-right"></i>
-
-                </a>
-
-            </article>
-
-
-            <article class="feature-card sports-card" id="sports">
-
-                <div class="feature-icon">
+                <span class="section-label">
                     <i data-lucide="trophy"></i>
-                </div>
-
-                <span>
                     STAY ACTIVE
                 </span>
 
-                <h2>
-                    Sports & Recreation
-                </h2>
+                <h2>Make time for something outside the classroom.</h2>
 
                 <p>
-                    Discover sports facilities, activities and ways
-                    to take a break from studying.
-                </p>
-
-                <a href="sports.html">
-
-                    Explore recreation
-
-                    <i data-lucide="arrow-right"></i>
-
-                </a>
-
-            </article>
-
-        </section>
-
-
-        <!-- STUDENT VOICES -->
-
-        <section class="voices-section" id="voices">
-
-            <div class="section-title center">
-
-                <span>
-                    STUDENT VOICES
-                </span>
-
-                <h2>
-                    Campus life, from students' perspective.
-                </h2>
-
-                <p>
-                    Real experiences can tell you things a brochure can't.
+                    Discover sports facilities, recreational activities and
+                    campus experiences that help you make the most of university life.
                 </p>
 
             </div>
 
 
-            <div class="voices-grid">
 
-                <article class="voice-card">
+            <div class="sports-gallery">
 
-                    <div class="quote-icon">
-                        <i data-lucide="quote"></i>
-                    </div>
+                <div class="sports-image sports-image-one">
+                    <img src="images/football.jpg" alt="University football">
+                </div>
 
-                    <p>
-                        "Joining a student organization helped me meet
-                        people outside my department and build confidence."
-                    </p>
+                <div class="sports-image sports-image-two">
+                    <img src="images/band.jpg" alt="University music activity">
+                </div>
 
-                    <div class="student">
+                <div class="sports-image sports-image-three">
+                    <img src="images/stage.jpg" alt="University stage performance">
+                </div>
 
-                        <div class="student-avatar">
-                            A
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                AAU Student
-                            </strong>
-
-                            <span>
-                                Engineering
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="voice-card">
-
-                    <div class="quote-icon">
-                        <i data-lucide="quote"></i>
-                    </div>
-
-                    <p>
-                        "There is so much more happening on campus than
-                        what you see during lectures."
-                    </p>
-
-                    <div class="student">
-
-                        <div class="student-avatar">
-                            H
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Hawassa University Student
-                            </strong>
-
-                            <span>
-                                Undergraduate
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <article class="voice-card">
-
-                    <div class="quote-icon">
-                        <i data-lucide="quote"></i>
-                    </div>
-
-                    <p>
-                        "The best part is finding people who are interested
-                        in the same things you are."
-                    </p>
-
-                    <div class="student">
-
-                        <div class="student-avatar">
-                            E
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Ethio-Uni-Guide Student
-                            </strong>
-
-                            <span>
-                                Community
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </article>
+                <div class="sports-orb sports-orb-one"></div>
+                <div class="sports-orb sports-orb-two"></div>
 
             </div>
 
         </section>
 
 
-        <!-- COMING SOON -->
+
+        <section class="telegram-section">
+
+            <div class="telegram-icon">
+                <i data-lucide="send"></i>
+            </div>
+
+            <div>
+                <span class="section-label">STAY INFORMED</span>
+
+                <h2>More events and announcements</h2>
+
+                <p>
+                    Follow the AAU News Telegram channel for more university
+                    events, announcements and updates.
+                </p>
+            </div>
+
+            <a href="https://t.me/AAUNEWS1" target="_blank" class="university-news-link telegram-button"
+                rel="noopener noreferrer">
+                Join AAU News
+                <i data-lucide="arrow-up-right"></i>
+            </a>
+
+        </section>
+
+
 
         <section class="coming-section">
 
             <div class="coming-glow"></div>
 
-
             <div class="coming-content">
 
                 <span class="coming-icon">
-
                     <i data-lucide="rocket"></i>
-
                 </span>
-
 
                 <span class="section-label">
                     GROWING WITH YOU
                 </span>
 
-
-                <h2>
-                    More universities are coming.
-                </h2>
-
+                <h2>More universities are coming.</h2>
 
                 <p>
                     We're building Ethio-Uni-Guide to make university life
                     easier for students across Ethiopia.
                 </p>
 
-
                 <div class="coming-universities">
 
-                    <span>
-                        🎓 More campuses
-                    </span>
-
-                    <span>
-                        📍 More cities
-                    </span>
-
-                    <span>
-                        🤝 More communities
-                    </span>
+                    <span>🎓 More campuses</span>
+                    <span>📍 More cities</span>
+                    <span>🤝 More communities</span>
 
                 </div>
 
@@ -935,46 +723,9 @@
     </main>
 
 
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <div class="footer-brand">
-
-            <img src="images/logo.png" alt="Ethio-Uni-Guide">
-
-            <p>
-                Helping Ethiopian students navigate university life.
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a href="privacy.html">
-                Privacy
-            </a>
-
-        </div>
-
-
-        <p class="copyright">
-            © 2026 Ethio-Uni-Guide. All rights reserved.
-        </p>
-
-    </footer>
-
 
     <script src="campus-life.js"></script>
+
 
 </body>
 
