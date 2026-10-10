@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "/api/auth/login";
 const tableBody = document.getElementById("departmentTableBody");
 const addButton = document.getElementById("addDepartmentButton");
 const searchInput = document.getElementById("departmentSearch");

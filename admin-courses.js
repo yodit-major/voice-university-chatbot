@@ -17,8 +17,8 @@ if (logoutButton) {
 // API CONFIGURATION
 // ==========================================
 
-const API_URL = "http://localhost:3000/api/courses";
-const OFFERING_API_URL = "http://localhost:3000/api/course-offerings";
+const API_URL = "/api/auth/login";
+const OFFERING_API_URL = "/api/auth/login";
 
 let courses = [];
 let selectedCourseId = null;
