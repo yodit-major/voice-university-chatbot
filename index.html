@@ -4,229 +4,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ethio-Uni-Guide</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Ethio-Uni-Guide | Find Your University</title>
+    <meta name="description"
+        content="Explore Ethiopian universities, discover academic programs, learn about admissions, and get help from our AI assistant.">
     <link rel="shortcut icon" href="images/logo.png">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }
+            } catch (error) { }
+        })();
+    </script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-
-    <!-- NAVIGATION BAR -->
+    <a href="#home" class="skip-link">Skip to content</a>
 
     <header class="navbar">
-
-        <!-- BRAND -->
-        <a href="#home" class="brand">
-            <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
+        <a href="index.html" class="brand" aria-label="Ethio-Uni-Guide home">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide logo">
             <span>Ethio-Uni-Guide</span>
         </a>
 
-        <!-- DESKTOP NAVIGATION -->
-        <nav class="navbar-links" id="navbarLinks">
+        <nav class="navbar-links" id="navbarLinks" aria-label="Main navigation">
+            <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+            <a href="universities.html" class="nav-link">Universities</a>
+            <a href="campus-life.html" class="nav-link">Campus Life</a>
 
-            <a href="#home" class="nav-link active">
-                Home
-            </a>
-
-            <a href="universities.html" class="nav-link">
-                Universities
-            </a>
-
-            <a href="campus-life.html" class="nav-link">
-                Campus Life
-            </a>
-
-            <!-- ACADEMIC CALENDAR -->
-            <div class="calendar-menu">
-
-                <button type="button" class="calendar-menu-btn">
-                    Academic Calendar ▾
+            <div class="calendar-menu" id="calendarMenu">
+                <button type="button" class="nav-link calendar-menu-btn" id="calendarMenuButton" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="calendarMenuList">
+                    Academic Calendar
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
                 </button>
-
-                <div class="calendar-menu-list">
-
-                    <a href="aau-calendar.html">
-                        Addis Ababa University
-                    </a>
-
-                    <a href="hawassa-calendar.html">
-                        Hawassa University
-                    </a>
-
-                    <a href="#">
-                        <span class="coming-soon-plus">➕</span>
-                        More universities coming soon
-                    </a>
-
+                <div class="calendar-menu-list" id="calendarMenuList">
+                    <a href="aau-calendar.html">Addis Ababa University</a>
+                    <a href="hawassa-calendar.html">Hawassa University</a>
+                    <span class="menu-note">More universities coming soon</span>
                 </div>
-
             </div>
-
         </nav>
 
-        <!-- RIGHT SIDE -->
         <div class="navbar-right">
-
-            <!-- DARK / LIGHT MODE -->
-            <label class="theme" for="theme">
-
-                <span class="theme__toggle-wrap">
-
-                    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme">
-
-                    <span class="theme__icon">
-
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-                        <span class="theme__icon-part"></span>
-
-                    </span>
-
-                </span>
-
-            </label>
-
-            <!-- PROFILE -->
-            <a href="profile.html" class="profile-button" aria-label="Profile">
-                <i data-lucide="user"></i>
+            <button type="button" class="icon-btn theme-btn" id="themeToggle" aria-label="Switch to dark mode"
+                title="Toggle dark mode">
+                <i data-lucide="moon" class="icon-moon" aria-hidden="true"></i>
+                <i data-lucide="sun" class="icon-sun" aria-hidden="true"></i>
+            </button>
+            <a href="profile.html" class="profile-button" aria-label="Open profile" title="Profile">
+                <i data-lucide="user-round" aria-hidden="true"></i>
             </a>
-
+            <button type="button" class="icon-btn menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"
+                aria-controls="navbarLinks">
+                <i data-lucide="menu" class="menu-icon" aria-hidden="true"></i>
+                <i data-lucide="x" class="close-icon" aria-hidden="true"></i>
+            </button>
         </div>
-
     </header>
 
-    <!-- MAIN CONTENT -->
-
     <main id="home">
-
-        <!-- HERO -->
-
-        <section class="hero">
-
-            <div class="hero-overlay"></div>
+        <section class="hero" aria-labelledby="heroTitle">
+            <div class="hero-pattern" aria-hidden="true"></div>
+            <div class="hero-overlay" aria-hidden="true"></div>
 
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    YOUR NEXT CHAPTER STARTS HERE
+                </div>
 
-                <h1>
-                    Welcome to Ethio-Uni-Guide
-                </h1>
-
-                <p>
-                    Find Your Uni. Shape Your Future.
-                    <br>
-                    Explore Ethiopian universities, programs,
-                    courses, and campus resources with AI.
+                <h1 id="heroTitle">Find the university that fits <span>your future.</span></h1>
+                <p class="hero-description">
+                    Explore Ethiopian universities, discover academic programs, understand admission requirements,
+                    and get guidance whenever you need it.
                 </p>
 
-                <div class="hero-search">
-
-                    <i data-lucide="search"></i>
-
-                    <input type="text" id="welcomeSearch" placeholder="Search universities, programs, courses...">
-
-                    <button type="button" id="searchButton">
-                        Search
-                    </button>
-
-                </div>
-
+                <form class="hero-search" id="searchForm" role="search">
+                    <i data-lucide="search" aria-hidden="true"></i>
+                    <input type="search" id="welcomeSearch" name="q"
+                        placeholder="Search universities, programs, courses..."
+                        aria-label="Search universities and academic programs" autocomplete="off">
+                    <button type="submit" id="searchButton">Explore <i data-lucide="arrow-up-right"
+                            aria-hidden="true"></i></button>
+                </form>
             </div>
 
-            <!-- AI ASSISTANT -->
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="floating-cap"><i data-lucide="graduation-cap"></i></div>
+                <div class="floating-card floating-card-top">
+                    <span class="floating-icon"><i data-lucide="book-open"></i></span>
+                    <span><strong>Find your path</strong><small>Programs & degrees</small></span>
+                </div>
+                <div class="floating-card floating-card-bottom">
+                    <span class="floating-icon gold"><i data-lucide="sparkles"></i></span>
+                    <span><strong>Need a hand?</strong><small>AI-powered guidance</small></span>
+                </div>
+                <div class="hero-sticker">Your future<br>is calling.</div>
+            </div>
 
             <a href="chatbot.html" class="assistant-card" id="assistantButton">
-
-                <div class="assistant-icon">
-                    <i data-lucide="bot"></i>
-                </div>
-
+                <div class="assistant-icon"><i data-lucide="bot" aria-hidden="true"></i></div>
                 <div class="assistant-text">
-
-                    <strong>
-                        Need help?
-                    </strong>
-
-                    <span>
-                        Chat with our AI assistant!
-                    </span>
-
+                    <strong>Not sure where to start?</strong>
+                    <span>Ask our AI assistant</span>
                 </div>
-
-                <i data-lucide="arrow-right" class="assistant-arrow"></i>
-
+                <i data-lucide="arrow-right" class="assistant-arrow" aria-hidden="true"></i>
             </a>
-
         </section>
 
-        <!-- INFORMATION CARDS -->
-
-        <section class="information-section">
-
-            <!-- ADMISSION -->
-
-            <a href="admission.html" class="info-card blue">
-
-                <div class="card-icon">
-                    📋
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Admission & Application
-                    </h3>
-
-                    <p>
-                        Requirements, deadlines, and application process.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
-            <!-- PROGRAMS -->
-
-            <a href="academic.html" class="info-card dark-blue">
-
-                <div class="card-icon">
-                    🎓
-                </div>
-
-                <div class="card-content">
-
-                    <h3>
-                        Academic Programs
-                    </h3>
-
-                    <p>
-                        Explore degree programs and requirements.
-                    </p>
-
-                </div>
-
-                <i data-lucide="arrow-right" class="card-arrow"></i>
-
-            </a>
-
-
+        <section class="stats-section" aria-label="Platform highlights">
+            <div class="stat-item">
+                <span class="stat-icon"><i data-lucide="school" aria-hidden="true"></i></span>
+                <span class="stat-copy"><strong>Explore universities</strong><small>Discover your options</small></span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon"><i data-lucide="book-open-check" aria-hidden="true"></i></span>
+                <span class="stat-copy"><strong>Compare programs</strong><small>Find the right direction</small></span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon"><i data-lucide="messages-square" aria-hidden="true"></i></span>
+                <span class="stat-copy"><strong>Get quick guidance</strong><small>Help when you need it</small></span>
+            </div>
         </section>
 
+        <section class="section university-section" aria-labelledby="universitiesHeading">
+            <div class="section-head section-head-row">
+                <div>
+                    <span class="eyebrow">DISCOVER YOUR OPTIONS</span>
+                    <h2 id="universitiesHeading">A great future starts with <span>the right choice.</span></h2>
+                    <p>Start exploring universities and find the information that matters to you.</p>
+                </div>
+                <a href="universities.html" class="text-link">Explore all universities <i data-lucide="arrow-up-right"
+                        aria-hidden="true"></i></a>
+            </div>
+
+            <div class="university-grid">
+                <a href="universities.html" class="university-card university-card-aau">
+                    <div class="university-art">
+                        <span class="art-label"><i data-lucide="map-pin" aria-hidden="true"></i> Addis Ababa</span>
+                        <div class="campus-illustration"><i data-lucide="landmark" aria-hidden="true"></i></div>
+                        <span class="art-orb"></span>
+                    </div>
+                    <div class="university-card-content">
+                        <div>
+                            <span class="card-kicker">UNIVERSITY SPOTLIGHT</span>
+                            <h3>Addis Ababa University</h3>
+                            <p>Explore programs, admission information, and academic resources.</p>
+                        </div>
+                        <span class="round-arrow"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="universities.html" class="university-card university-card-hu">
+                    <div class="university-art">
+                        <span class="art-label"><i data-lucide="map-pin" aria-hidden="true"></i> Hawassa</span>
+                        <div class="campus-illustration"><i data-lucide="trees" aria-hidden="true"></i></div>
+                        <span class="art-orb"></span>
+                    </div>
+                    <div class="university-card-content">
+                        <div>
+                            <span class="card-kicker">UNIVERSITY SPOTLIGHT</span>
+                            <h3>Hawassa University</h3>
+                            <p>Discover academic opportunities and useful campus information.</p>
+                        </div>
+                        <span class="round-arrow"><i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+            </div>
+            <p class="verification-note"><i data-lucide="info" aria-hidden="true"></i> Always confirm important
+                admission details with the university's official website.</p>
+        </section>
+
+        <section class="section explore-section" aria-labelledby="exploreHeading">
+            <div class="section-head">
+                <span class="eyebrow">YOUR STUDENT TOOLKIT</span>
+                <h2 id="exploreHeading">Everything you need, <span>in one place.</span></h2>
+                <p>From choosing a program to getting ready for campus, make your next step easier.</p>
+            </div>
+
+            <div class="information-section">
+                <a href="admission.html" class="info-card c-blue">
+                    <div class="card-icon"><i data-lucide="clipboard-list" aria-hidden="true"></i></div>
+                    <div class="card-content">
+                        <span class="card-kicker">TAKE THE FIRST STEP</span>
+                        <h3>Admission Application</h3>
+                        <p>Understand requirements, deadlines, and how to apply.</p>
+                        <span class="card-action">Explore admission <i data-lucide="arrow-right"
+                                aria-hidden="true"></i></span>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="card-arrow" aria-hidden="true"></i>
+                </a>
+
+                <a href="academic.html" class="info-card c-indigo">
+                    <div class="card-icon"><i data-lucide="graduation-cap" aria-hidden="true"></i></div>
+                    <div class="card-content">
+                        <span class="card-kicker">BUILD YOUR FUTURE</span>
+                        <h3>Academic Programs</h3>
+                        <p>Explore degrees and discover fields that interest you.</p>
+                        <span class="card-action">Browse programs <i data-lucide="arrow-right"
+                                aria-hidden="true"></i></span>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="card-arrow" aria-hidden="true"></i>
+                </a>
+
+                <a href="campus-life.html" class="info-card c-teal">
+                    <div class="card-icon"><i data-lucide="coffee" aria-hidden="true"></i></div>
+                    <div class="card-content">
+                        <span class="card-kicker">LIFE BEYOND CLASS</span>
+                        <h3>Campus Life</h3>
+                        <p>Get familiar with student life and campus resources.</p>
+                        <span class="card-action">Discover campus life <i data-lucide="arrow-right"
+                                aria-hidden="true"></i></span>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="card-arrow" aria-hidden="true"></i>
+                </a>
+
+                <a href="chatbot.html" class="info-card c-gold">
+                    <div class="card-icon"><i data-lucide="bot" aria-hidden="true"></i></div>
+                    <div class="card-content">
+                        <span class="card-kicker">YOUR AI STUDY COMPANION</span>
+                        <h3>Ask the AI Assistant</h3>
+                        <p>Get help finding information about universities and programs.</p>
+                        <span class="card-action">Start a conversation <i data-lucide="arrow-right"
+                                aria-hidden="true"></i></span>
+                    </div>
+                    <i data-lucide="arrow-up-right" class="card-arrow" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="calendar-cta" aria-labelledby="calendarCtaHeading">
+            <div class="calendar-cta-icon"><i data-lucide="calendar-days" aria-hidden="true"></i></div>
+            <div class="calendar-cta-copy">
+                <span class="eyebrow">STAY ORGANIZED</span>
+                <h2 id="calendarCtaHeading">Keep your academic year in view.</h2>
+                <p>Check the available academic calendar pages to plan ahead.</p>
+            </div>
+            <div class="calendar-links">
+                <a href="aau-calendar.html">AAU Calendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                <a href="hawassa-calendar.html">Hawassa Calendar <i data-lucide="arrow-up-right"
+                        aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+        <section class="closing-cta" aria-labelledby="closingHeading">
+            <div class="closing-cta-glow" aria-hidden="true"></div>
+            <div class="closing-cta-content">
+                <span class="closing-label"><i data-lucide="sparkles" aria-hidden="true"></i> YOUR JOURNEY, YOUR
+                    FUTURE</span>
+                <h2 id="closingHeading">One search could change your next step.</h2>
+                <p>Explore your options today. Your future starts with a question.</p>
+                <a href="chatbot.html" class="closing-button">Talk to our AI assistant <i data-lucide="arrow-right"
+                        aria-hidden="true"></i></a>
+            </div>
+            <div class="closing-illustration" aria-hidden="true">
+                <div class="closing-circle"><i data-lucide="graduation-cap"></i></div>
+                <span class="sparkle sparkle-one">✦</span>
+                <span class="sparkle sparkle-two">✧</span>
+                <span class="sparkle sparkle-three">✦</span>
+            </div>
+        </section>
     </main>
 
-    <script src="script.js"></script>
-
+    <footer class="footer">
+        <a href="index.html" class="footer-brand">
+            <img src="images/logo.png" alt="" aria-hidden="true">
+            <span>Ethio-Uni-Guide</span>
+        </a>
+        <p>Helping students find their next step.</p>
+        <nav aria-label="Footer navigation">
+            <a href="universities.html">Universities</a>
+            <a href="admission.html">Admission</a>
+            <a href="academic.html">Programs</a>
+            <a href="chatbot.html">AI assistant</a>
+        </nav>
+        <span class="copyright"> <span id="year"></span> Ethio-Uni-Guide</span>
+    </footer>
 </body>
 
 </html>
