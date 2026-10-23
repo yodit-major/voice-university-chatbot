@@ -1,104 +1,45 @@
-/* =========================
-   DARK / LIGHT MODE
-========================= */
+/* =========================================================
+   ADMISSION PAGE
+   Theme, mobile menu, calendar dropdown, footer year and icons
+   are handled by the shared script.js
+========================================================= */
 
-const themeToggle = document.getElementById("theme");
-const savedTheme = localStorage.getItem("theme");
+(function () {
 
-function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
+    /* UNIVERSITY SWITCHER */
 
-    if (themeToggle) {
-        themeToggle.checked = theme === "dark";
-    }
+    const universityButtons = document.querySelectorAll(".uni-button");
+    const aauContent = document.getElementById("aauContent");
+    const hawassaContent = document.getElementById("hawassaContent");
 
-    localStorage.setItem("theme", theme);
-}
+    universityButtons.forEach(function (button) {
 
-// Initialize the theme
-if (savedTheme === "dark" || savedTheme === "light") {
-    applyTheme(savedTheme);
-} else {
-    applyTheme(
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light"
-    );
-}
+        button.addEventListener("click", function () {
 
-// Toggle between dark and light modes
-if (themeToggle) {
-    themeToggle.addEventListener("change", function () {
-        applyTheme(this.checked ? "dark" : "light");
-    });
-}
-/* ACADEMIC CALENDAR DROPDOWN */
+            const university = this.dataset.university;
 
-const calendarMenu = document.querySelector(".calendar-menu");
-const calendarButton = document.querySelector(".calendar-menu-btn");
+            universityButtons.forEach(function (otherButton) {
+                otherButton.classList.remove("active");
+                otherButton.setAttribute("aria-pressed", "false");
+            });
 
-if (calendarMenu && calendarButton) {
-    calendarButton.addEventListener("click", function () {
-        const isOpen = calendarMenu.classList.toggle("open");
+            this.classList.add("active");
+            this.setAttribute("aria-pressed", "true");
 
-        calendarButton.setAttribute("aria-expanded", String(isOpen));
-    });
+            aauContent.classList.toggle("hidden", university !== "aau");
+            hawassaContent.classList.toggle("hidden", university !== "hawassa");
 
-    document.addEventListener("click", function (event) {
-        if (!calendarMenu.contains(event.target)) {
-            calendarMenu.classList.remove("open");
-            calendarButton.setAttribute("aria-expanded", "false");
-        }
-    });
+            const selectedContent = university === "aau"
+                ? aauContent
+                : hawassaContent;
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            calendarMenu.classList.remove("open");
-            calendarButton.setAttribute("aria-expanded", "false");
-            calendarButton.focus();
-        }
-    });
+            selectedContent.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
 
-}
-
-/* UNIVERSITY SWITCHER */
-
-const universityButtons = document.querySelectorAll(".uni-button");
-const aauContent = document.getElementById("aauContent");
-const hawassaContent = document.getElementById("hawassaContent");
-
-universityButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        const university = this.dataset.university;
-
-        universityButtons.forEach(function (otherButton) {
-            otherButton.classList.remove("active");
         });
 
-        this.classList.add("active");
-
-        if (university === "aau") {
-            aauContent.classList.remove("hidden");
-            hawassaContent.classList.add("hidden");
-        } else if (university === "hawassa") {
-            aauContent.classList.add("hidden");
-            hawassaContent.classList.remove("hidden");
-        }
-
-        const selectedContent = university === "aau"
-            ? aauContent
-            : hawassaContent;
-
-        selectedContent.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
     });
 
-});
-
-/* LUCIDE ICONS */
-
-if (window.lucide) {
-    lucide.createIcons();
-}
+})();
