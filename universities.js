@@ -1,3 +1,9 @@
+// ========================================
+// UNIVERSITIES PAGE
+// Theme, mobile menu, calendar dropdown, footer year and icons
+// are handled by the shared script.js
+// ========================================
+
 const universities = [
     {
         name: "Addis Ababa University",
@@ -34,10 +40,16 @@ const modalTypeInfo = document.getElementById("modal-type-info");
 const modalLocationInfo = document.getElementById("modal-location-info");
 const modalButton = document.getElementById("modal-button");
 
-const themeToggle = document.getElementById("theme");
+let lastFocused = null;
 
-const menuButton = document.getElementById("menu-btn");
-const navLinks = document.querySelector(".nav-links");
+
+function refreshIcons() {
+
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+        window.lucide.createIcons();
+    }
+
+}
 
 
 function renderUniversities() {
@@ -94,14 +106,12 @@ function renderUniversities() {
         grid.appendChild(card);
     });
 
-
-    lucide.createIcons();
-
+    refreshIcons();
 
     document.querySelectorAll(".explore-btn").forEach(button => {
 
         button.addEventListener("click", () => {
-            openUniversity(button.dataset.name);
+            openUniversity(button.dataset.name, button);
         });
 
     });
@@ -109,7 +119,7 @@ function renderUniversities() {
 }
 
 
-function openUniversity(name) {
+function openUniversity(name, trigger) {
 
     const university = universities.find(
         item => item.name === name
@@ -138,7 +148,6 @@ function openUniversity(name) {
     modalLocationInfo.textContent =
         university.city;
 
-
     modalButton.onclick = () => {
 
         window.open(
@@ -149,12 +158,15 @@ function openUniversity(name) {
 
     };
 
+    lastFocused = trigger || document.activeElement;
 
     modalOverlay.classList.add("show");
 
     document.body.style.overflow = "hidden";
 
-    lucide.createIcons();
+    modalClose.focus();
+
+    refreshIcons();
 }
 
 
@@ -164,100 +176,34 @@ function closeUniversity() {
 
     document.body.style.overflow = "";
 
-}
-
-
-modalClose.addEventListener(
-    "click",
-    closeUniversity
-);
-
-
-modalOverlay.addEventListener(
-    "click",
-    event => {
-
-        if (event.target === modalOverlay) {
-            closeUniversity();
-        }
-
+    if (lastFocused) {
+        lastFocused.focus();
     }
-);
-
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (event.key === "Escape") {
-            closeUniversity();
-        }
-
-    }
-);
-
-
-/* MOBILE MENU */
-
-menuButton.addEventListener(
-    "click",
-    () => {
-
-        navLinks.classList.toggle("open");
-
-        const isOpen =
-            navLinks.classList.contains("open");
-
-        menuButton.setAttribute(
-            "aria-label",
-            isOpen ? "Close menu" : "Open menu"
-        );
-
-        menuButton.innerHTML = isOpen
-            ? '<i data-lucide="x"></i>'
-            : '<i data-lucide="menu"></i>';
-
-        lucide.createIcons();
-
-    }
-);
-
-
-/* DARK MODE */
-
-const savedTheme =
-    localStorage.getItem("theme");
-
-if (
-    savedTheme === "dark" ||
-    (
-        !savedTheme &&
-        window.matchMedia(
-            "(prefers-color-scheme: dark)"
-        ).matches
-    )
-) {
-
-    themeToggle.checked = true;
 
 }
 
 
-themeToggle.addEventListener(
-    "change",
-    function () {
+modalClose.addEventListener("click", closeUniversity);
 
-        localStorage.setItem(
-            "theme",
-            this.checked ? "dark" : "light"
-        );
 
+modalOverlay.addEventListener("click", event => {
+
+    if (event.target === modalOverlay) {
+        closeUniversity();
     }
-);
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape" && modalOverlay.classList.contains("show")) {
+        closeUniversity();
+    }
+
+});
 
 
 /* INITIALIZE */
 
 renderUniversities();
-
-lucide.createIcons();
