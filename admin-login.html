@@ -4,17 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
 
     <title>Admin Login - Ethio-Uni-Guide</title>
 
+    <link rel="shortcut icon" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Named admin-login.css so it never overwrites an admin.css used by your dashboard -->
     <link rel="stylesheet" href="admin.css">
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Apply the saved theme before paint (same "theme" setting as the rest of the site) -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem("theme");
+                if (!t && window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+                if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+            } catch (error) { }
+        })();
+    </script>
+
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js" defer></script>
+    <script src="admin-login.js" defer></script>
 </head>
 
 <body>
 
-    <div class="admin-login-page">
+    <!-- DARK / LIGHT MODE -->
+    <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <i data-lucide="moon" class="icon-moon" aria-hidden="true"></i>
+        <i data-lucide="sun" class="icon-sun" aria-hidden="true"></i>
+    </button>
+
+    <main class="admin-login-page">
 
         <div class="admin-login-card">
 
@@ -23,30 +47,38 @@
                 <img src="images/logo.png" alt="Ethio-Uni-Guide Logo">
             </div>
 
+            <span class="admin-badge">
+                <i data-lucide="shield-check" aria-hidden="true"></i>
+                ADMIN AREA
+            </span>
+
             <h1>Admin Login</h1>
 
             <p class="login-subtitle">
                 Sign in to manage university information
             </p>
 
+            <!-- ALREADY SIGNED IN -->
+            <div class="session-notice" id="sessionNotice" hidden>
+                <span>You're already signed in.</span>
+                <div>
+                    <a href="admin-dashboard.html" id="continueLink">Continue to dashboard</a>
+                    <button type="button" id="signOutButton">Sign out</button>
+                </div>
+            </div>
+
             <!-- LOGIN FORM -->
-            <form id="adminLoginForm">
+            <form id="adminLoginForm" novalidate>
 
                 <div class="form-group">
 
-                    <label for="email">
-                        Email
-                    </label>
+                    <label for="email">Email</label>
 
                     <div class="input-wrapper">
-                        <i data-lucide="mail"></i>
+                        <i data-lucide="mail" class="field-icon" aria-hidden="true"></i>
 
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter admin email"
-                            required
-                        >
+                        <input type="email" id="email" name="email" placeholder="Enter admin email"
+                            autocomplete="username" required>
                     </div>
 
                 </div>
@@ -54,30 +86,29 @@
 
                 <div class="form-group">
 
-                    <label for="password">
-                        Password
-                    </label>
+                    <label for="password">Password</label>
 
                     <div class="input-wrapper">
-                        <i data-lucide="lock"></i>
+                        <i data-lucide="lock" class="field-icon" aria-hidden="true"></i>
 
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter password"
-                            required
-                        >
+                        <input type="password" id="password" name="password" placeholder="Enter password"
+                            autocomplete="current-password" required>
+
+                        <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">
+                            <i data-lucide="eye" class="icon-show" aria-hidden="true"></i>
+                            <i data-lucide="eye-off" class="icon-hide" aria-hidden="true"></i>
+                        </button>
                     </div>
 
                 </div>
 
 
-                <button type="submit" class="admin-login-button">
-                    <i data-lucide="log-in"></i>
-                    Login
+                <button type="submit" class="admin-login-button" id="loginButton">
+                    <i data-lucide="log-in" aria-hidden="true"></i>
+                    <span id="loginButtonText">Login</span>
                 </button>
 
-                <p id="loginMessage" class="login-message"></p>
+                <p id="loginMessage" class="login-message" role="status" aria-live="polite"></p>
 
             </form>
 
@@ -87,14 +118,7 @@
 
         </div>
 
-    </div>
-
-
-    <script>
-        lucide.createIcons();
-    </script>
-
-    <script src="admin-login.js"></script>
+    </main>
 
 </body>
 
