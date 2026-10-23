@@ -4,23 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Profile | Ethio-Uni-Guide</title>
-
-    <link rel="stylesheet" href="profile.css">
     <link rel="shortcut icon" href="images/logo.png">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Shared styles (navbar, footer, theme) + this page's styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem("theme");
+                if (!t && window.matchMedia("(prefers-color-scheme: dark)").matches) t = "dark";
+                if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+            } catch (error) { }
+        })();
+    </script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="profile.js" defer></script>
 </head>
 
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
 
-    <main class="profile-page">
+    <!-- NAVBAR (same as home) -->
+    <header class="navbar">
+        <a href="index.html" class="brand" aria-label="Ethio-Uni-Guide home">
+            <img src="images/logo.png" alt="Ethio-Uni-Guide logo">
+            <span>Ethio-Uni-Guide</span>
+        </a>
 
-        <section class="profile-card">
+        <nav class="navbar-links" id="navbarLinks" aria-label="Main navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="universities.html" class="nav-link">Universities</a>
+            <a href="campus-life.html" class="nav-link">Campus Life</a>
+
+            <div class="calendar-menu" id="calendarMenu">
+                <button type="button" class="nav-link calendar-menu-btn" id="calendarMenuButton" aria-haspopup="true"
+                    aria-expanded="false" aria-controls="calendarMenuList">
+                    Academic Calendar
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="calendar-menu-list" id="calendarMenuList">
+                    <a href="aau-calendar.html">Addis Ababa University</a>
+                    <a href="hawassa-calendar.html">Hawassa University</a>
+                    <span class="menu-note">More universities coming soon</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="navbar-right">
+            <button type="button" class="icon-btn theme-btn" id="themeToggle" aria-label="Switch to dark mode"
+                title="Toggle dark mode">
+                <i data-lucide="moon" class="icon-moon" aria-hidden="true"></i>
+                <i data-lucide="sun" class="icon-sun" aria-hidden="true"></i>
+            </button>
+            <a href="profile.html" class="profile-button" aria-label="Open profile" aria-current="page" title="Profile">
+                <i data-lucide="user-round" aria-hidden="true"></i>
+            </a>
+            <button type="button" class="icon-btn menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"
+                aria-controls="navbarLinks">
+                <i data-lucide="menu" class="menu-icon" aria-hidden="true"></i>
+                <i data-lucide="x" class="close-icon" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="profile-page" id="main">
+
+        <section class="profile-card" id="profile-card">
 
             <div class="profile-icon">
-                <i data-lucide="user"></i>
+                <i data-lucide="user" aria-hidden="true"></i>
             </div>
 
             <!-- LOGIN -->
@@ -35,8 +92,9 @@
                         <label for="login-email">Email</label>
 
                         <div class="input-wrapper">
-                            <i data-lucide="mail"></i>
-                            <input type="email" id="login-email" placeholder="Enter your email" required>
+                            <i data-lucide="mail" aria-hidden="true"></i>
+                            <input type="email" id="login-email" placeholder="Enter your email" autocomplete="username"
+                                required>
                         </div>
                     </div>
 
@@ -44,22 +102,24 @@
                         <label for="login-password">Password</label>
 
                         <div class="input-wrapper">
-                            <i data-lucide="lock"></i>
+                            <i data-lucide="lock" aria-hidden="true"></i>
 
-                            <input type="password" id="login-password" placeholder="Enter your password" required>
+                            <input type="password" id="login-password" placeholder="Enter your password"
+                                autocomplete="current-password" required>
 
                             <button type="button" class="password-toggle" id="login-password-toggle"
                                 aria-label="Show password">
-                                <i data-lucide="eye"></i>
+                                <i data-lucide="eye" class="icon-show" aria-hidden="true"></i>
+                                <i data-lucide="eye-off" class="icon-hide" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
 
-                    <button type="submit" class="primary-button">
+                    <button type="submit" class="primary-button" id="login-submit">
                         Sign In
                     </button>
 
-                    <p id="login-message" class="message"></p>
+                    <p id="login-message" class="message" role="status" aria-live="polite"></p>
 
                 </form>
 
@@ -86,8 +146,9 @@
                         <label for="signup-name">Full Name</label>
 
                         <div class="input-wrapper">
-                            <i data-lucide="user"></i>
-                            <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                            <i data-lucide="user" aria-hidden="true"></i>
+                            <input type="text" id="signup-name" placeholder="Enter your full name" autocomplete="name"
+                                required>
                         </div>
                     </div>
 
@@ -95,8 +156,9 @@
                         <label for="signup-email">Email</label>
 
                         <div class="input-wrapper">
-                            <i data-lucide="mail"></i>
-                            <input type="email" id="signup-email" placeholder="Enter your email" required>
+                            <i data-lucide="mail" aria-hidden="true"></i>
+                            <input type="email" id="signup-email" placeholder="Enter your email" autocomplete="email"
+                                required>
                         </div>
                     </div>
 
@@ -104,13 +166,15 @@
                         <label for="signup-password">Password</label>
 
                         <div class="input-wrapper">
-                            <i data-lucide="lock"></i>
+                            <i data-lucide="lock" aria-hidden="true"></i>
 
-                            <input type="password" id="signup-password" placeholder="Create a password" required>
+                            <input type="password" id="signup-password" placeholder="Create a password"
+                                autocomplete="new-password" required>
 
                             <button type="button" class="password-toggle" id="signup-password-toggle"
                                 aria-label="Show password">
-                                <i data-lucide="eye"></i>
+                                <i data-lucide="eye" class="icon-show" aria-hidden="true"></i>
+                                <i data-lucide="eye-off" class="icon-hide" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -119,22 +183,24 @@
                         <label for="signup-confirm-password">Confirm Password</label>
 
                         <div class="input-wrapper">
-                            <i data-lucide="lock-keyhole"></i>
+                            <i data-lucide="lock-keyhole" aria-hidden="true"></i>
 
                             <input type="password" id="signup-confirm-password" placeholder="Confirm your password"
-                                required>
+                                autocomplete="new-password" required>
 
                             <button type="button" class="password-toggle" id="signup-confirm-password-toggle"
                                 aria-label="Show password">
-                                <i data-lucide="eye"></i>
+                                <i data-lucide="eye" class="icon-show" aria-hidden="true"></i>
+                                <i data-lucide="eye-off" class="icon-hide" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
-                    <button type="submit" class="primary-button">
+
+                    <button type="submit" class="primary-button" id="signup-submit">
                         Create Account
                     </button>
 
-                    <p id="signup-message" class="message"></p>
+                    <p id="signup-message" class="message" role="status" aria-live="polite"></p>
 
                 </form>
 
@@ -147,16 +213,13 @@
                 </div>
 
             </div>
-            <a href="admin-login.html" class="back-link">
-                <i data-lucide="arrow-left"></i>
-                Admin Login
-            </a>
+
 
             <!-- PROFILE -->
             <div id="profile-section" class="hidden">
 
                 <div class="success-icon">
-                    <i data-lucide="circle-check"></i>
+                    <i data-lucide="circle-check" aria-hidden="true"></i>
                 </div>
 
                 <h1 id="profile-title">Welcome!</h1>
@@ -169,7 +232,7 @@
 
                     <div class="info-row">
                         <div class="info-icon">
-                            <i data-lucide="user"></i>
+                            <i data-lucide="user" aria-hidden="true"></i>
                         </div>
 
                         <div>
@@ -180,7 +243,7 @@
 
                     <div class="info-row">
                         <div class="info-icon">
-                            <i data-lucide="mail"></i>
+                            <i data-lucide="mail" aria-hidden="true"></i>
                         </div>
 
                         <div>
@@ -191,7 +254,7 @@
 
                     <div class="info-row">
                         <div class="info-icon">
-                            <i data-lucide="shield"></i>
+                            <i data-lucide="shield" aria-hidden="true"></i>
                         </div>
 
                         <div>
@@ -202,15 +265,45 @@
 
                 </div>
 
+                <!-- Only shown to admins -->
+                <a href="admin-dashboard.html" class="admin-login-button admin-dashboard-button" id="dashboard-button"
+                    hidden>
+                    <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+                    <span class="admin-text">
+                        <strong>Admin Dashboard</strong>
+                        <small>Manage university information</small>
+                    </span>
+                    <i data-lucide="arrow-right" class="admin-arrow" aria-hidden="true"></i>
+                </a>
+
                 <button type="button" id="logout-button" class="logout-button">
-                    <i data-lucide="log-out"></i>
+                    <i data-lucide="log-out" aria-hidden="true"></i>
                     Log Out
                 </button>
 
             </div>
 
+
+            <!-- ADMIN LOGIN BUTTON (shown only when signed out) -->
+            <div class="admin-login-section" id="admin-login-section">
+
+                <div class="admin-divider">
+                    <span>ADMINISTRATORS</span>
+                </div>
+
+                <a href="admin-login.html" class="admin-login-button">
+                    <i data-lucide="shield-check" aria-hidden="true"></i>
+                    <span class="admin-text">
+                        <strong>Admin Login</strong>
+                        <small>Manage university information</small>
+                    </span>
+                    <i data-lucide="arrow-right" class="admin-arrow" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
             <a href="index.html" class="back-link">
-                <i data-lucide="arrow-left"></i>
+                <i data-lucide="arrow-left" aria-hidden="true"></i>
                 Back to Ethio-Uni-Guide
             </a>
 
@@ -218,8 +311,22 @@
 
     </main>
 
-    <script src="profile.js"></script>
-
+    <!-- FOOTER (same as home) -->
+    <footer class="footer">
+        <a href="index.html" class="footer-brand">
+            <img src="images/logo.png" alt="" aria-hidden="true">
+            <span>Ethio-Uni-Guide</span>
+        </a>
+        <p class="verification-note"><i data-lucide="info" aria-hidden="true"></i> Always confirm important admission
+            details with the university's official website.</p>
+        <nav aria-label="Footer navigation">
+            <a href="universities.html">Universities</a>
+            <a href="admission.html">Admission</a>
+            <a href="academic.html">Programs</a>
+            <a href="chatbot.html">AI assistant</a>
+        </nav>
+        <span class="copyright"> <span id="year"></span> Ethio-Uni-Guide</span>
+    </footer>
 </body>
 
 </html>

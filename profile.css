@@ -1,125 +1,102 @@
-/* =========================
-   ROOT COLORS
-========================= */
+/* =========================================================
+   PROFILE PAGE (sign in / create account / profile)
+   Works on top of the shared style.css
+   (navbar, footer, theme and base colors come from there)
+========================================================= */
 
-:root {
-    --bg: #f4f7fb;
-    --surface: #ffffff;
-    --surface-2: #f8fafc;
-
-    --text: #101828;
-    --muted: #667085;
-
-    --border: #e4e7ec;
-
-    --primary: #1c69d2;
-    --primary-dark: #1555ad;
-    --primary-soft: #eaf2ff;
-
+/* Page-only tokens (scoped so the shared navbar/footer are not affected) */
+.profile-page {
+    --surface-2: var(--surface-soft);
+    --primary-soft: var(--tint-blue);
     --danger: #d92d20;
     --success: #12b76a;
-
     --shadow: 0 24px 70px rgba(16, 24, 40, 0.10);
+
+    min-height: calc(100vh - 74px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: normal;
 }
 
+:root[data-theme="dark"] .profile-page {
+    --danger: #ff8b8b;
+    --success: #5fe0c5;
+    --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
 
-/* =========================
-   RESET
-========================= */
-
-* {
+.profile-page * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.profile-page button,
+.profile-page input {
+    font: inherit;
+}
 
-/* =========================
-   BODY
-========================= */
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
+.profile-page .hidden,
+.profile-page [hidden] {
+    display: none !important;
 }
 
 
-/* =========================
-   PROFILE PAGE
-========================= */
-
-.profile-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-
-/* =========================
-   PROFILE CARD
-========================= */
+/* PROFILE CARD */
 
 .profile-card {
     width: 100%;
     max-width: 470px;
-    background: var(--surface);
-    border-radius: 24px;
     padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--surface);
     box-shadow: var(--shadow);
-    border: 1px solid rgba(228, 231, 236, 0.8);
 }
-
-
-/* =========================
-   PROFILE ICON
-========================= */
 
 .profile-icon {
     width: 70px;
     height: 70px;
     margin: 0 auto 24px;
-    border-radius: 50%;
-    background: var(--primary-soft);
-    color: var(--primary);
-
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-soft);
+    color: var(--ink-blue);
 }
 
 .profile-icon svg {
     width: 34px;
     height: 34px;
-    stroke-width: 2;
+}
+
+/* The profile view has its own check icon */
+.profile-card.is-profile .profile-icon {
+    display: none;
 }
 
 
-/* =========================
-   HEADINGS
-========================= */
+/* HEADINGS */
 
-h1 {
+.profile-card h1 {
+    margin-bottom: 8px;
     text-align: center;
     font-size: 28px;
-    margin-bottom: 8px;
 }
 
 .subtitle {
+    margin-bottom: 30px;
     text-align: center;
     color: var(--muted);
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 30px;
 }
 
 
-/* =========================
-   INPUT GROUPS
-========================= */
+/* FORM */
 
 .input-group {
     margin-bottom: 20px;
@@ -127,15 +104,10 @@ h1 {
 
 .input-group label {
     display: block;
+    margin-bottom: 8px;
     font-size: 14px;
     font-weight: 600;
-    margin-bottom: 8px;
 }
-
-
-/* =========================
-   INPUT WRAPPER
-========================= */
 
 .input-wrapper {
     position: relative;
@@ -143,7 +115,7 @@ h1 {
     align-items: center;
 }
 
-.input-wrapper>svg {
+.input-wrapper > svg {
     position: absolute;
     left: 14px;
     width: 19px;
@@ -152,87 +124,49 @@ h1 {
     pointer-events: none;
 }
 
-.input-wrapper input,
-.input-wrapper select {
+.input-wrapper input {
     width: 100%;
     height: 48px;
-
+    padding: 0 44px;
     border: 1px solid var(--border);
     border-radius: 12px;
-
     background: var(--surface);
     color: var(--text);
-
     font-size: 15px;
-    padding: 0 44px;
-
     outline: none;
-    transition: 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.input-wrapper input:focus,
-.input-wrapper select:focus {
+.input-wrapper input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(28, 105, 210, 0.10);
+    box-shadow: 0 0 0 4px rgba(23, 105, 224, 0.15);
 }
 
 .input-wrapper input::placeholder {
-    color: #98a2b3;
-}
-
-
-/* =========================
-   SELECT INPUTS
-========================= */
-
-.select-wrapper {
-    position: relative;
-}
-
-.select-wrapper select {
-    appearance: none;
-    cursor: pointer;
-    padding-left: 44px;
-    padding-right: 40px;
-}
-
-.select-wrapper::after {
-    content: "⌄";
-    position: absolute;
-    right: 16px;
     color: var(--muted);
-    font-size: 18px;
-    pointer-events: none;
-    top: 50%;
-    transform: translateY(-55%);
+    opacity: 0.75;
 }
 
 
-/* =========================
-   PASSWORD TOGGLE
-========================= */
+/* PASSWORD TOGGLE */
 
 .password-toggle {
     position: absolute;
     right: 12px;
     top: 50%;
-    transform: translateY(-50%);
-
-    border: none;
-    background: none;
-    color: var(--muted);
-
-    cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 5px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .password-toggle:hover {
-    color: var(--primary);
+    color: var(--ink-blue);
 }
 
 .password-toggle svg {
@@ -240,28 +174,30 @@ h1 {
     height: 19px;
 }
 
+.password-toggle .icon-hide,
+.password-toggle.is-visible .icon-show {
+    display: none;
+}
 
-/* =========================
-   PRIMARY BUTTON
-========================= */
+.password-toggle.is-visible .icon-hide {
+    display: block;
+}
+
+
+/* BUTTONS */
 
 .primary-button {
     width: 100%;
     min-height: 48px;
-
+    margin-top: 5px;
     border: none;
     border-radius: 12px;
-
     background: var(--primary);
-    color: white;
-
+    color: #fff;
     font-size: 15px;
     font-weight: 600;
-
     cursor: pointer;
-    transition: 0.2s ease;
-
-    margin-top: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .primary-button:hover {
@@ -269,16 +205,21 @@ h1 {
     transform: translateY(-1px);
 }
 
+.primary-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
 
-/* =========================
-   LOGIN AND SIGNUP MESSAGES
-========================= */
+
+/* MESSAGES */
 
 .message {
     min-height: 20px;
-    text-align: center;
-    font-size: 14px;
     margin-top: 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
 }
 
 .message.error {
@@ -290,27 +231,23 @@ h1 {
 }
 
 
-/* =========================
-   SWITCH LOGIN AND SIGNUP
-========================= */
+/* SWITCH SIGN IN / SIGN UP */
 
 .switch-section {
-    text-align: center;
     margin-top: 25px;
-    font-size: 14px;
+    text-align: center;
     color: var(--muted);
+    font-size: 14px;
 }
 
 .link-button {
+    margin-left: 4px;
     border: none;
     background: none;
-    color: var(--primary);
-
+    color: var(--ink-blue);
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-
-    margin-left: 4px;
-    font-size: 14px;
 }
 
 .link-button:hover {
@@ -318,170 +255,18 @@ h1 {
 }
 
 
-/* =========================
-   HIDDEN SECTIONS
-========================= */
-
-.hidden {
-    display: none !important;
-}
-
-
-/* =========================
-   SUCCESS ICON
-========================= */
-
-.success-icon {
-    width: 68px;
-    height: 68px;
-
-    margin: 0 auto 20px;
-
-    border-radius: 50%;
-    background: #ecfdf3;
-    color: var(--success);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.success-icon svg {
-    width: 35px;
-    height: 35px;
-}
-
-
-/* =========================
-   PROFILE INFORMATION
-========================= */
-
-.profile-info {
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 22px;
-}
-
-.info-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-
-    padding: 17px;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.info-row:last-child {
-    border-bottom: none;
-}
-
-.info-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-
-    border-radius: 10px;
-    background: var(--primary-soft);
-    color: var(--primary);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.info-icon svg {
-    width: 19px;
-    height: 19px;
-}
-
-.info-label {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 3px;
-}
-
-.info-row strong {
-    font-size: 14px;
-    word-break: break-word;
-}
-
-
-/* =========================
-   LOGOUT BUTTON
-========================= */
-
-.logout-button {
-    width: 100%;
-    min-height: 46px;
-
-    border: 1px solid var(--border);
-    background: white;
-    color: var(--danger);
-
-    border-radius: 12px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    transition: 0.2s ease;
-}
-
-.logout-button:hover {
-    background: #fff5f4;
-    border-color: #fecdca;
-}
-
-.logout-button svg {
-    width: 18px;
-    height: 18px;
-}
-
-
-/* =========================
-   ADMIN LOGIN CONTAINER
-========================= */
-
-.admin-login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-
-    margin-top: 25px;
-    padding-top: 20px;
-
-    border-top: 1px solid var(--border);
-}
-
-
-/* =========================
-   ADMIN LOGIN SECTION
-========================= */
+/* ADMIN LOGIN BUTTON */
 
 .admin-login-section {
-    display: block;
     width: 100%;
-    margin-top: 22px;
+    margin-top: 26px;
 }
 
 .admin-divider {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
-
+    margin-bottom: 16px;
     color: var(--muted);
     font-size: 12px;
     font-weight: 600;
@@ -500,261 +285,194 @@ h1 {
 }
 
 .admin-login-button {
+    width: 100%;
+    min-height: 58px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    width: 100%;
-    min-height: 48px;
-
-    padding: 12px 16px;
-
-    background: var(--surface);
-    color: var(--primary);
-
-    border: 1px solid var(--primary);
-    border-radius: 12px;
-
-    font-size: 15px;
-    font-weight: 600;
+    gap: 14px;
+    padding: 10px 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface-2);
+    color: var(--text);
     text-decoration: none;
-
-    transition: 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.admin-login-button>svg {
-    width: 19px;
-    height: 19px;
+.admin-login-button > svg:first-child {
+    width: 38px;
+    height: 38px;
     flex-shrink: 0;
+    padding: 9px;
+    border-radius: 10px;
+    background: var(--primary-soft);
+    color: var(--ink-blue);
+}
+
+.admin-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.admin-text strong {
+    font-size: 15px;
+}
+
+.admin-text small {
+    color: var(--muted);
+    font-size: 12px;
 }
 
 .admin-login-button .admin-arrow {
-    margin-left: auto;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .admin-login-button:hover {
-    background: var(--primary);
-    color: white;
+    border-color: var(--primary);
+    background: var(--primary-soft);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(28, 105, 210, 0.15);
+    box-shadow: 0 8px 20px rgba(23, 105, 224, 0.12);
 }
 
-.admin-login-button:focus-visible {
-    outline: 3px solid rgba(28, 105, 210, 0.25);
+.admin-login-button:hover .admin-arrow {
+    transform: translateX(4px);
+    color: var(--ink-blue);
+}
+
+.admin-login-button:focus-visible,
+.link-button:focus-visible,
+.logout-button:focus-visible {
+    outline: 3px solid #f2b630;
     outline-offset: 3px;
 }
 
-
-/* =========================
-   ROLE SELECTION PAGE
-========================= */
-
-.role-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 16px;
-
-    background: linear-gradient(135deg, #eaf2ff, #f8fafc);
-}
-
-.role-card {
-    width: 100%;
-    max-width: 520px;
-
-    background: var(--surface);
-
-    padding: 40px;
-
-    border-radius: 24px;
-
-    box-shadow: var(--shadow);
-
-    text-align: center;
-}
-
-
-/* =========================
-   LOGO
-========================= */
-
-.logo {
-    width: 80px;
-    height: 80px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
-/* =========================
-   ROLE PAGE HEADINGS
-========================= */
-
-.role-card h1 {
-    font-size: 27px;
-    line-height: 1.3;
+/* Dashboard shortcut inside the profile view */
+.admin-dashboard-button {
     margin-bottom: 12px;
-    color: var(--primary-dark);
-}
-
-.role-card .subtitle {
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 30px;
 }
 
 
-/* =========================
-   ROLE SECTIONS
-========================= */
+/* PROFILE VIEW */
 
-.role-options {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.role-button {
+.success-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 20px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(18, 183, 106, 0.12);
+    color: var(--success);
+}
 
-    width: 100%;
-    min-height: 100px;
+.success-icon svg {
+    width: 35px;
+    height: 35px;
+}
 
-    padding: 20px;
-
+.profile-info {
+    margin-bottom: 22px;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 16px;
-
-    text-align: left;
-    text-decoration: none;
-
-    color: var(--text);
-    background: var(--surface);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
+    background: var(--surface-2);
 }
 
-.role-button:hover {
-    transform: translateY(-3px);
-
-    box-shadow: 0 10px 25px rgba(28, 105, 210, 0.12);
-
-    border-color: var(--primary);
-    background: #f8fbff;
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px;
+    border-bottom: 1px solid var(--border);
 }
 
-.role-button:focus-visible {
-    outline: 3px solid rgba(28, 105, 210, 0.35);
-    outline-offset: 3px;
+.info-row:last-child {
+    border-bottom: none;
 }
 
-
-/* =========================
-   ROLE ICONS
-========================= */
-
-.role-icon {
-    width: 55px;
-    height: 55px;
-    min-width: 55px;
-
+.info-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 14px;
-
+    border-radius: 10px;
     background: var(--primary-soft);
-    color: var(--primary);
+    color: var(--ink-blue);
 }
 
-.role-icon svg {
-    width: 28px;
-    height: 28px;
+.info-icon svg {
+    width: 19px;
+    height: 19px;
 }
 
-
-/* =========================
-   ROLE TEXT
-========================= */
-
-.role-info {
-    flex: 1;
-}
-
-.role-info h2 {
-    font-size: 17px;
-    margin-bottom: 7px;
-    color: var(--primary-dark);
-}
-
-.role-info p {
-    font-size: 13px;
-    line-height: 1.5;
+.info-label {
+    display: block;
+    margin-bottom: 3px;
     color: var(--muted);
+    font-size: 12px;
+}
+
+.info-row strong {
+    font-size: 14px;
+    word-break: break-word;
 }
 
 
-/* =========================
-   ROLE ARROW
-========================= */
+/* LOG OUT */
 
-.arrow-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-
-    color: var(--muted);
-
-    transition: transform 0.25s ease;
+.logout-button {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--danger);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.role-button:hover .arrow-icon {
-    transform: translateX(4px);
-    color: var(--primary);
+.logout-button:hover {
+    border-color: var(--danger);
+    background: rgba(217, 45, 32, 0.08);
+}
+
+.logout-button svg {
+    width: 18px;
+    height: 18px;
 }
 
 
-/* =========================
-   BACK TO HOME LINK
-========================= */
+/* BACK LINK */
 
 .back-link {
+    margin-top: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
-
-    margin-top: 20px;
-
-    color: var(--primary);
-    text-decoration: none;
-
+    color: var(--ink-blue);
     font-size: 14px;
-
-    transition: 0.2s ease;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
 }
 
 .back-link:hover {
-    color: var(--primary-dark);
+    opacity: 0.8;
 }
 
 .back-link svg {
@@ -764,25 +482,7 @@ h1 {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-}
-
-footer p {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-
-/* =========================
-   MOBILE RESPONSIVENESS
-========================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -792,62 +492,23 @@ footer p {
     }
 
     .profile-card {
+        margin: auto 0;
         padding: 30px 22px;
         border-radius: 20px;
-        margin: auto 0;
     }
 
-    .role-card {
-        padding: 28px 20px;
-        border-radius: 20px;
-    }
-
-    .profile-card h1,
-    .role-card h1 {
+    .profile-card h1 {
         font-size: 25px;
     }
 
-    .profile-card .subtitle,
-    .role-card .subtitle {
+    .subtitle {
         font-size: 14px;
     }
+}
 
-    .role-button {
-        gap: 12px;
-        padding: 15px;
-        min-height: 90px;
-    }
+@media (prefers-reduced-motion: reduce) {
 
-    .role-icon {
-        width: 45px;
-        height: 45px;
-        min-width: 45px;
-    }
-
-    .role-icon svg {
-        width: 23px;
-        height: 23px;
-    }
-
-    .role-info h2 {
-        font-size: 15px;
-    }
-
-    .role-info p {
-        font-size: 12px;
-    }
-
-    .arrow-icon {
-        width: 17px;
-        height: 17px;
-    }
-
-    .admin-login-button {
-        min-height: 46px;
-        font-size: 14px;
-    }
-
-    .admin-login-section+.back-link {
-        margin-top: 22px;
+    .profile-page * {
+        transition: none !important;
     }
 }
